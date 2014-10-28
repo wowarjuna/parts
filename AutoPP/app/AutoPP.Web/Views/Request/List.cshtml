@@ -1,0 +1,76 @@
+﻿@if (false)
+{
+    <script src="/Scripts/jquery-1.4.4-vsdoc.js" type="text/javascript"></script>
+    <script src="/Scripts/rx-vsdoc.js" type="text/javascript"></script>
+}
+<div id="content-title">
+    <span class="title-text">Requests</span>
+</div>
+<div class="toolbar">
+    <div class="add-area">
+        <fieldset>
+            <label>Duration</label>
+            <select class="duration">
+                <option value="5000">5s</option>
+                <option value="20000">20s</option>
+                <option value="60000">60s</option>
+            </select>
+        </fieldset>
+    </div>
+    @{ Html.RenderAction("_RequestFilter"); }
+</div>
+<script type="text/javascript">
+    var _table;
+    var observable;
+    var handle;
+    var _refreshedAt = 0;
+
+    $(document).ready(function () {
+
+        _table = $('#table_id').dataTable({
+            "bProcessing": true,
+            "sAjaxSource": "/Request/JsonRequests",
+            "bServerSide": true,
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sTitle": "Name", "mDataProp": "Name" },
+                { "sTitle": "Description", "mDataProp": "Description" },
+                { "sTitle": "Phone", "mDataProp": "Phone", 'sWidth': '100px' },
+                { "sTitle": "Added", "mDataProp": "ModifiedOn", 'sWidth': '80px' }
+			],
+            "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                if (_refreshedAt != 0) {
+                    var _cur = Date.parse(aData.Refreshed);
+                   
+                    if (_refreshedAt.getTime() < _cur)
+                        $(nRow).addClass('h-light');
+                }
+
+                return nRow;
+            },
+            "fnDrawCallback": function () {
+                _refreshedAt = new Date();
+
+            }
+        });
+
+        $('.duration').change(function () {
+            handle.Dispose();
+            observable = Rx.Observable.Interval($('.duration').val()).Do(function () { _table.fnDraw(); });
+            handle = observable.Subscribe();
+        });
+
+        RequestFilter.OnMakeChanged = function () {
+            handle.Dispose();
+            _table.fnDraw();
+
+        };
+
+        observable = Rx.Observable.Interval($('.duration').val()).Do(function () { _table.fnDraw(); });
+        handle = observable.Subscribe();
+
+    });
+ 
+</script>
+<table id="table_id" width="100%" class="display">
+</table>

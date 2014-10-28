@@ -1,0 +1,47 @@
+﻿
+<div id="content-title">
+    <span class="title-text">Login</span>
+</div>
+@using (Html.BeginForm())
+{
+    <table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content" width="100%">
+        <tr>
+            <td style="width:200px">
+                <label>
+                    Username</label>
+            </td>
+            <td>
+                <input type="text" name="username" id="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Password</label>
+            </td>
+            <td>
+                <input type="password" name="password" id="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Remember Me</label>
+            </td>
+            <td>
+                <input type="checkbox" name="remember-me" id="remember-me" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value=" " class="btn-login" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Please contact portal admin if you find any difficualties to login to the system</td>
+        </tr>
+    </table>
+}

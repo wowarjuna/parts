@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#make').bindChildOnChange('/Item/GetMake/', '#model', true, function () { });
+        //$('#categories0').bindCascadingSelect('/Item/GetMake/', 'categories', 3);
+    });
+</script>
+<h2 id="p_title" class="add-item">
+    Add Part</h2>
+<div id="b_left">
+    <form method="post" action="/Item/AddItem">
+    <div style="width: 400px; display: inline-block; vertical-align:top;">
+        <label style="display: block;">
+            Name</label>
+        <input type="text" name="name" id="name" class="field"/>
+        <label style="display: block">
+            Description</label>
+        <textarea name="description" id="description" rows="10" cols="70" class="field"></textarea>
+        <label style="display: block">
+            Store related info</label>
+        <textarea name="vendor-meta" rows="5" cols="70" class="field"></textarea>
+    </div>
+    <div style="width: 300px; display: inline-block; vertical-align:top; border-right:1px solid #ccc; border-right-style:dashed">
+        <label style="display: block">
+            Category</label>
+        <select name="categories" id="categories0" style="width: 200px" class="field">
+            <option value="-">-- Select --</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <label style="display: block">
+            Make</label>
+        <select name="make" id="make" style="width: 200px" class="field">
+            <option value="-">-- Select --</option>
+            @foreach (var make in ViewBag.Makes)
+            {
+                <option value="@make.Id">@make.Name</option>
+            }
+        </select>
+        <label style="display: block">
+            Model</label>
+        <select name="model" id="model" multiple="multiple" style="width: 200px" class="field">
+        </select>
+        <label style="display: block">
+            Year</label>
+        <input type="text" name="year" id="year" class="year" class="field" />
+    </div>
+    <div style="margin-top:10px">
+        <button id="save" class="save"></button>
+    </div>
+    </form>
+</div>

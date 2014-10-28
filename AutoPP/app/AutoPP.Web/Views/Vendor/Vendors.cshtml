@@ -1,0 +1,41 @@
+﻿@model List<AutoPP.Core.Vendor>
+<div id="content-title">
+    <span class="title-text">Vendors</span>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').dataTable();
+    });
+</script>
+<table id="table_id" class="display" >
+    <thead>
+        <tr>
+            <th style="width:200px">
+                Name
+            </th>
+            <th style="width:400px">
+                Contact
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var _vendor in Model)
+        {
+        <tr>
+            <td>
+               @_vendor.Name
+            </td>
+            <td>
+                @_vendor.Phone
+            </td>
+            <td>
+                etc
+            </td>
+        </tr>
+        }
+        
+    </tbody>
+</table>

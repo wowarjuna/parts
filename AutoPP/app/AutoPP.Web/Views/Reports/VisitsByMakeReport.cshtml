@@ -1,0 +1,111 @@
+﻿<script type="text/javascript" src="/Scripts/highcharts.js"></script>
+<!-- 2. Add the JavaScript to initialize the chart on document ready -->
+<script type="text/javascript">
+    var options = {
+            chart: {
+                renderTo: 'container',
+                defaultSeriesType: 'bar'
+            },
+            title: {
+                text: 'Customer Visits'
+            },
+            xAxis: {
+                categories: [],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Visits',
+                    align: 'high'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '' +
+								 this.series.name + ': ' + this.y;
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: []
+      };
+    var chart;
+    $(document).ready(function () {
+
+        $('.makes').change(function () {
+            $.getJSON('/Reports/Visits', { Id: $('.makes').val() }, function (json) {
+               fnChartLoadCallback(json)
+            });
+        });
+
+        $.getJSON('/Reports/Visits', { Id: $('.makes').val() }, function (json) {
+            fnChartLoadCallback(json)
+        });
+
+
+    });
+
+    function fnChartLoadCallback(data) {
+
+        var _values = new Array();
+        options.xAxis.categories = [];
+        for (_r in data) {
+            
+            options.xAxis.categories.push(data[_r].Name);
+            _values.push(data[_r].Value);
+        }
+
+        options.series = [];
+
+        options.series.push({
+            name: 'Customer Visits',
+            data: _values
+        });
+
+        chart = new Highcharts.Chart(options);
+    }
+				
+</script>
+<div id="content-title">
+    <span class="title-text">Visits</span>
+</div>
+<div class="toolbar">
+    <div class="add-area">
+    </div>
+    <fieldset>
+        <label>
+            Make</label>
+        <select class="makes">
+            <option value="0">- All -</option>
+            @foreach (var _make in ViewBag.Makes)
+            {
+                <option value="@_make.Id">@_make.Name</option>
+            }
+        </select>
+        
+    </fieldset>
+</div>
+<div id="container">
+</div>

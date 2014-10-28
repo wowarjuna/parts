@@ -1,0 +1,101 @@
+﻿@using System.Configuration
+@model AutoPP.Core.Item
+<script type="text/javascript">
+   
+</script>
+<div id="content-title">
+    <span class="title-text">@Model.Name</span>
+</div>
+<div class="left-detail">
+    <table cellpadding="0" cellspacing="0" style="padding: 10px" width="100%" class="detail">
+        <tr>
+            <td style="width: 200px">
+                Description
+            </td>
+            <td>@Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 200px">
+                Models
+            </td>
+            <td>
+                @foreach (var f in Model.Models)
+                {
+                    <span>@f.ModelNo</span>
+                }
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Year
+            </td>
+            <td>
+            @Model.Year
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Make
+            </td>
+            <td>@Model.Make.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Supplier
+            </td>
+            <td>@Model.Vendor.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact No
+            </td>
+            <td>@Model.Vendor.Phone
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>@Model.Vendor.Address
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>@Model.Vendor.City
+            </td>
+        </tr>
+    </table>
+    <div>
+        @if (Model.Galleries != null)
+        {
+            foreach (var _item in Model.Galleries)
+            {
+            <div>@_item.Name</div>
+                var _files = Directory.GetFileSystemEntries(string.Format("{0}{1}\\", ConfigurationManager.AppSettings["GALLERY_FOLDER_PATH"], _item.GalleryId.ToString()));
+                    
+       
+            <ul style="width: 830px; height: auto">
+                @foreach (var _media in _files)
+                {
+                    var _image = string.Format("/Galleries/{0}/{1}", _item.GalleryId.ToString(), Path.GetFileName(_media));
+                    <li style="height: 220px; width: 220px; float: left;">
+                        <img height="200" width="200" src='@_image' alt="" />
+                    </li>   
+                }
+            </ul>
+            }
+        }
+    </div>
+    <div style="clear:both">
+        <img src="/Content/Images/splash-noticeAGM17.jpg" />
+    </div>
+</div>
+<div class="adv">
+    <img src="/Content/Images/imgad.gif" />
+</div>

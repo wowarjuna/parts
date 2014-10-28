@@ -1,0 +1,442 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+	background-color: #fff;
+	font-size: 11px;
+	font-family: Verdana, Helvetica, Sans-Serif;
+	margin: 0;
+	padding: 0;
+	color: #696969;
+	
+}
+
+a:link
+{
+	color: #034af3;
+	text-decoration: underline;
+}
+a:visited
+{
+	color: #505abc;
+}
+a:hover
+{
+	color: #1d60ff;
+	text-decoration: none;
+}
+a:active
+{
+	color: #12eb87;
+}
+
+p
+{
+	margin-bottom: 20px;
+	line-height: 1.6em;
+	
+}
+
+ul 
+{
+    list-style-type:none;
+    padding:0px; 
+    margin:0px
+}
+
+img { border:0px; }
+
+
+input { border:1px solid #ccc; }
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+	font-size: 1.5em;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+	font-size: 2em;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+h2
+{
+	border-bottom: 1px solid #5c87b2;
+	padding: 0 0 10px 0;
+}
+h3
+{
+	font-size: 1.2em;
+}
+h4
+{
+	font-size: 1.1em;
+}
+h5, h6
+{
+	font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+	margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+	width:1024px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top:10px;
+	padding-left:10px;
+	
+}
+
+#header
+{
+	position: relative;
+	margin-bottom: 0px;
+	color: #000;
+	padding: 0 0px 0 0;
+}
+
+#sharpArchLogo 
+{
+	text-align: right;
+}
+
+p#logo, h1#logo
+{
+	font-weight: bold;
+	font-size: 24px !important;
+	padding: 10px 0;
+	margin: 0;
+	color: #FFF;
+	border: none;
+	line-height: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo a
+{
+	color: #FFF;
+	text-decoration: none;
+	font-size: 32px !important;
+}
+
+#mainContent
+{
+	padding: 30px 30px 15px 30px;
+	background-color: #FFF;
+	border-bottom: 3px groove #4b6f92;
+	margin-bottom: 30px;
+	_height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
+}
+
+.columnsContainer
+{
+	position: relative;
+}
+
+.leftColumn
+{
+	width: 200px;
+	float: left;
+	margin-top:15px;
+}
+
+.rightColumn
+{
+	float: left;
+	width: 640px;
+	margin-left: 10px;
+	margin-top:15px;
+}
+
+
+
+#footer
+{
+	
+}
+
+#footer .t { height:100px; background-color: #f1f1f1; }
+#footer .b { background-color:#003366;	height:25px; }
+#footer .t ul { margin-left: 100px; padding-top:10px }
+#footer .t ul li { float: left; width:150px }
+#footer .t ul li span { font-size:11px; font-weight:bold; }
+
+#footer p
+{
+	padding: 5px 0;
+	margin: 0;
+	text-align:center;
+	color:#fff;
+}
+
+/* MAIN MENU   
+----------------------------------------------------------*/
+ul#mainMenu
+{
+	
+	padding: 0 0 2px;
+	position: relative;
+	margin: 0;
+	margin-left:10px;
+	
+}
+
+ul#mainMenu li
+{
+	display: inline;
+	list-style: none;
+	margin:0px 10px 0px 10px
+	
+}
+
+ul#mainMenu li a
+{
+	
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 2.8em;
+	
+	color:#003366;
+}
+
+ul#mainMenu li a:hover
+{
+	background-color: #FFF;
+	text-decoration: none;
+	color:Orange;
+}
+
+ul#mainMenu li a:active
+{
+	background-color: #a6e2a6;
+	text-decoration: none;
+}
+
+ul#mainMenu li.selected a
+{
+	background-color: #FFF;
+	color: #000;
+}
+
+/* SIDE COLUMN LINKS & HEADINGS  
+----------------------------------------------------------*/
+.leftColumn ul
+{
+	margin: 0;
+	padding: 0 0 30px 0;
+}
+
+.leftColumn ul li
+{
+	list-style: none;
+	margin-top: 5px;
+	line-height: normal;
+}
+
+.leftColumn ul li a
+{
+	list-style: none;
+	padding: 5px;
+	border: 1px solid #e8eef4;
+	line-height: normal;
+	display: block;
+	text-decoration: none;
+	background-color: #e8eef4;
+	font-size: .9em;
+	_height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
+}
+
+.leftColumn ul li a:hover
+{
+	text-decoration: none;
+	background-color: #FFF;
+	border-color: #e2e7ed;
+}
+
+.leftColumn ul li a:active
+{
+	text-decoration: none;
+	background-color: #a6e2a6;
+	border-color: #a6e2a6;
+	color: #FFF;
+}
+
+.leftColumn h2
+{
+	font-size: 1.2em;
+	padding: 5px;
+	margin: 0px;
+	border-color: #5C87B2;
+	background-color: #5C87B2;
+	color: #FFF;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+	clear: both;
+}
+
+.input-validation-error
+{
+	border: 1px solid #ff0000;
+	background-color: #ffeeee;
+}
+
+.header-r { float:right; }
+
+.item-count 
+{
+    margin-left:105px;
+    height:85px;
+    width:230px;
+    background: url(Images/corner.jpg);
+    
+   
+}
+
+
+#logindisplay 
+{
+   
+}
+
+#title { height:100px; }
+#menucontainer { color:#F15200; height:35px; font-size:12px; border-top:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; background:url(Images/button-tail.gif) }
+#content-wrapper { min-height:500px; }
+#content-wrapper .left-detail { width:850px; float:left; }
+#content-wrapper .adv { width:150px; float:left; margin-left:10px; }
+
+#content-title { font-size:12px; font-weight:bold; padding:10px 10px 10px 0px; margin-top:5px; background:url(Images/amd-strip-bg.gif) }
+.title-text { padding: 3px 50px 3px 10px; height: 25px; background-color: #fff; }
+
+
+
+.add-new-item { background:url(Images/add.png); width:97px; height:22px; display:block; border:1px solid #fff; } 
+.add-new-item:hover { background:url(Images/add.png); width:97px; height:22px; display:block; border:1px solid #ccc; }
+
+/* Form css */
+.form-content { border:1px solid #ccc; }
+.form-content td {  padding-right:10px; padding-bottom:10px }
+.form-content td .desc {  width:200px }
+
+label { padding-right:10px;}
+input[type="text"] { width:250px; }
+.btn-submit { width: 98px; background: url(Images/submit.png); height:25px; border:0px }
+.btn-approve { width: 104px; background: url(Images/approve.gif); height:29px; border:0px; cursor:pointer; float:left; margin:0px 5px 0px 5px }
+.btn-reject { width: 103px; background: url(Images/reject.gif); height:28px; border:0px; cursor:pointer; display:block; float:left; margin:0px 5px 0px 5px}
+.btn-register { width: 103px; background: url(Images/register.gif); height:28px; border:0px; cursor:pointer; display:block; float:left; margin:0px 5px 0px 5px}
+.btn-login { width: 100px; background: url(Images/login.gif); height:26px; border:0px; cursor:pointer; display:block; float:left; margin:0px 5px 0px 5px}
+.btn-search { width:99px; height:27px; background: url(Images/search.gif); cursor: pointer; }
+
+.form-content td label { width:200px; text-align:right; display:block;  }
+
+.search-bar { background-color:#aac8e4; padding:5px; margin-top:0px;  }
+
+.product { margin-top: 10px; height: 100px; padding:5px; }
+
+.row {}
+.alt-row { background-color: #eee; }
+
+/* Icons */
+.delete { background: url(Images/delete.gif); height:16px; width:16px; display:block; float:left; margin:0px 5px 0px 5px }
+.edit { background: url(Images/edit.gif); height:16px; width:16px; display: block; float:left; margin:0px 5px 0px 5px; }
+.detail-ico { background: url(Images/041.gif); height:16px; width:16px; display: block; float:left; margin:0px 5px 0px 5px; }
+
+.h-light td { background-color: #CFF; }
+
+/* Dashboard */
+.dashboard {  }
+.dashboard li { width: 128px; height: 145px; float: left; }
+
+/* Search */
+.detail { }
+.detail tr { }
+.detail tr td { padding:5px; border-bottom:1px solid; border-collapse:inherit;  }
+
+/* Messages */
+
+.info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 35px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('info.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('success.png');
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('Images/warning.gif');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('error.png');
+}
+
+/* tree */
+ .navigation { width: 200px; } 
+ .navigation ul { list-style: none; margin: 0; padding: 0; } 
+ .navigation li { background-color:Orange; padding-top:5px; font-weight:bold;  } 
+ .navigation li a:link, .navigation li a:visited  { font-size: 90%; display: block; padding: 0.4em 0 0.4em 0.5em; border-left: 12px solid #711515; border-right: 1px solid #711515; background-color: #B51032; color: #FFFFFF; text-decoration: none; }
+ .navigation li a:hover { background-color: #711515; color: #FFFFFF; } 
+ .navigation ul ul { margin-left: 12px; padding:0px } 
+ .navigation ul ul li { border-bottom: 1px solid #711515; margin:0; font-weight:normal; margin-top:0px } 
+ .navigation ul ul a:link, 
+ .navigation ul ul a:visited { background-color: #ED9F9F; color: #711515; } 
+ .navigation ul ul a:hover { background-color: #711515; color: #FFFFFF; }
+ 
+ /* page navigation */
+.page-navigation{
+	font-family: "Trebuchet MS", "Segoe UI", trebuchet, helvetica, arial, geneva, sans-serif; color:#424242; text-align:left; font-size:12px
+	 /* Resets 1em to 12px */
+
+
+			display:block; float:none; clear:both; overflow:hidden;
+			margin:0; padding:0.5em 0;
+		}
+			.page-navigation a, .page-navigation a:visited, .page-navigation span {color:#ff3100;padding:0 4px; text-decoration:none;}
+			.page-navigation a:hover {text-decoration:underline;}
+			
+			.page-navigation a.previous, .page-navigation a.previous:visited, .page-navigation span.previous{
+				padding:0 4px 0 16px;
+			}
+			.page-navigation a.next, .page-navigation a.next:visited, .page-navigation span.next{
+				padding:0 16px 0 4px;
+			}
+			
+.adv-widget { width: 130px; height: auto; border:1px solid #ddd; margin-top:10px; padding:10px  }
+.adv-widget .orange-hyper { color: #ff6600; text-decoration: none; }
+.adv-widget .orange-hyper :link { color: #ff6600; }

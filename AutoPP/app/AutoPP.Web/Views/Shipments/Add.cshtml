@@ -1,0 +1,39 @@
+﻿@model AutoPP.Core.Shipment
+<script type="text/javascript">
+   
+</script>
+<div id="content-title">
+    <span class="title-text">Add Request</span>
+</div>
+<div class="warning">
+    Adding nuisance requests will eliminate and remove your account from Colombo Parts.com</div>
+<form method="post" action="/Request/Add">
+<table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content"
+    width="100%">
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.ShipmentDate)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.ShipmentDate)
+            @Html.ValidationMessageFor(m => m.ShipmentDate)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Description)
+        </td>
+        <td>
+            @Html.TextArea("Description", "", 15, 70, null)
+            @Html.ValidationMessageFor(m => m.Description)
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <input type="submit" value="" class="btn-submit" />
+        </td>
+    </tr>
+</table>
+</form>

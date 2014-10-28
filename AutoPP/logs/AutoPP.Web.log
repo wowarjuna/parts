@@ -1,0 +1,114 @@
+2012-12-14 14:44:11,158 [73] ?.lambda_method(:0) - NHibernate 3.0.0.4000 (3.0.0.4000)
+
+2012-12-14 14:44:11,197 [73] ?.lambda_method(:0) - hibernate-configuration section not found in application configuration file
+
+2012-12-14 14:44:11,198 [73] ?.lambda_method(:0) - Bytecode provider name : lcg
+
+2012-12-14 14:44:11,199 [73] ?.lambda_method(:0) - Using reflection optimizer
+
+2012-12-14 14:44:11,255 [73] ?.lambda_method(:0) - No mapped documents found in assembly: AutoPP.Data, Version=1.9.5.0, Culture=neutral, PublicKeyToken=null
+
+2012-12-14 14:44:12,156 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,198 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Category -> Category
+
+2012-12-14 14:44:12,263 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,264 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Gallery -> Galleries
+
+2012-12-14 14:44:12,287 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,288 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Item -> Item
+
+2012-12-14 14:44:12,288 [73] ?.lambda_method(:0) - Mapping collection: AutoPP.Core.Item.Categories -> ItemsInCategories
+
+2012-12-14 14:44:12,289 [73] ?.lambda_method(:0) - Mapping collection: AutoPP.Core.Item.Models -> ItemsInModels
+
+2012-12-14 14:44:12,292 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,293 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Make -> Make
+
+2012-12-14 14:44:12,295 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,295 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Model -> Model
+
+2012-12-14 14:44:12,297 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,297 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Request -> ItemRequests
+
+2012-12-14 14:44:12,299 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,299 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Shipment -> Shipments
+
+2012-12-14 14:44:12,300 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,300 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.User -> aspnet_Users
+
+2012-12-14 14:44:12,303 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,304 [73] ?.lambda_method(:0) - Mapping class: AutoPP.Core.Vendor -> Vendors
+
+2012-12-14 14:44:12,307 [73] ?.lambda_method(:0) - checking mappings queue
+
+2012-12-14 14:44:12,307 [73] ?.lambda_method(:0) - processing one-to-many association mappings
+
+2012-12-14 14:44:12,308 [73] ?.lambda_method(:0) - mapping collection: AutoPP.Core.Category.Subs -> Category
+
+2012-12-14 14:44:12,314 [73] ?.lambda_method(:0) - mapping collection: AutoPP.Core.Item.Galleries -> Galleries
+
+2012-12-14 14:44:12,315 [73] ?.lambda_method(:0) - mapping collection: AutoPP.Core.Make.Models -> Model
+
+2012-12-14 14:44:12,316 [73] ?.lambda_method(:0) - processing one-to-one association property references
+
+2012-12-14 14:44:12,316 [73] ?.lambda_method(:0) - processing foreign key constraints
+
+2012-12-14 14:44:12,320 [73] ?.lambda_method(:0) - processing filters (second pass)
+
+2012-12-14 14:44:12,342 [73] ?.lambda_method(:0) - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+
+2012-12-14 14:44:12,363 [73] ?.lambda_method(:0) - Using dialect defined converter
+
+2012-12-14 14:44:12,363 [73] ?.lambda_method(:0) - Generate SQL with comments: disabled
+
+2012-12-14 14:44:12,364 [73] ?.lambda_method(:0) - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+
+2012-12-14 14:44:12,365 [73] ?.lambda_method(:0) - Configuring ConnectionProvider
+
+2012-12-14 14:44:12,366 [73] ?.lambda_method(:0) - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+
+2012-12-14 14:44:12,366 [73] ?.lambda_method(:0) - Optimize cache for minimal puts: False
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - Connection release mode: auto
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - Default batch fetch size: 1
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - echoing all SQL to stdout
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - Statistics: disabled
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - Deleted entity synthetic identifier rollback: disabled
+
+2012-12-14 14:44:12,367 [73] ?.lambda_method(:0) - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+
+2012-12-14 14:44:12,368 [73] ?.lambda_method(:0) - Query language substitutions: {}
+
+2012-12-14 14:44:12,369 [73] ?.lambda_method(:0) - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+
+2012-12-14 14:44:12,370 [73] ?.lambda_method(:0) - Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+
+2012-12-14 14:44:12,371 [73] ?.lambda_method(:0) - Default entity-mode: Poco
+
+2012-12-14 14:44:12,371 [73] ?.lambda_method(:0) - Named query checking : enabled
+
+2012-12-14 14:44:12,385 [73] ?.lambda_method(:0) - building session factory
+
+2012-12-14 14:44:12,703 [73] ?.lambda_method(:0) - no name configured
+
+2012-12-14 14:44:12,940 [73] ?.lambda_method(:0) - SELECT this_.Id as Id0_0_, this_.Name as Name0_0_, this_.ParentId as ParentId0_0_ FROM Category this_
+
+2012-12-14 14:44:13,588 [73] ?.lambda_method(:0) - SELECT this_.Id as Id5_0_, this_.Name as Name5_0_ FROM Make this_
+
+2012-12-14 14:51:07,791 [78] ?.lambda_method(:0) - SELECT make0_.Id as Id5_0_, make0_.Name as Name5_0_ FROM Make make0_ WHERE make0_.Id=@p0
+
+2012-12-14 14:51:07,804 [78] ?.lambda_method(:0) - SELECT models0_.MakeId as MakeId1_, models0_.Id as Id1_, models0_.Id as Id6_0_, models0_.Name as Name6_0_, models0_.YearFrom as YearFrom6_0_, models0_.ModelNo as ModelNo6_0_, models0_.YearTo as YearTo6_0_, models0_.MakeId as MakeId6_0_ FROM Model models0_ WHERE models0_.MakeId=@p0
+

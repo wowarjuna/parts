@@ -1,0 +1,21 @@
+﻿<script type="text/javascript">
+    var RequestFilter = {
+        OnMakeChanged: null,
+        onMakeChanged: function (args) {
+            if (this.OnMakeChanged != null) {
+                this.OnMakeChanged();
+            }
+        }
+    }
+    
+    
+</script>
+<fieldset>
+    <label>
+        Make</label>
+    <select class="makes" onchange="RequestFilter.onMakeChanged(this)">
+        <option value="0">- select -</option>
+        <option value="1">Honda</option>
+        <option value="4">Toyota</option>
+    </select>
+</fieldset>

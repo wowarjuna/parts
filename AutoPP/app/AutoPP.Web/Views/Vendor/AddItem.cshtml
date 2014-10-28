@@ -1,0 +1,87 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $('#make').bindChildOnChange('/Item/GetMake/', '#model');
+    });
+</script>
+<div id="content-title">
+    Add New Item
+</div>
+<form method="post" action="/Vendor/AddItem">
+<table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content" width="100%">
+    <tr>
+        <td>
+            <label>
+                Name</label>
+        </td>
+        <td>
+            <input type="text" name="name" id="name" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>
+                Description</label>
+        </td>
+        <td>
+            <textarea name="description" id="description" rows="15" cols="100"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>
+                Category</label>
+        </td>
+        <td>
+            <ul>
+                <li>
+                    <select name="categories">
+                        <option value="-">-- Select --</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <select name="categories">
+                        <option value="-">-- Select --</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>
+                Make</label>
+        </td>
+        <td>
+             <select name="make" id="make">
+                <option value="-">-- Select --</option>
+                @foreach (var make in ViewBag.Makes)
+                {
+                    <option value="@make.Id">@make.Name</option>
+                }
+             </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>
+                Model</label>
+        </td>
+        <td>
+             <select name="model" id="model"></select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <input type="submit" value="Save" />
+        </td>
+    </tr>
+</table>
+</form>

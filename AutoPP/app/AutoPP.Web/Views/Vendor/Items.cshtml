@@ -1,0 +1,36 @@
+﻿<div id="content-title">
+    <span class="title-text">Vendors</span>
+</div>
+<div class="toolbar">
+<table cellpadding="0" cellspacing="0" style="padding:10px" width="100%">
+    
+</table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').dataTable({
+            "bProcessing": true,
+            "sAjaxSource": "/Vendor/JsonVendors",
+            "bServerSide": true,
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sTitle": "Name", "mDataProp": "Name" },
+                { "sTitle": "Phone", "mDataProp": "Phone", 'sWidth': '200px' },
+                { "sTitle": "Email", "mDataProp": "Email", 'sWidth': '200px' },
+                { "sTitle": "Action", "mDataProp": "Id", 'sWidth': '50px', "fnRender": function (oObj) {
+                    return '<a href="/Vendor/Edit/' + oObj.aData.Id + '" class="edit"> </a><a href="/Vendor/Delete/' + oObj.aData.Id + '" class="delete"> </a>';
+                }
+                }
+
+			],
+            "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                if (aData.IsActive != null && aData.IsActive != true)
+                    $(nRow).addClass('h-light');
+                return nRow;
+            }
+        });
+    });
+</script>
+<table id="table_id" class="display" >
+
+</table>
