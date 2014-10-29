@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\colomboparts\AutoPP\app\Dashboard.Controls\obj\Debug\
+D:\Projects\Parts\parts\AutoPP\app\Dashboard.Controls\obj\Debug\
 Dashboard.Controls
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 2828368332
 
 6289416151
-16-635305145
+15-1883795270
 Views\HelloWorldView.xaml;Views\RequestView.xaml;
 
 False

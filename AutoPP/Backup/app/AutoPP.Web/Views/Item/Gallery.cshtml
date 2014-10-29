@@ -1,0 +1,53 @@
+﻿@using System.Configuration
+<div id="content-title">
+    <span class="title-text">Gallery</span>
+</div>
+@if (ViewBag.Item.Galleries != null)
+{
+    foreach (var _item in ViewBag.Item.Galleries)
+    {
+    <div>@_item.Name</div>
+        
+        var _files = Directory.GetFileSystemEntries(string.Format("{0}{1}\\", ConfigurationManager.AppSettings["GALLERY_FOLDER_PATH"], _item.GalleryId.ToString()));
+        
+    <div style="width: 850px; float: left">
+        <form action="/Item/SetGalleryPrimaryImage" method="post">
+        <input type="hidden" value="@ViewBag.Item.Id" name="id" />
+        <input type="hidden" value="@_item.GalleryId" name="gallery" />
+        <ul style="width: 830px; height: auto">
+            @foreach (var _media in _files)
+            {
+                var _image = string.Format("/Galleries/{0}/{1}", _item.GalleryId.ToString(), Path.GetFileName(_media));
+                <li style="height: 220px; width: 220px; float: left;">
+                    <img height="200" width="200" src='@_image' alt="" />
+                    @if (Path.GetFileName(_media).Equals(_item.PrimaryResource))
+                    {
+                        <span>Primary</span> 
+                    }
+                    else
+                    {
+                        <input type="radio" name="primary" value="@Path.GetFileName(_image)" />
+                        <span>Set Primary</span>
+                        @Html.ActionLink("Delete", "DeleteGalleryImage", new { ItemId = ViewBag.Item.Id, GalleryId = _item.GalleryId, Image = _image })
+                    }
+                </li>   
+            }
+        </ul>
+        <p style="clear: both">
+        </p>
+        <input type="submit" value="save" />
+        </form>
+    </div>
+    <div style="float: left; width: 200px">
+        <form action="/Item/UploadGalleryImage" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="item-id" value="@ViewBag.Item.Id" />
+        <input type="hidden" name="galllery" value="@_item.GalleryId" />
+        <label for="image">
+            Filename:</label>
+        <input type="file" name="image" />
+        <input type="submit" value="upload" />
+        </form>
+    </div>
+        
+    }
+}

@@ -1,0 +1,38 @@
+﻿@using AutoPP.Web.Controllers.Helpers
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <title>Colombo Parts - Home</title>
+    <link rel="icon" href="images/favicon.gif" type="image/x-icon" />
+    <script src="/Scripts/jquery-1.4.4.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+    <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>
+<body>
+    <div id="container">
+        <header>
+            <!--start logo-->
+            <a href="#" id="logo">
+                <img src="images/logo.jpg" alt="logo" style="width:203px; height:19px;" /></a>
+            <!--end logo-->
+            <!--start menu-->
+            <!--<nav>
+                <ul>
+                    <li><a href="#" class="current">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Vendors</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>-->
+            <!--end menu-->
+            <div class="colright" style="height:30px"></div>
+        </header>
+        @RenderBody()
+        
+    </div>
+    
+</body>
+</html>

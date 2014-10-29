@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Factory="SharpArch.Wcf.NHibernate.ServiceHostFactory, SharpArch" Language="C#" Debug="true" Service="AutoPP.ApplicationServices.Impl.ItemService" %>

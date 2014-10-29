@@ -1,0 +1,52 @@
+﻿@using System.Configuration
+@model AutoPP.Core.Shipment
+<script type="text/javascript">
+   
+</script>
+<div id="content-title">
+    <span class="title-text">Shipment Date - @Model.ShipmentDate.ToString("MMM d, yyyy")</span>
+</div>
+<div class="left-detail">
+    <table cellpadding="0" cellspacing="0" style="padding: 10px" width="100%" class="detail">
+        <tr>
+            <td style="width: 200px">
+                Description
+            </td>
+            <td>@Model.Description
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                Vendor
+            </td>
+            <td>@Model.Vendor.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact No
+            </td>
+            <td>@Model.Vendor.Phone
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>@Model.Vendor.Address
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>@Model.Vendor.City
+            </td>
+        </tr>
+    </table>
+    
+</div>
+<div class="adv">
+    <img src="/Content/Images/imgad.gif" />
+</div>

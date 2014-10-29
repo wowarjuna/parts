@@ -1,0 +1,124 @@
+﻿@using AutoPP.Web.Controllers.Helpers
+@using AutoPP.Web.Controllers.Util
+@model AutoPP.Web.Controllers.Util.ItemView
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".product").draggable({ revert: true });
+    });
+</script>
+
+<div class="mainContent">
+    <div class="searchMain">
+        <div class="center">
+            <form method="get" action="@Url.Action("Index")">
+            @Html.TextBox("q", Model.Search.FreeSearch, new { @class = "search" })
+            <input type="submit" value=" " class="button" />
+            @if (!string.IsNullOrEmpty(Model.DidYouMean))
+            {
+                <p>
+                    Did you mean</p>
+                <strong><em><a href="/?q=@Model.DidYouMean">@Model.DidYouMean</a></em></strong>
+            }
+            @if (Model.QueryError)
+            {
+                <span class="error">Invalid query</span>
+            }
+            </form>
+            
+        </div>
+    </div>
+    <div class="sortbar">
+        Sort by: <a href="#" class="selected">Best match</a> <a href="#">Year</a> <a href="#">
+            Random</a>
+    </div>
+    <div class="results">
+        <ul>
+            @{
+                int _index = 0;
+            }
+            @foreach (var p in Model.Items)
+            {
+
+                if (_index % 2 == 0)
+                {
+                <li class="odd">
+                    <img alt="@p.Name" src='@string.Format("Galleries/{0}/{1}", p.Gallery, p.Resource)' width="80" height="80" />
+                    <div class="info">
+                        <a href="/Search/Detail/@p.Id/@p.Name.Replace(' ', '-')">@p.Name</a>
+                        <p>
+                            <strong>Description</strong>: @p.Description</p>
+                        <p>
+                            <strong>Models</strong>:
+                            @if (p.Models != null)
+                            {
+                                foreach (var _model in p.Models)
+                                {
+                                @_model
+                                }
+                            }
+                        </p>
+                        <p>
+                            <strong>Year</strong>: @p.Year</p>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </li>
+                            _index++;
+                }
+                else
+                {
+                <li class="even">
+                    <img src='@string.Format("Galleries/{0}/{1}", p.Gallery, p.Resource)' width="80" height="80" />
+                    <div class="info">
+                        <a href="/Search/Detail/@p.Id/@p.Name.Replace(' ', '-')">@p.Name</a>
+                        <p>
+                            <strong>Description</strong>: @p.Description</p>
+                        <p>
+                            <strong>Models</strong>:
+                            @if (p.Models != null)
+                            {
+                                foreach (var _model in p.Models)
+                                {
+                                @_model
+                                }
+                            }</p>
+                        <p>
+                            <strong>Year</strong>: @p.Year</p>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </li>
+                            _index++;
+                }
+            }
+        </ul>
+        @{Html.RenderPartial("Pagination", new PaginationInfo
+      {
+          PageUrl = Url.SetParameter("page", "!0"),
+          CurrentPage = Model.Search.PageIndex,
+          PageSize = Model.Search.PageSize,
+          TotalItemCount = Model.TotalCount,
+      });
+        }
+        @{
+            string _pagin = Html.RepeatF(new[] { 5, 10, 20 }, ps =>
+            {
+                if (ps == Model.Search.PageSize)
+                {
+                    return "<span>" + ps + "</span>";
+                }
+                else
+                {
+                    return "<a href=" + Url.SetParameters(new { pagesize = ps, page = 1 }) + "><" + ps + "</a>";
+                }
+            }, () => { return "|"; });
+        }
+        <div class="pagesize">
+            @Html.Raw(_pagin)
+            items per page
+        </div>
+    </div>
+</div>
+
+
+

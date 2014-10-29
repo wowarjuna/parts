@@ -1,0 +1,178 @@
+﻿@model AutoPP.Core.Vendor
+<div id="content-title">
+    <span class="title-text">Approve - @Model.Name</span>
+</div>
+@if (Model.IsActive != null && Model.IsActive == false)
+{
+    <form method="post" action="/Vendor/Edit">
+    <table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content"
+        width="100%">
+        <tr>
+            <td style="width: 220px">
+                <label>
+                    Name</label>
+            </td>
+            <td>
+                <b>@Model.Name</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Email</label>
+            </td>
+            <td>
+                <b>@Model.Email</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Address</label>
+            </td>
+            <td>
+                <b>@Model.Address</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    City</label>
+            </td>
+            <td>
+                <b>@Model.City</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Postal Code</label>
+            </td>
+            <td>
+                <b>@Model.PostalCode</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Country</label>
+            </td>
+            <td>
+                <b>@Model.Country</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Phone</label>
+            </td>
+            <td>
+                <b>@Model.Phone</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Mobile</label>
+            </td>
+            <td>
+                <b>@Model.Mobile</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Approve", new { Id = Model.Id }, new { @class = "btn-approve" })
+                @Html.ActionLink(" ", "Reject", new { Id = Model.Id }, new { @class = "btn-reject" })
+            </td>
+        </tr>
+    </table>
+    </form>
+}
+else
+{
+    <form method="post" action="/Request/Add">
+    <table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content"
+        width="100%">
+        <tr>
+            <td style="width: 220px">
+                @Html.LabelFor(m => m.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Address)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.City)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.City)
+                @Html.ValidationMessageFor(m => m.City)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.PostalCode)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.PostalCode)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Country</label>
+            </td>
+            <td>
+                <select name="country" id="country">
+                    <option value="Sri Lanka">Sri Lanka</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Phone)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Phone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Mobile)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Mobile)
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value=" " class="btn-submit" />
+            </td>
+        </tr>
+    </table>
+    </form>
+}

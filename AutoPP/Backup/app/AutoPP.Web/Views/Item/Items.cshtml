@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 id="p_title" class="list">
+    Items</h2>
+
+<div class="toolbar">
+    
+    <fieldset class="filter-area">
+        <label>
+            Category</label>
+        <select class="categories">
+            <option value="0">- select -</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <label>
+            Make</label>
+        <select class="makes">
+            <option value="0">- all -</option>
+            @foreach (var _make in ViewBag.Makes)
+            {
+                <option value="@_make.Id">@_make.Name</option>
+            }
+        </select>
+        
+    </fieldset>
+    <div class="add-area"><a href="/Item/AddItem"><img src="/images/add-item.png"/></a></div>
+</div>
+<script type="text/javascript">
+    var _table;
+
+    $(document).ready(function () {
+        $('select').change(onModelFilterReload);
+
+        _table = $('#table_id').dataTable({
+            "bProcessing": true,
+            "sAjaxSource": "/Item/JsonItems",
+            "bServerSide": true,
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sTitle": "Name", "mDataProp": "Name" },
+                { "sTitle": "Description", "mDataProp": "Description" },
+                { "sTitle": "Action", "mDataProp": "Id", 'sWidth': '50px', "fnRender": function (oObj) {
+                    return '<a href="/Item/Edit/' + oObj.aData.Id + '" class="edit"> </a><a href="/Item/Delete/' + oObj.aData.Id + '" class="delete"> </a>';
+                }
+                }
+
+			],
+            "fnServerData": function (sSource, aoData, fnCallback) {
+                aoData.push({ "name": "cFilters", "value": [$('.categories').val(), $('.makes').val()] });
+                $.getJSON(sSource, aoData, function (json) {
+                    /* Do whatever additional processing you want on the callback, then tell DataTables */
+                    fnCallback(json)
+                });
+            }
+        }).fnSetFilteringDelay();
+    });
+
+    function onModelFilterReload() {
+        _table.fnDraw();
+    }
+</script>
+<table id="table_id" class="display">
+</table>

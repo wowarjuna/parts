@@ -1,0 +1,21 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $('.makes').bindChildOnChange('/Item/GetMake/', '.models', true, onModelFilterReload); // redraw is the callback function
+    });
+</script>
+<fieldset>
+    <label>
+        Make</label>
+    <select class="makes">
+        <option value="0">- select -</option>
+        @foreach (var _make in ViewBag.Makes)
+        {
+            <option value="@_make.Id">@_make.Name</option>
+        }
+    </select>
+    <label>
+        Models</label>
+    <select class="models">
+        <option value="0">- select -</option>
+    </select>
+</fieldset>

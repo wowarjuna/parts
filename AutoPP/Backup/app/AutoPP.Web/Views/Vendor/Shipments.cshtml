@@ -1,0 +1,40 @@
+﻿<div id="content-title">
+    <span class="title-text">Shipments</span>
+</div>
+
+<div class="toolbar">
+    <div class="add-area">
+        <a href="/Vendor/AddShipment" class="add-new-item"></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').dataTable({
+            "bProcessing": true,
+            "sAjaxSource": "/Vendor/JsonShipments",
+            "bServerSide": true,
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sTitle": "Shipment Date", "mDataProp": "ShipmentDate", 'sWidth': '100px' },
+                { "sTitle": "Description", "mDataProp": "Description" },
+                { "sTitle": "Action", "mDataProp": "Id", 'sWidth': '70px', "fnRender": function (oObj) {
+                    var _curr = new Date();
+                    var _shipment = new Date(oObj.aData.ShipmentDate);
+                    
+                    if (_shipment > _curr)
+                        return '<a href="/Vendor/Shipment/' + oObj.aData.Id + '" class="detail-ico"> </a><a href="/Vendor/EditShipment/' + oObj.aData.Id + '" class="edit"> </a><a href="/Vendor/DeleteShipment/' + oObj.aData.Id + '" class="delete"> </a>';
+                    else {
+
+                        return '<a href="/Vendor/Shipment/' + oObj.aData.Id + '" class="detail-ico"> </a>';
+                    }
+                }
+                }
+
+			]
+        });
+
+    });
+</script>
+<table id="table_id" width="100%" class="display">
+    
+</table>

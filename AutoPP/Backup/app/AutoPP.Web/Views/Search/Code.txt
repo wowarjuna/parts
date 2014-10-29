@@ -1,0 +1,34 @@
+﻿<div class="sidebar left">
+    <div class="content">
+        @foreach (var f in Model.Search.Facets)
+        {
+            string _facet = Html.SolrFieldPropName<VItem>(f.Key);
+            <h3>
+                @_facet</h3>
+            <div class="resultsInfo">
+                <a class="removeFacet" href="@Url.RemoveFacet(f.Key)">@f.Value</a>
+                <div class="resultsCount">
+                    27</div>
+            </div>
+        
+        }
+        @foreach (var f in Model.Facets)
+        {
+            string _facet = Html.SolrFieldPropName<VItem>(f.Key);
+            <h3>
+                @_facet</h3>
+            
+            foreach (var fv in f.Value)
+            { 
+            <div class="resultsInfo">
+                <a href="@Url.SetFacet(f.Key, fv.Key)">@fv.Key</a>
+                <div class="resultsCount">
+                    (@fv.Value)</div>
+            </div>
+                        
+            }
+
+        }
+    </div>
+   
+</div>

@@ -1,23 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Core", "app\AutoPP.Core\AutoPP.Core.csproj", "{7696B4F6-2A10-40C4-A1E2-B9768182588C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.ApplicationServices", "app\AutoPP.ApplicationServices\AutoPP.ApplicationServices.csproj", "{EA00777D-3D7A-4406-8BFB-E5A90CF0E8A9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Data", "app\AutoPP.Data\AutoPP.Data.csproj", "{63E9AECE-3385-44F0-BDF9-4C01DD3C0647}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Web.Controllers", "app\AutoPP.Web.Controllers\AutoPP.Web.Controllers.csproj", "{518B2E4B-2B9B-48EF-8736-DDB6A0F78E79}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Tests", "tests\AutoPP.Tests\AutoPP.Tests.csproj", "{A909BF90-3A0F-4CB9-9D78-44328589BF2C}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Generation", "Code Generation", "{444836E2-F827-47F4-A568-E266FDBD8906}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudScaffolding", "tools\CrudScaffolding\CrudScaffolding.csproj", "{BC94CA49-93AB-45AE-909C-213B4DC8498B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudScaffoldingForEnterpriseApp", "tools\CrudScaffoldingForEnterpriseApp\CrudScaffoldingForEnterpriseApp.csproj", "{D0A5D52D-4397-4DD7-BD20-8FBE3C35288F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Web", "app\AutoPP.Web\AutoPP.Web.csproj", "{CD7332DD-EA9E-462E-8BEF-492354A7837B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{12F0EA81-0AA7-4385-83EF-BF345801874F}"
 EndProject
@@ -31,6 +17,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A480E554
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{8BBE8F25-E15B-4A98-8187-121554851347}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{876A7A1F-EE99-47C2-A7A4-021A8F788F80}"
+	ProjectSection(SolutionItems) = preProject
+		UpdateMetaModels.sql = UpdateMetaModels.sql
+		VItemSearch.sql = VItemSearch.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Core", "app\AutoPP.Core\AutoPP.Core.csproj", "{7696B4F6-2A10-40C4-A1E2-B9768182588C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.ApplicationServices", "app\AutoPP.ApplicationServices\AutoPP.ApplicationServices.csproj", "{EA00777D-3D7A-4406-8BFB-E5A90CF0E8A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Data", "app\AutoPP.Data\AutoPP.Data.csproj", "{63E9AECE-3385-44F0-BDF9-4C01DD3C0647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Web.Controllers", "app\AutoPP.Web.Controllers\AutoPP.Web.Controllers.csproj", "{518B2E4B-2B9B-48EF-8736-DDB6A0F78E79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Tests", "tests\AutoPP.Tests\AutoPP.Tests.csproj", "{A909BF90-3A0F-4CB9-9D78-44328589BF2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudScaffolding", "tools\CrudScaffolding\CrudScaffolding.csproj", "{BC94CA49-93AB-45AE-909C-213B4DC8498B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudScaffoldingForEnterpriseApp", "tools\CrudScaffoldingForEnterpriseApp\CrudScaffoldingForEnterpriseApp.csproj", "{D0A5D52D-4397-4DD7-BD20-8FBE3C35288F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Web", "app\AutoPP.Web\AutoPP.Web.csproj", "{CD7332DD-EA9E-462E-8BEF-492354A7837B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolrIndexer", "Utils\SolrIndexer\SolrIndexer.csproj", "{EA8998D9-DE90-4C88-8113-01236EF40E7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard", "app\Dashboard\Dashboard.csproj", "{A2DB45F4-04E4-447B-BACA-900F5D0291EF}"
@@ -41,12 +49,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Controls", "app\D
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPP.Wcf.Web", "app\AutoPP.Wcf.Web\AutoPP.Wcf.Web.csproj", "{A803135B-3588-48D8-AB2F-8F9E917AB38A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{876A7A1F-EE99-47C2-A7A4-021A8F788F80}"
-	ProjectSection(SolutionItems) = preProject
-		UpdateMetaModels.sql = UpdateMetaModels.sql
-		VItemSearch.sql = VItemSearch.sql
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Utils\Samples\Samples.csproj", "{83510DCA-633A-4AD7-84C9-29BDE6050EB8}"
 EndProject
@@ -190,15 +192,15 @@ Global
 		{7696B4F6-2A10-40C4-A1E2-B9768182588C} = {E6A15AAD-2D86-42C0-B97E-B76B726D877C}
 		{EA00777D-3D7A-4406-8BFB-E5A90CF0E8A9} = {47B97556-4DF3-4B11-B695-EBD1F6693082}
 		{63E9AECE-3385-44F0-BDF9-4C01DD3C0647} = {F666A226-7FC4-4882-A0CC-A662B1678394}
-		{CD7332DD-EA9E-462E-8BEF-492354A7837B} = {12F0EA81-0AA7-4385-83EF-BF345801874F}
 		{518B2E4B-2B9B-48EF-8736-DDB6A0F78E79} = {12F0EA81-0AA7-4385-83EF-BF345801874F}
-		{A803135B-3588-48D8-AB2F-8F9E917AB38A} = {12F0EA81-0AA7-4385-83EF-BF345801874F}
 		{A909BF90-3A0F-4CB9-9D78-44328589BF2C} = {A480E554-28A5-4EF6-8836-30CF9EE5C817}
 		{BC94CA49-93AB-45AE-909C-213B4DC8498B} = {444836E2-F827-47F4-A568-E266FDBD8906}
 		{D0A5D52D-4397-4DD7-BD20-8FBE3C35288F} = {444836E2-F827-47F4-A568-E266FDBD8906}
+		{CD7332DD-EA9E-462E-8BEF-492354A7837B} = {12F0EA81-0AA7-4385-83EF-BF345801874F}
 		{EA8998D9-DE90-4C88-8113-01236EF40E7A} = {8BBE8F25-E15B-4A98-8187-121554851347}
 		{A2DB45F4-04E4-447B-BACA-900F5D0291EF} = {8BBE8F25-E15B-4A98-8187-121554851347}
 		{404CEC43-66DA-4CD9-A6B0-642278030A95} = {8BBE8F25-E15B-4A98-8187-121554851347}
+		{A803135B-3588-48D8-AB2F-8F9E917AB38A} = {12F0EA81-0AA7-4385-83EF-BF345801874F}
 		{83510DCA-633A-4AD7-84C9-29BDE6050EB8} = {8BBE8F25-E15B-4A98-8187-121554851347}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin-styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo_table.css" />
+    <script src="/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.control.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.dataTablesExt.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="main">
+        <div id="left">
+            <div id="logo">
+            </div>
+            <div id="tools">
+                <ul>
+                    <li class="select"><a href="/Item/Items">Parts</a></li>
+                    <li id="conf-icon"><a href="">Categories</a></li>
+                    <li id="conf-icon"><a href="/Master/Makes">Makes</a></li>
+                    <li id="conf-icon"><a href="/Master/Models">Models</a></li>
+                    <li id="users-icon"><a href="#">Users</a></li>
+                    <li id="reports-icon"><a href="#">Reports</a></li>
+                </ul>
+            </div>
+            <div id="keep">
+            </div>
+        </div>
+        <div id="right">
+            <div id="header">
+                <div id="plus">
+                    <a href="#"><span id="arti"></span></a>
+                </div>
+                <div id="other">
+                    <a href="#"><span id="bulut"></span></a><a href="#"><span id="yorum"></span>
+                        <div id="yorum_sayi">
+                            7</div>
+                    </a><a href="#"><span id="zil"></span></a><a href="#"><span id="wordpress"></span>
+                    </a>
+                </div>
+                <img src="/images/logo.jpg" alt="logo" style="width: 203px; height: 19px; float: right;
+                    margin: 12px 20px 0px 0px" />
+            </div>
+            <div id="body">
+                @RenderBody()
+            </div>
+            <div id="footer">
+                <div id="f_left">
+                  
+                    <font style="font-size: 11px; color: #666666;">copyright colomboparts.com 2012</font>
+                </div>
+                <div id="f_right">
+                    <ul>
+                        <li><div style="float:left; width: 150px"><img src="/images/agent.png" style="float: left; margin-top:10px" /><a href="http://anibor.digeryuzu.com"><span><font>anibor</font></span></a></div></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

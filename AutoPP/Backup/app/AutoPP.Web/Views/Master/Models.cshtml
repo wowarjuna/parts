@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 id="p_title" class="list">
+    Models</h2>
+    
+
+<div class="toolbar">
+    <div class="add-area">
+        <a href="/Master/AddModel" class="add-new-item"></a>
+    </div>
+    @Html.Partial("_ModelFilter")
+</div>
+<script type="text/javascript">
+    var _table;
+
+    $(document).ready(function () {
+        _table = $('#table_id').dataTable({
+            "bProcessing": true,
+            "sAjaxSource": "/Master/JsonModels",
+            "bServerSide": true,
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sTitle": "Model No", "mDataProp": "ModelNo", 'sWidth': '100px' },
+			    { "sTitle": "Name", "mDataProp": "Name" },
+                { "sTitle": "Year", "mDataProp": "Year", 'sWidth': '100px' },
+                { "sTitle": "Make", "mDataProp": "Make", 'sWidth': '100px' },
+                { "sTitle": "Action", "mDataProp": "Id", 'sWidth': '50px', "fnRender": function (oObj) {
+                    return '<a href="/Master/EditModel/' + oObj.aData.Id + '" class="edit"> </a><a href="/Master/DeleteModel/' + oObj.aData.Id + '" class="delete"> </a>';
+                }
+                }
+
+			],
+            "fnServerData": function (sSource, aoData, fnCallback) {
+                aoData.push({ "name": "cFilters", "value": [$('.makes').val(), "test2"] });
+                $.getJSON(sSource, aoData, function (json) {
+                    /* Do whatever additional processing you want on the callback, then tell DataTables */
+                    fnCallback(json)
+                });
+            }
+
+        });
+
+        
+    });
+
+    function onModelFilterReload() {
+        _table.fnDraw();
+        
+    }
+</script>
+<table id="table_id" class="display">
+</table>

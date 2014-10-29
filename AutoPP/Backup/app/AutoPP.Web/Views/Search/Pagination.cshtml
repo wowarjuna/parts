@@ -1,0 +1,40 @@
+﻿@model AutoPP.Web.Controllers.Util.PaginationInfo
+<div>
+
+<div>
+    Results @Model.FirstItemIndex - @Model.LastItemIndex of <b>@Model.TotalItemCount</b>
+</div>
+
+<p class="page-navigation">
+<span class="med">Page(s): </span>
+<!--<div class="pagination">-->
+
+@if (Model.HasPrevPage) { 
+<a href="@Model.PrevPageUrl">&laquo; Previous</a> <text>|</text>
+} else {
+    <strong class="med">&laquo; Previous</strong> <text>|</text>
+}
+
+@foreach (var p in Model.Pages)
+{
+    if (p == Model.CurrentPage)
+    {
+        <strong class="med">@p</strong><text>|</text>
+    }
+    else
+    {
+    <a href="@Model.PageUrlFor(p)">@p</a><text>|</text>
+    }
+}
+
+@if (Model.HasNextPage)
+{
+<a href="@Model.NextPageUrl">Next &raquo;</a>
+}
+else
+{
+<strong class="med">Next &raquo;</strong>
+}
+</p>
+<!--</div>-->
+</div>

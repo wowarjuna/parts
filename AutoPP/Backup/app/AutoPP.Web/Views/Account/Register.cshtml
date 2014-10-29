@@ -1,0 +1,60 @@
+﻿@model AutoPP.Core.User
+<div id="content-title">
+    <span class="title-text">Registration</span>
+</div>
+<form method="post" action="/Account/Register">
+@{Html.EnableClientValidation();}
+<table cellpadding="0" cellspacing="0" style="padding: 10px" class="form-content"
+    width="100%">
+    <tr>
+        <td style="width: 220px">
+            @Html.LabelFor(m => m.UserName)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Password)
+        </td>
+        <td>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.ConfirmPassword)
+        </td>
+        <td>
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Name on the Card</label>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Credit Card Number</label>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <input type="submit" value=" " class="btn-register" />
+        </td>
+    </tr>
+</table>
+</form>
