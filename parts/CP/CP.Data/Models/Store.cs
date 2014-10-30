@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CP.Data
+namespace CP.Data.Models
 {
-    public class Class1
+    [Table("Stores")]
+    public class Store : CPBase
     {
     }
 }
