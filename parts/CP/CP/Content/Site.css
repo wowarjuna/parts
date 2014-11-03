@@ -23,8 +23,8 @@
 }
 
 .store-top {
-    height:30px;
-    background-color:#00000A;
+    height:25px;
+    background-color:#8ACECF;
 }
 
 .search-box {
@@ -35,7 +35,7 @@
 
 .link-box {
     height:300px;
-    background-color:#3FCBFC;
+    background-color:#8ACECF;
     margin:15px 0px 15px 0px;
 }
 
@@ -47,9 +47,26 @@
 .footer-1 {
     height:100px;
     background-color:#232429;
+    color:#fff;
+}
+
+.footer-link {
+    color:#eee;
+    font-size:10px;
 }
 
 .footer-2 {
     height:20px;
     background-color:#00000A;
+}
+
+
+/* Store */
+.header-1 {
+    height:60px;
+}
+
+.header-2 {
+    height:80px;
+    background-color:#ddd;
 }
