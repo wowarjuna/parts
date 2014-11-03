@@ -1,4 +1,18 @@
-﻿.bg-1 {
+﻿.logo-box {
+   
+    height:58px;
+}
+
+.logo {
+     margin-top:15px;
+}
+
+.bg-left-top {
+    height:60px;
+    background-image:url(../images/left-top-bg.jpg)
+}
+
+.bg-1 {
     background-color:#eee;
 }
 
@@ -9,14 +23,21 @@
 }
 
 .store-top {
-    height:40px;
-    background-color:black;
+    height:30px;
+    background-color:#00000A;
 }
 
 .search-box {
     height:400px;
+   
 }
 
+
+.link-box {
+    height:300px;
+    background-color:#3FCBFC;
+    margin:15px 0px 15px 0px;
+}
 
 .rsl-item {
     height:150px;
@@ -25,10 +46,10 @@
 
 .footer-1 {
     height:100px;
-    background-color:#eee;
+    background-color:#232429;
 }
 
 .footer-2 {
     height:20px;
-    background-color:#000;
+    background-color:#00000A;
 }
