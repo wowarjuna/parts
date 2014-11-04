@@ -1,4 +1,9 @@
-﻿.logo-box {
+﻿.wrapper {
+    max-width:1170px;
+    margin:0 auto;
+}
+
+.logo-box {
    
     height:58px;
 }
@@ -68,5 +73,11 @@
 
 .header-2 {
     height:80px;
-    background-color:#ddd;
+    background-color:#eee;
+    font-weight:bold;
+}
+
+.store-back-top {
+    height:10px;
+    background-color:#8ACECF;
 }
