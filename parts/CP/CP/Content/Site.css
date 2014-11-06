@@ -81,10 +81,11 @@ body {
 
 .header-2 {
     height:35px;
-    background-color:#8ACECF;
+    /*background-color:#8ACECF;*/
     font-weight:bold;
     color:#fff;
     font-size:24px;
+    background-image:url(../images/top-back_03.png)
 }
 
 .content {

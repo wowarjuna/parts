@@ -24,11 +24,15 @@ namespace CP
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
-                     "~/Scripts/plugins/metisMenu.min.js"));
+                     "~/Scripts/plugins/metisMenu.min.js",
+                     "~/Scripts/plugins/bootstrap-table.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/plugins").Include(
+                 "~/Content/bootstrap-table.min.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

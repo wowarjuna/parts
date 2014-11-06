@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Store\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Store\Controllers\ItemController.cs" />
+    <Compile Include="Areas\Store\Controllers\StoresController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-table.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
@@ -223,6 +225,8 @@
     <Content Include="Content\font-awesome-4.1.0\scss\_variables.scss" />
     <Content Include="Areas\Store\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Store\Views\Item\Sell.cshtml" />
+    <Content Include="Areas\Store\Views\Stores\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Stores\Contacts.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -232,6 +236,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\plugins\bootstrap-table.min.js" />
     <Content Include="Scripts\plugins\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
