@@ -1,89 +1,123 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Add";
     Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
 }
-<div class="row header-2">
-    <b>Add parts to your Store</b>
-</div>
-<div class="row">
-    <div class="col-md-12"><h4><b>Item</b> data</h4></div>
-    <div class="col-md-6">
-        <div class="form-group-sm">
-            <label class="label-sm">Name</label>
-            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
-        </div>
-        
-    </div>
-    <div class="col-md-3">
-        <div class="form-group-sm">
-            <label class="label-sm">Part No</label>
-            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group-sm">
-            <label class="label-sm">Year</label>
-            <input type="text" class="form-control input-sm" placeholder="Year">
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group-sm">
-            <label class="label-sm">Brand</label>
-            <select class="form-control input-sm"></select>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group-sm">
-            <label class="label-sm">Model</label>
-            <select class="form-control input-sm"></select>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group-sm">
-            <label class="label-sm">Category</label>
-            <select class="form-control input-sm"></select>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="form-group-sm">
-            <label class="label-sm">Description</label>
-            <textarea class="form-control"></textarea>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12"><h4><b>Item</b> photos</h4></div>
-</div>
-<div class="row" >
-    <div class="col-md-12"><h4><b>Store</b> info</h4></div>
-    <div class="col-md-12">
-        <div class="form-group-sm">
-            <label class="label-sm">Info</label>
-            <textarea class="form-control"></textarea>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='box box-info'>
+            <div class='box-header'>
+                <h3 class='box-title'>Item Data <small>Add items to your store</small></h3>
+            </div>
+            <div class='box-body pad'>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Name</label>
+                            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Part No</label>
+                            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Year</label>
+                            <input type="text" class="form-control input-sm" placeholder="Year">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Brand</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Model</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Category</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Description</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    <div class="col-md-2">
-        <div class="form-group-sm">
-            <label class="label-sm">Qty</label>
-            <input type="text" class="form-control input-sm" placeholder="Qty">
+
+    </div>
+</div>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='box box-danger'>
+            <div class='box-header'>
+                <h3 class='box-title'>Item Photos <small>Add item photos</small></h3>
             </div>
-        </div>
-    <div class="col-md-2">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> Active
-            </label>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12" style="margin-top:10px">
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='box box-info'>
+            <div class='box-header'>
+                <h3 class='box-title'>Store Info <small>Keep information about the item</small></h3>
+            </div>
+            <div class='box-body pad'>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Info</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Qty</label>
+                            <input type="text" class="form-control input-sm" placeholder="Qty">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Quoted Price</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rs.</span>
+                                <input type="text" class="form-control input-sm" placeholder="Quoted Price">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Active
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row margin-top5">
+    <div class="col-md-12">
 
         <button type="submit" class="btn-save"></button>
     </div>
 </div>
-   
+
 
 
 

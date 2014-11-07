@@ -1,56 +1,66 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Sell";
     Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row header-2">
-    <b>Lets sell some parts</b>
-</div>
-<div class="row margin-top5">
-    <div class="col-md-3">Part No</div>
-    <div class="col-md-3">Qty</div>
-    <div class="col-md-3">Unit Price</div>
-    <div class="col-md-3">Total</div>
-</div>
-<div class="row margin-top5">
-    <div class="col-md-3 form-inline">
-        <div class="input-group">
-            <input type="text" class="form-control input-sm" /> 
-            <span class="input-group-btn"><img class="search-ico" /></span>
-</div>
-        </div>
-    <div class="col-md-3">
-        <input type="text" class="form-control input-sm" placeholder="Qty" />
-    </div>
-    <div class="col-md-3">
-        <div class="input-group">
-            <span class="input-group-addon">Rs.</span>
-            <input type="text" class="form-control input-sm" placeholder="Unit Price" />
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="input-group">
-            <span class="input-group-addon">Rs.</span>
-            <input type="text" class="form-control input-sm" placeholder="Total" />
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='box box-info'>
+            <div class='box-header'>
+                <h3 class='box-title'>Sell Parts <small>sell parts</small></h3>
+            </div>
+            <div class='box-body pad'>
+                <div class="row margin-top5">
+                    <div class="col-md-3">Part No</div>
+                    <div class="col-md-3">Qty</div>
+                    <div class="col-md-3">Unit Price</div>
+                    <div class="col-md-3">Total</div>
+                </div>
+                <div class="row margin-top5">
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" />
+                            <span class="input-group-btn"><img class="search-ico" /></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" placeholder="Qty" />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rs.</span>
+                            <input type="text" class="form-control input-sm" placeholder="Unit Price" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rs.</span>
+                            <input type="text" class="form-control input-sm" placeholder="Total" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top5">
+                    <div class="col-md-12">
+                        <button class="plus-ico pull-right"></button>
+                    </div>
+                </div>
+                <div class="row margin-top5">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rs.</span>
+                            <input class="form-control input-sm" type="text" placeholder="Grand Total" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top5">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3"><button type="submit" class="btn-save pull-right"></button></div>
+                </div>
             </div>
         </div>
-</div>
-<div class="row margin-top5">
-    <div class="col-md-12">
-        <button class="plus-ico pull-right"></button> 
     </div>
 </div>
-<div class="row margin-top5">
-    <div class="col-md-9"></div>
-    <div class="col-md-3">
-        <div class="input-group">
-            <span class="input-group-addon">Rs.</span>
-            <input class="form-control input-sm" type="text" placeholder="Grand Total" />
-            </div>
-        </div>
-</div>
-<div class="row margin-top5">
-    <div class="col-md-9"></div>
-    <div class="col-md-3"><button type="submit" class="btn-save pull-right"></button></div>
-</div>
+
+
+

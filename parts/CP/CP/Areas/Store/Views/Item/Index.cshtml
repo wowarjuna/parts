@@ -1,68 +1,73 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
 }
-<div class="row header-2">
-    <b>Search parts in your Store</b>
-</div>
-<div class="row">
-    
-        <div class="col-md-6">
-            <div class="form-group-sm">
-                <label class="label-sm">Name</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='box box-info'>
+            <div class='box-header'>
+                <h3 class='box-title'>Manage Parts <small>Manage information of the parts in your stores</small></h3>
             </div>
+            <div class='box-body pad'>
+                <div class="row">
 
-        </div>
-        <div class="col-md-3">
-            <div class="form-group-sm">
-                <label class="label-sm">Part No</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+                    <div class="col-md-6">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Name</label>
+                            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Part No</label>
+                            <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Year</label>
+                            <input type="text" class="form-control input-sm" placeholder="Year">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Brand</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Model</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group-sm">
+                            <label class="label-sm">Category</label>
+                            <select class="form-control input-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="margin-top:10px">
+                        <input type="button" class="btn-search">
+                    </div>
+                </div>
+                <div class="row margin-top5" style="margin-bottom:60px">
+                    <div class="col-md-12">
+                        <table data-height="300" data-sort-name="name" data-sort-order="desc" data-toggle="table">
+                            <thead>
+                                <tr>
+                                    <th data-field="id" data-align="right" data-sortable="true">Part No</th>
+                                    <th data-field="name" data-align="center" data-sortable="true">Name</th>
+                                    <th data-field="price">Price</th>
+                                    <th data-field="price">Qty</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="form-group-sm">
-                <label class="label-sm">Year</label>
-                <input type="text" class="form-control input-sm" placeholder="Year">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group-sm">
-                <label class="label-sm">Brand</label>
-                <select class="form-control input-sm"></select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group-sm">
-                <label class="label-sm">Model</label>
-                <select class="form-control input-sm"></select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group-sm">
-                <label class="label-sm">Category</label>
-                <select class="form-control input-sm"></select>
-            </div>
-        </div>
-    <div class="col-md-12" style="margin-top:10px">
-        <input type="button" class="btn-search">
     </div>
 </div>
-<div class="row margin-top5" style="margin-bottom:60px">
-    <div class="col-md-12">
-        <table data-height="400" data-sort-name="name" data-sort-order="desc" data-toggle="table">
-            <thead>
-                <tr>
-                    <th data-field="id" data-align="right" data-sortable="true">Part No</th>
-                    <th data-field="name" data-align="center" data-sortable="true">Name</th>
-                    <th data-field="price">Price</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-</div>
-<script>
-    $(function () {
-    });
-</script>
+

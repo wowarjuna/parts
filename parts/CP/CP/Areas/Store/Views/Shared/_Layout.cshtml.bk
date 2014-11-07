@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Colombo Parts</title>
+    <link href="/Content/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/plugins")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/plugins")
+    <script src="~/Scripts/cp.js"></script>
+
+
+</head>
+<body>
+    <div class="container-fluid wrapper">
+
+        <div class="row store-back-top">
+
+        </div>
+        <div class="row header-1">
+            <div class="col-xs-12 col-md-12 logo-box">
+                <img src="/images/logo.png" class="logo" />
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row header-2">
+                   
+                </div>
+                <div class="row">
+                   
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a class="active" href="~/Store/Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Parts<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="/Store/Item/">Search</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Store/Item/Add">Add</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Store/Item/Sell">Sell</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-dashboard fa-fw"></i>Stores<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="/Store/Stores">Manage Stores</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Store/Stores/Contacts/">Manage Contacts</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 content">
+
+                @RenderBody()
+            </div>
+        </div>
+                <div class="row footer-1">
+                    <div class="col-xs-12 col-md-4">
+                        <h6>INFORMATION</h6>
+                        <ul class="nav footer-link">
+                            <li>CONTACT US</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <h6>CONTACT US</h6>
+                        <ul class="nav footer-link">
+                            <li>No. 32 DE SILVA ROAD, KALUBOWILA, DEHIWALA</li>
+                            <li>077-6077028</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4"></div>
+                </div>
+                <div class="row footer-2"></div>
+            </div>
+   
+</body>
+</html>

@@ -158,6 +158,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Store\Controllers\ChartsController.cs" />
     <Compile Include="Areas\Store\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Store\Controllers\ItemController.cs" />
     <Compile Include="Areas\Store\Controllers\StoresController.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLTE.css" />
     <Content Include="Content\bootstrap-table.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -187,11 +189,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\logo.png" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Store\Views\web.config" />
     <Content Include="Areas\Store\Views\Item\Index.cshtml" />
-    <Content Include="Areas\Store\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Store\Views\Charts\Index.cshtml" />
+    <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
@@ -227,6 +231,32 @@
     <Content Include="Areas\Store\Views\Item\Sell.cshtml" />
     <Content Include="Areas\Store\Views\Stores\Index.cshtml" />
     <Content Include="Areas\Store\Views\Stores\Contacts.cshtml" />
+    <Content Include="Areas\Store\Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\less\404_500_errors.less" />
+    <Content Include="Content\less\AdminLTE.less" />
+    <Content Include="Content\less\alerts.less" />
+    <Content Include="Content\less\bootstrap-social.less" />
+    <Content Include="Content\less\boxes.less" />
+    <Content Include="Content\less\buttons.less" />
+    <Content Include="Content\less\callout.less" />
+    <Content Include="Content\less\core.less" />
+    <Content Include="Content\less\dropdown.less" />
+    <Content Include="Content\less\forms.less" />
+    <Content Include="Content\less\header.less" />
+    <Content Include="Content\less\iCheck.less" />
+    <Content Include="Content\less\invoice.less" />
+    <Content Include="Content\less\lockscreen.less" />
+    <Content Include="Content\less\login_and_register.less" />
+    <Content Include="Content\less\mailbox.less" />
+    <Content Include="Content\less\mixins.less" />
+    <Content Include="Content\less\navs.less" />
+    <Content Include="Content\less\pace.less" />
+    <Content Include="Content\less\progress-bars.less" />
+    <Content Include="Content\less\sidebar.less" />
+    <Content Include="Content\less\skins.less" />
+    <Content Include="Content\less\small-box.less" />
+    <Content Include="Content\less\timeline.less" />
+    <Content Include="Content\less\vars.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
