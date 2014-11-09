@@ -7,6 +7,10 @@
    vertical-align:auto;
 }
 
+.message-area {
+    display:none;
+}
+
 
 
 .btn-search {

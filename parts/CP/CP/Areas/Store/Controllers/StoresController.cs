@@ -14,6 +14,11 @@ namespace CP.Areas.Store.Controllers
             return View();
         }
 
+        public ActionResult Edit(int Id)
+        {
+            return View(Id);
+        }
+
         public ActionResult Contacts()
         {
             return View();

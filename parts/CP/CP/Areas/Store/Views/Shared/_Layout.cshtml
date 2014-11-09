@@ -21,8 +21,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/plugins")
     <script src="/Scripts/app.js" type="text/javascript"></script>
+    <script src="/Scripts/cp.js" type="text/javascript"></script>
 </head>
 <body class="skin-blue">
     <!-- header logo: style can be found in header.less -->
@@ -309,7 +311,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/Store/Item/Add"><i class="fa fa-angle-double-right"></i> Add Part</a></li>
-                            <li><a href="/Store/Item"><i class="fa fa-angle-double-right"></i> Search Parts</a></li>
+                            <li><a href="/Store/Item"><i class="fa fa-angle-double-right"></i> Find Parts</a></li>
                             <li><a href="/Store/Item/Sell"><i class="fa fa-angle-double-right"></i> Sell Parts</a></li>
                         </ul>
                     </li>
@@ -336,21 +338,9 @@
         </aside>
         <!-- Right side column. Contains the navbar and content of the page -->
         <aside class="right-side">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    Blank page
-                    <small>Control panel</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Blank page</li>
-                </ol>
-            </section>
-            <!-- Main content -->
-            <section class="content">
+            
             @RenderBody()
-            </section><!-- /.content -->
+           
         </aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
   

@@ -1,0 +1,10 @@
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\CP.Data.dll.config
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\CP.Data.dll
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\CP.Data.pdb
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.dll
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.xml
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.csprojResolveAssemblyReference.cache
+D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.dll
+D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.pdb

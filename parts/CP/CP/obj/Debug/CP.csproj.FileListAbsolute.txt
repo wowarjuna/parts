@@ -53,3 +53,11 @@ D:\Projects\Parts\parts\parts\CP\CP\bin\Microsoft.Owin.Security.MicrosoftAccount
 D:\Projects\Parts\parts\parts\CP\CP\obj\Debug\CP.csprojResolveAssemblyReference.cache
 D:\Projects\Parts\parts\parts\CP\CP\obj\Debug\CP.dll
 D:\Projects\Parts\parts\parts\CP\CP\obj\Debug\CP.pdb
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Net.Http.Formatting.dll
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.dll
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.WebHost.dll
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Net.Http.Formatting.xml
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.xml
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.WebHost.xml
+D:\Projects\Parts\parts\parts\CP\CP\bin\CP.Data.dll
+D:\Projects\Parts\parts\parts\CP\CP\bin\CP.Data.pdb
