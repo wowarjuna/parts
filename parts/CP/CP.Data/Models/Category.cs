@@ -10,5 +10,6 @@ namespace CP.Data.Models
     [Table("Categories")]
     public class Category : CPBase
     {
+        public string Name { get; set; }
     }
 }

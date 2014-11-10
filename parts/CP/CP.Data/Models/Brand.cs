@@ -9,5 +9,6 @@ namespace CP.Data.Models
     [Table("Brands")]
     public class Brand : CPBase
     {
+        public string Name { get; set; }
     }
 }

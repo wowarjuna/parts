@@ -29,5 +29,13 @@ namespace CP.Data.Models
         public bool Active { get; set; }
 
         public int Qty { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime? Modified { get; set; }
+
+        public double? QuotedPrice { get; set; }
+
+        public int Year { get; set; }
     }
 }

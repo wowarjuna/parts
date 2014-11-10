@@ -12,10 +12,13 @@ namespace CP.Data.Models
     {
         public string Name { get; set; }
 
-        public string ModelNoo { get; set; }
+        public string ModelNo { get; set; }
 
         public int FromY { get; set; }
 
-        public int ToY { get; set; }
+        public int? ToY { get; set; }
+
+        public int BrandId { get; set; }
+
     }
 }

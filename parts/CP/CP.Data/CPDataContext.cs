@@ -9,6 +9,10 @@ namespace CP.Data
     public partial class CPDataContext : DbContext
     {
         public DbSet<Store> Stores { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Model> Models { get; set; }
+        public DbSet<Category> Categories { get; set; }
        
         public CPDataContext()
             : base("name=CPDataContext")
