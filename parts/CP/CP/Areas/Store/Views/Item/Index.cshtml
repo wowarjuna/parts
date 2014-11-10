@@ -23,53 +23,54 @@
                 </div>
                 <div class='box-body pad'>
                     <div class="row">
-
-                        <div class="col-md-6">
-                            <div class="form-group-sm">
-                                <label class="label-sm">Name</label>
-                                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group-sm">
-                                <label class="label-sm">Part No</label>
-                                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group-sm">
-                                <label class="label-sm">Year</label>
-                                <input type="text" class="form-control input-sm" placeholder="Year">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="form-group-sm">
                                 <label class="label-sm">Brand</label>
-                               
-                                <!--<select class="form-control input-sm"></select>-->
+
+                                @Html.DropDownList("BrandId", (IEnumerable<SelectListItem>)ViewBag.Brands, new { @class = "form-control input-sm" })
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group-sm">
                                 <label class="label-sm">Model</label>
-                                <select class="form-control input-sm"></select>
+                                <select class="form-control input-sm" id="ModelId" name="ModelId"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Category</label>
+                                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Part No</label>
+                                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Part No">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Year</label>
+                                <input type="text" name="Year" id="Year" class="form-control input-sm" placeholder="Year">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group-sm">
-                                <label class="label-sm">Category</label>
-                               
-                                <select class="form-control input-sm"></select>
+                                <label class="label-sm">Name</label>
+                                <input type="text" name="Name" class="form-control input-sm" id="Name" placeholder="Name">
                             </div>
+
                         </div>
-                        <div class="col-md-12" style="margin-top:10px">
+                       
+                       
+                        <div class="col-md-2" style="margin-top:20px">
                             <button type="button" class="btn btn-primary" onclick="search()">Search</button>
                         </div>
                     </div>
-                    <div class="row margin-top5" style="margin-bottom:60px">
+                    <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">
-                            <table data-height="300" data-sort-name="name" data-sort-order="desc" data-toggle="table">
+                            <table data-height="400" data-sort-name="name" data-sort-order="desc" data-toggle="table">
                                 <thead>
                                     <tr>
                                         <th data-field="id" data-align="right" data-sortable="true">Part No</th>
