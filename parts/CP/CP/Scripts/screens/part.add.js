@@ -1,4 +1,5 @@
-﻿var rules = {
+﻿
+var rules = {
     Name: {
         required: true
     },
@@ -38,6 +39,7 @@ var on_brand_changed = function () {
     $.getJSON('/api/models/bybrand/' + $(this).val())
        .done(function (data) {
            $('#ModelId').empty();
+           $('#ModelId').append($('<option>').text('- Select -').attr('value', 0));
            $.each(data, function (i, value) {
                $('#ModelId').append($('<option>').text(value.Name).attr('value', value.Id));
            });

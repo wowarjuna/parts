@@ -1,8 +1,10 @@
-﻿
+﻿var $table;
+
 var on_brand_changed = function () {
     $.getJSON('/api/models/bybrand/' + $(this).val())
        .done(function (data) {
            $('#ModelId').empty();
+           $('#ModelId').append($('<option>').text('- Select -').attr('value', 0));
            $.each(data, function (i, value) {
                $('#ModelId').append($('<option>').text(value.Name).attr('value', value.Id));
            });
@@ -17,14 +19,15 @@ function search() {
         Name: $('#Name').val()         
     };
 
-    $.getJSON('/api/items/find', data).done(function (data) {
-        $('.message-area').showInfo('Successfully updated');
-    }, 'json').fail(function (jqXHR, textStatus, err) {
-        $('.message-area').showError(err);
+    $table.bootstrapTable('refresh', {
+        url: '/api/items/find/?Name=' + $('#Name').val() + '&BrandId=' + $('#BrandId').val()
     });
+
+   
     return false;
 }
 
 $(function () {
     $('#BrandId').change(on_brand_changed);
+    $table = $('#search-table').bootstrapTable();
 });

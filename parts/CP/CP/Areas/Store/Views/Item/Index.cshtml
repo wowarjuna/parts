@@ -22,6 +22,7 @@
                     <h3 class='box-title'>Find Parts <small>Manage information of the parts in your stores</small></h3>
                 </div>
                 <div class='box-body pad'>
+
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group-sm">
@@ -30,53 +31,50 @@
                                 @Html.DropDownList("BrandId", (IEnumerable<SelectListItem>)ViewBag.Brands, new { @class = "form-control input-sm" })
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group-sm">
                                 <label class="label-sm">Model</label>
                                 <select class="form-control input-sm" id="ModelId" name="ModelId"></select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group-sm">
                                 <label class="label-sm">Category</label>
                                 @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control input-sm" })
                             </div>
                         </div>
-                        
+
                         <div class="col-md-2">
                             <div class="form-group-sm">
                                 <label class="label-sm">Part No</label>
                                 <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Part No">
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div class="form-group-sm">
-                                <label class="label-sm">Year</label>
-                                <input type="text" name="Year" id="Year" class="form-control input-sm" placeholder="Year">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+
+                        <div class="col-md-3">
                             <div class="form-group-sm">
                                 <label class="label-sm">Name</label>
                                 <input type="text" name="Name" class="form-control input-sm" id="Name" placeholder="Name">
                             </div>
 
                         </div>
-                       
-                       
-                        <div class="col-md-2" style="margin-top:20px">
+
+
+                        <div class="col-md-1" style="margin-top:20px">
                             <button type="button" class="btn btn-primary" onclick="search()">Search</button>
                         </div>
                     </div>
+
                     <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">
-                            <table data-height="400" data-sort-name="name" data-sort-order="desc" data-toggle="table">
+                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server">
                                 <thead>
                                     <tr>
-                                        <th data-field="id" data-align="right" data-sortable="true">Part No</th>
-                                        <th data-field="name" data-align="center" data-sortable="true">Name</th>
-                                        <th data-field="price">Price</th>
-                                        <th data-field="price">Qty</th>
+                                        <th data-halign="center" data-field="PartNo" data-align="center" class="col-md-2">Part No</th>
+                                        <th data-halign="center" data-field="Name" class="col-md-4">Name</th>
+                                        <th data-halign="center" data-field="QuotedPrice" class="col-md-1" data-align="right">Quoted Price</th>
+                                        <th data-halign="center" data-field="Qty" class="col-md-1" data-align="right">Qty</th>
+                                        <th data-halign="center" data-field="Id" data-formatter="operateFormatter" class="col-md-1">Actions</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -88,3 +86,18 @@
     </div>
 </section>
 <script type="text/javascript" src="~/Scripts/screens/part.find.js"></script>
+<script>
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="col-md-4" href="javascript:void(0)" title="View">',
+                '<i class="fa fa-file-o"></i>',
+            '</a>',
+            '<a class="col-md-4" href="javascript:void(0)" title="Edit">',
+                '<i class="fa fa-edit"></i>',
+            '</a>',
+            '<a class="col-md-4" href="javascript:void(0)" title="Delete">',
+                '<i class="fa fa-trash-o"></i>',
+            '</a>'
+        ].join('');
+    }
+</script>

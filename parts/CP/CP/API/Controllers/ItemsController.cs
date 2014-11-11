@@ -9,23 +9,48 @@ using System.Web.Http;
 
 namespace CP.API.Controllers
 {
-    public class ItemSearch
+    public class ItemSearchRequest
     {
+        
         public string Name { get; set; }
+
+        public int BrandId { get; set; }
 
         public int Page { get; set; }
 
         public int Offset { get; set; }
+
+        public void Validate()
+        {
+            if (Name == null)
+                Name = string.Empty;
+        }
+    }
+
+    public class ItemSearchResponse
+    {
+        public int total { get; set; }
+
+        public IEnumerable<Item> rows { get; set; }
     }
 
     public class ItemsController : ApiController
     {
         [Route("api/items/find")]
-        public IEnumerable<Item> GetItems([FromUri]ItemSearch criteria)
+        public ItemSearchResponse GetItems([FromUri]ItemSearchRequest criteria)
         {
+            criteria.Validate();
+
             using(var ctx = new CPDataContext())
             {
-                return ctx.Items.Where(x => (x.Name == "" || x.Name.Contains(criteria.Name))).ToList();
+                var query = ctx.Items.Where(x => (x.Name == "" || x.Name.Contains(criteria.Name)) 
+                    && (x.BrandId == 0 || x.BrandId.Equals(criteria.BrandId)));
+
+                return new ItemSearchResponse
+                {
+                    rows = query.ToList(),
+                    total = query.Count()
+                };
             }
         }
 
