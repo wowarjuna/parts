@@ -16,6 +16,12 @@ namespace CP.API.Controllers
 
         public int BrandId { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public int ModelId { get; set; }
+
+        public string PartNo { get; set; }
+
         public int Page { get; set; }
 
         public int Offset { get; set; }
@@ -24,6 +30,9 @@ namespace CP.API.Controllers
         {
             if (Name == null)
                 Name = string.Empty;
+
+            if (PartNo == null)
+                PartNo = string.Empty;
         }
     }
 
@@ -43,8 +52,11 @@ namespace CP.API.Controllers
 
             using(var ctx = new CPDataContext())
             {
-                var query = ctx.Items.Where(x => (x.Name == "" || x.Name.Contains(criteria.Name)) 
-                    && (x.BrandId == 0 || x.BrandId.Equals(criteria.BrandId)));
+                var query = ctx.Items.Where(x => (criteria.Name.Equals("") || x.Name.Contains(criteria.Name))
+                    && (criteria.PartNo.Equals("") || x.PartNo.Contains(criteria.PartNo))
+                    && (criteria.BrandId.Equals(0) || x.BrandId.Equals(criteria.BrandId))
+                    && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
+                    && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId)));
 
                 return new ItemSearchResponse
                 {

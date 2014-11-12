@@ -37,5 +37,7 @@ namespace CP.Data.Models
         public double? QuotedPrice { get; set; }
 
         public int? Year { get; set; }
+
+        public string PartNo { get; set; }
     }
 }

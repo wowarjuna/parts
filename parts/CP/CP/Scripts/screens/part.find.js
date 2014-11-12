@@ -15,12 +15,13 @@ var on_brand_changed = function () {
 }
 
 function search() {
-    var data = {
-        Name: $('#Name').val()         
-    };
-
+    
     $table.bootstrapTable('refresh', {
-        url: '/api/items/find/?Name=' + $('#Name').val() + '&BrandId=' + $('#BrandId').val()
+        url: '/api/items/find/?Name=' + $('#Name').val() +
+            '&BrandId=' + $('#BrandId').val() +
+            '&CategoryId=' + $('#CategoryId').val() +
+            '&PartNo=' + $('#PartNo').val() +
+            '&ModelId=' + $('#ModelId').val()
     });
 
    

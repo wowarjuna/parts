@@ -326,6 +326,7 @@
     <Content Include="Areas\Store\Views\web.config" />
     <Content Include="Areas\Store\Views\Item\Index.cshtml" />
     <Content Include="Areas\Store\Views\Charts\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Item\Edit.cshtml" />
     <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
@@ -405,6 +406,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\screens\part.edit.js" />
     <Content Include="Scripts\screens\part.find.js" />
     <Content Include="Scripts\screens\part.add.js" />
     <Content Include="Scripts\screens\store.edit.js" />

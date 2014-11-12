@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Add Part";
+﻿@model CP.Data.Models.Item
+@{
+    ViewBag.Title = "Edit Part";
     Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
 }
 <section class="content-header">
@@ -15,6 +16,7 @@
 </section>
 <!-- Main content -->
 <section class="content">
+    <input type="hidden" value="@Model.Id" name="Id" id="Id" />
     <div class="row message-area">
         <div class="col-md-12">
             <div class="alert alert-dismissable">
@@ -35,18 +37,18 @@
 
                         <div class="input-group-sm">
                             <label class="label-sm">Name</label>
-                            <input type="text" class="form-control input-sm" id="Name" name="Name" placeholder="Name">
+                            <input value="@Model.Name" type="text" class="form-control input-sm" id="Name" name="Name" placeholder="Name">
                         </div>
 
 
                         <div class="input-group-sm">
                             <label class="label-sm">Part No</label>
-                            <input type="text" class="form-control input-sm" id="PartNo" name="PartNo" placeholder="Part No">
+                            <input value="@Model.PartNo" type="text" class="form-control input-sm" id="PartNo" name="PartNo" placeholder="Part No">
                         </div>
 
                         <div class="input-group-sm">
                             <label class="label-sm">Year</label>
-                            <input type="text" id="Year" name="Year" class="form-control input-sm" placeholder="Year">
+                            <input value="@Model.Year" type="text" id="Year" name="Year" class="form-control input-sm" placeholder="Year">
                         </div>
 
                         <div class="input-group-sm">
@@ -57,9 +59,7 @@
 
                         <div class="form-group-sm">
                             <label class="label-sm">Model</label>
-                            <select class="form-control input-sm" id="ModelId" name="ModelId">
-                                <option value="0">- Select -</option>
-                            </select> 
+                            @Html.DropDownList("ModelId", (IEnumerable<SelectListItem>)ViewBag.Models, new { @class = "form-control input-sm" })
                         </div>
 
                         <div class="form-group-sm">
@@ -69,21 +69,18 @@
 
                         <div class="form-group-sm">
                             <label class="label-sm">Description</label>
-                            <textarea class="form-control" name="Description" id="Description"></textarea>
+                            <textarea class="form-control" name="Description" id="Description">@Model.Description</textarea>
                         </div>
 
                     </div>
                 </div>
             </div>
             <div class='col-md-6'>
-                <div class='box box-danger'>
+                <div class='box box-info'>
                     <div class='box-header'>
                         <h3 class='box-title'>Item Photos <small>Add item photos</small></h3>
                     </div>
-                    <div class='box-body pad'>
-                        <div class="callout callout-danger">Please make sure to save the item info before add images</div>
-
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -100,7 +97,7 @@
                             <div class="col-md-12">
                                 <div class="input-group-sm">
                                     <label class="label-sm">Info</label>
-                                    <textarea name="StoreInfo" id="StoreInfo" class="form-control"></textarea>
+                                    <textarea name="StoreInfo" id="StoreInfo" class="form-control">@Model.StoreInfo</textarea>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +105,7 @@
                             <div class="col-md-2">
                                 <div class="input-group-sm">
                                     <label class="label-sm">Qty</label>
-                                    <input name="Qty" id="Qty" type="number" class="form-control input-sm text-right" placeholder="Qty">
+                                    <input value="@Model.Qty" name="Qty" id="Qty" type="number" class="form-control input-sm text-right" placeholder="Qty">
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -116,7 +113,7 @@
                                     <label class="label-sm">Quoted Price</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rs.</span>
-                                        <input type="number" name="QuotedPrice" id="QuotedPrice" class="form-control input-sm text-right" placeholder="Quoted Price">
+                                        <input value="@Model.QuotedPrice" type="number" name="QuotedPrice" id="QuotedPrice" class="form-control input-sm text-right" placeholder="Quoted Price">
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +124,8 @@
                                             &nbsp;
                                         </label>
                                         <div class="input-group">
-                                            <label><input type="checkbox" checked="checked" id="Active" name="Active"> Active</label>
+
+                                            <label>@Html.CheckBox("Active", Model.Active) Active</label>
                                         </div>
                                     </div>
                                 </div>
@@ -147,6 +145,6 @@
     </form>
 </section>
 
-<script type="text/javascript" src="~/Scripts/screens/part.add.js"></script>
+<script type="text/javascript" src="~/Scripts/screens/part.edit.js"></script>
 
 
