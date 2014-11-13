@@ -13,6 +13,7 @@ namespace CP.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
        
         public CPDataContext()
             : base("name=CPDataContext")

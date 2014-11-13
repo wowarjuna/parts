@@ -23,10 +23,14 @@ namespace CP
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+          
+
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
                      "~/Scripts/plugins/metisMenu.min.js",
                      "~/Scripts/plugins/bootstrap-table.min.js",
                      "~/Scripts/plugins/iCheck/icheck.min.js"));
+
+           
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

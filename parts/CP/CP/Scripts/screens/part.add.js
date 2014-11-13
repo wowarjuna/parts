@@ -51,8 +51,8 @@ var on_brand_changed = function () {
 
 $(function () {
     $('#BrandId').change(on_brand_changed);
-
-    $('form').validate({
+   
+    $('#item-data').validate({
         rules: rules,
         highlight: function (element) {
             $(element).closest('.input-group-sm').addClass('has-error');

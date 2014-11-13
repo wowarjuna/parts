@@ -24,7 +24,7 @@
 
         </div>
     </div>
-    <form role="form">
+    <form role="form" id="item-data">
         <div class='row'>
             <div class='col-md-6'>
                 <div class='box box-info'>
@@ -59,7 +59,7 @@
                             <label class="label-sm">Model</label>
                             <select class="form-control input-sm" id="ModelId" name="ModelId">
                                 <option value="0">- Select -</option>
-                            </select> 
+                            </select>
                         </div>
 
                         <div class="form-group-sm">
@@ -76,21 +76,7 @@
                 </div>
             </div>
             <div class='col-md-6'>
-                <div class='box box-danger'>
-                    <div class='box-header'>
-                        <h3 class='box-title'>Item Photos <small>Add item photos</small></h3>
-                    </div>
-                    <div class='box-body pad'>
-                        <div class="callout callout-danger">Please make sure to save the item info before add images</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class='row'>
-            <div class='col-md-12'>
                 <div class='box box-info'>
                     <div class='box-header'>
                         <h3 class='box-title'>Store Info <small>Keep information about the item</small></h3>
@@ -100,18 +86,18 @@
                             <div class="col-md-12">
                                 <div class="input-group-sm">
                                     <label class="label-sm">Info</label>
-                                    <textarea name="StoreInfo" id="StoreInfo" class="form-control"></textarea>
+                                    <textarea name="StoreInfo" id="StoreInfo" class="form-control" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="input-group-sm">
                                     <label class="label-sm">Qty</label>
                                     <input name="Qty" id="Qty" type="number" class="form-control input-sm text-right" placeholder="Qty">
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="input-group-sm">
                                     <label class="label-sm">Quoted Price</label>
                                     <div class="input-group">
@@ -120,7 +106,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="input-group-sm">
                                     <div class="checkbox">
                                         <label>
@@ -136,17 +122,19 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
 
-        <div class="row margin-top5">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </div>
     </form>
-</section>
+    <div class="row margin-top5">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+    
 
+
+</section>
 <script type="text/javascript" src="~/Scripts/screens/part.add.js"></script>
 
 

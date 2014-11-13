@@ -6,10 +6,9 @@ using System.Web.Mvc;
 
 namespace CP.Areas.Store.Controllers
 {
-    public class DashboardController : Controller
+    public class BasketController : Controller
     {
-        // GET: Store/Dashboard
-        [Authorize]
+        // GET: Store/Basket
         public ActionResult Index()
         {
             return View();

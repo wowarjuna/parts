@@ -20,7 +20,8 @@
             <div class='box box-info'>
                 <div class='box-header'>
                     <h3 class='box-title'>Find Parts <small>Manage information of the parts in your stores</small></h3>
-                </div>
+                    
+                    </div>
                 <div class='box-body pad'>
 
                     <div class="row">
@@ -62,19 +63,33 @@
 
                         <div class="col-md-1" style="margin-top:20px">
                             <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+                            
                         </div>
                     </div>
-
+                    <div class="row margin-top5">
+                        <div class="col-md-12">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    Action <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Edit Store Info</a></li>
+                                                                      
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">
-                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server">
+                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server" data-click-to-select="true">
                                 <thead>
                                     <tr>
-                                        <th data-halign="center" data-field="PartNo" data-align="center" class="col-md-2">Part No</th>
-                                        <th data-halign="center" data-field="Name" class="col-md-4">Name</th>
-                                        <th data-halign="center" data-field="QuotedPrice" class="col-md-1" data-align="right">Quoted Price</th>
-                                        <th data-halign="center" data-field="Qty" class="col-md-1" data-align="right">Qty</th>
-                                        <th data-halign="center" data-field="Id" data-formatter="operateFormatter" class="col-md-1">Actions</th>
+                                        <th data-field="Id" data-checkbox="true"></th>
+                                        <th data-halign="center" data-field="PartNo" data-align="center" data-width="150">Part No</th>
+                                        <th data-halign="center" data-field="Name">Name</th>
+                                        <th data-halign="center" data-field="QuotedPrice" data-align="right" data-width="100">Quoted Price</th>
+                                        <th data-halign="center" data-field="Qty" data-align="right" data-width="100">Qty</th>
+                                        <th data-halign="center" data-field="Id" data-formatter="operateFormatter" data-width="120">Actions</th>
                                     </tr>
                                 </thead>
                             </table>

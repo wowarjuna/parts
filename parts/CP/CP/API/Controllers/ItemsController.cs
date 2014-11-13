@@ -2,16 +2,24 @@
 using CP.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace CP.API.Controllers
 {
+    
+
     public class ItemSearchRequest
     {
-        
+
         public string Name { get; set; }
 
         public int BrandId { get; set; }
@@ -43,6 +51,8 @@ namespace CP.API.Controllers
         public IEnumerable<Item> rows { get; set; }
     }
 
+   
+
     public class ItemsController : ApiController
     {
         [Route("api/items/find")]
@@ -50,7 +60,7 @@ namespace CP.API.Controllers
         {
             criteria.Validate();
 
-            using(var ctx = new CPDataContext())
+            using (var ctx = new CPDataContext())
             {
                 var query = ctx.Items.Where(x => (criteria.Name.Equals("") || x.Name.Contains(criteria.Name))
                     && (criteria.PartNo.Equals("") || x.PartNo.Contains(criteria.PartNo))
@@ -72,7 +82,7 @@ namespace CP.API.Controllers
             {
                 item.Created = DateTime.Now;
                 item.StoreId = 1;
-                ctx.Items.Add(item);               
+                ctx.Items.Add(item);
                 try
                 {
                     ctx.SaveChanges();
@@ -85,5 +95,39 @@ namespace CP.API.Controllers
 
             }
         }
+
+        [Route("api/items/updateitem")]
+        [HttpPost]
+        public HttpResponseMessage PostUpdateItem(Item item)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                ctx.Items.Attach(item);
+                ctx.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                try
+                {
+                    ctx.SaveChanges();
+                    return new HttpResponseMessage(HttpStatusCode.OK);
+                }
+                catch (Exception)
+                {
+                    throw new HttpResponseException(HttpStatusCode.InternalServerError);
+                }
+
+            }
+        }
+
+        [Route("api/items/updatestoreinfo")]
+        [HttpPost]
+        public HttpResponseMessage PostUpdateStoreInfo([FromBody]List<Item> items)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                return new HttpResponseMessage(HttpStatusCode.OK);               
+
+            }
+        }
+
+        
     }
 }

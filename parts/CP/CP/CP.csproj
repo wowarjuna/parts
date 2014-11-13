@@ -167,6 +167,7 @@
   <ItemGroup>
     <Compile Include="API\Controllers\BrandsController.cs" />
     <Compile Include="API\Controllers\CategoriesController.cs" />
+    <Compile Include="API\Controllers\ItemImagesController.cs" />
     <Compile Include="API\Controllers\ItemsController.cs" />
     <Compile Include="API\Controllers\ModelsController.cs" />
     <Compile Include="API\Controllers\StoresController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Store\Controllers\BasketController.cs" />
     <Compile Include="Areas\Store\Controllers\ChartsController.cs" />
     <Compile Include="Areas\Store\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Store\Controllers\ItemController.cs" />
@@ -314,6 +316,8 @@
     <Content Include="Content\iCheck\square\yellow.css" />
     <Content Include="Content\iCheck\square\yellow.png" />
     <Content Include="Content\iCheck\square\_all.css" />
+    <Content Include="Content\jquery.fileupload-ui.css" />
+    <Content Include="Content\jquery.fileupload.css" />
     <Content Include="Content\metisMenu.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -400,8 +404,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\bootstrap-table.min.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-image.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-process.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.fileupload.js" />
+    <Content Include="Scripts\plugins\fileupload\jquery.iframe-transport.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.min.js" />
+    <Content Include="Scripts\plugins\jquery.ui.widget.js" />
     <Content Include="Scripts\plugins\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -455,6 +466,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Store\Models\" />
+    <Folder Include="Areas\Store\Views\Basket\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
