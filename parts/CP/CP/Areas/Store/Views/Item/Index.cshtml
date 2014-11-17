@@ -22,17 +22,17 @@
                     <h3 class='box-title'>Find Parts <small>Manage information of the parts in your stores</small>
                     
                     </h3>
-                    <div class="pull-right margin-top10 margin-right10">
+                    <div class="pull-right box-tools">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><i class="fa fa-tag"></i>Select for purchase</a></li>
+                                <li><a href="#" onclick="addToCart()"><i class="fa fa-tag"></i>Select for purchase</a></li>
                                 <li><a href="/Store/Item/Sell"><i class="fa fa-tags"></i>Go to Invoice</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"><i class="fa fa-pencil-square-o"></i>Edit store info</a></li>
-                                <li><a href="#"><i class="fa fa-plus"></i> Add product</a></li>
+                                <li><a href="/Store/Item/Add"><i class="fa fa-plus"></i> Add product</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                             <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server" data-click-to-select="true">
                                 <thead>
                                     <tr>
-                                        <th data-field="Id" data-checkbox="true"></th>
+                                        <th data-checkbox="true"></th>
                                         <th data-halign="center" data-field="PartNo" data-align="center" data-width="150">Part No</th>
                                         <th data-halign="center" data-field="Name">Name</th>
                                         <th data-halign="center" data-field="QuotedPrice" data-align="right" data-width="100">Quoted Price</th>

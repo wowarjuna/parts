@@ -14,6 +14,10 @@ var on_brand_changed = function () {
        });
 }
 
+var on_add_to_cart_completed = function (data) {
+    alert(data.success);
+}
+
 function search() {
     
     $table.bootstrapTable('refresh', {
@@ -25,6 +29,16 @@ function search() {
     });
 
    
+    return false;
+}
+
+function addToCart() {
+    var ids = new Array();
+    var selections = $table.bootstrapTable('getSelections');
+    $(selections).each(function(index, d) {
+        ids.push(d.Id);
+    });
+    $.post('/store/item/addtocart', { idList: ids }, on_add_to_cart_completed, 'json');
     return false;
 }
 

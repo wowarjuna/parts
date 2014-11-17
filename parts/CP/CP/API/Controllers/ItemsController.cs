@@ -80,15 +80,29 @@ namespace CP.API.Controllers
         {
             using (var ctx = new CPDataContext())
             {
-                item.Created = DateTime.Now;
-                item.StoreId = 1;
-                ctx.Items.Add(item);
+                if (item.Id.Equals(0))
+                {
+                    item.Created = DateTime.Now;
+                    item.StoreId = 1;
+                    ctx.Items.Add(item);
+                }
+                else
+                {
+                    item.Modified = DateTime.Now;
+                    var original = ctx.Items.Find(item.Id);
+                    if (original != null)
+                    {
+                        ctx.Entry(original).CurrentValues.SetValues(item);
+                        ctx.Entry(original).Property(x => x.Created).IsModified = false;
+                    }
+                }
+
                 try
                 {
                     ctx.SaveChanges();
                     return new HttpResponseMessage(HttpStatusCode.OK);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     throw new HttpResponseException(HttpStatusCode.InternalServerError);
                 }

@@ -21,6 +21,11 @@
             <div class='box box-info'>
                 <div class='box-header'>
                     <h3 class='box-title'>Manage Stores <small>Manage information of your stores</small></h3>
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-success btn" title="Add new store">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class='box-body pad'>
                     <div class="row margin-top5" style="margin-bottom:60px">
@@ -46,7 +51,7 @@
 </section><!-- /.content -->
 <script>
     function urlFormatter(value, row) {
-        return "<a href='/Store/stores/edit/1'>Edit</a>";
+        return "<a href='#'><i class='fa fa-edit'></i></a>";
     }
 </script>
 

@@ -39,5 +39,7 @@ namespace CP.Data.Models
         public int? Year { get; set; }
 
         public string PartNo { get; set; }
+
+        public int? BasketId { get; set; }
     }
 }

@@ -10,13 +10,13 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Stores</li>
-        <li class="active">Edit Store Info</li>
+        <li>Find Items</li>
+        <li class="active">Edit Item</li>
     </ol>
 </section>
 <!-- Main content -->
 <section class="content">
-    <input type="hidden" value="@Model.Id" name="Id" id="Id" />
+    <input type="hidden" id="Id" name="Id" value="@Model.Id" />
     <div class="row message-area">
         <div class="col-md-12">
             <div class="alert alert-dismissable">
@@ -26,12 +26,13 @@
 
         </div>
     </div>
-    <form role="form">
+    <form id="edit-item">
+        
         <div class='row'>
             <div class='col-md-6'>
                 <div class='box box-info'>
                     <div class='box-header'>
-                        <h3 class='box-title'>Item Data <small>Add items to your store</small></h3>
+                        <h3 class='box-title'>Item Data <small>Edit item data</small></h3>
                     </div>
                     <div class='box-body pad'>
 
@@ -57,17 +58,17 @@
 
                         </div>
 
-                        <div class="form-group-sm">
+                        <div class="input-group-sm">
                             <label class="label-sm">Model</label>
                             @Html.DropDownList("ModelId", (IEnumerable<SelectListItem>)ViewBag.Models, new { @class = "form-control input-sm" })
                         </div>
 
-                        <div class="form-group-sm">
+                        <div class="input-group-sm">
                             <label class="label-sm">Category</label>
                             @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control input-sm" })
                         </div>
 
-                        <div class="form-group-sm">
+                        <div class="input-group-sm">
                             <label class="label-sm">Description</label>
                             <textarea class="form-control" name="Description" id="Description">@Model.Description</textarea>
                         </div>
@@ -81,14 +82,18 @@
                         <h3 class='box-title'>Store Info <small>Keep information about the item</small></h3>
                     </div>
                     <div class='box-body pad'>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-group-sm">
-                                    <label class="label-sm">Info</label>
-                                    <textarea name="StoreInfo" id="StoreInfo" class="form-control">@Model.StoreInfo</textarea>
-                                </div>
-                            </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Info</label>
+                            <textarea name="StoreInfo" id="StoreInfo" class="form-control">@Model.StoreInfo</textarea>
                         </div>
+
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Basket</label>
+                            @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
+                        </div>
+
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group-sm">
@@ -122,10 +127,10 @@
                     </div>
 
                 </div>
-               
+
             </div>
         </div>
-        
+
         <div class="row margin-top5">
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Save</button>

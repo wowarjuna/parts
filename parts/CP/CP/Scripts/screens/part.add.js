@@ -12,7 +12,7 @@ var rules = {
 }
 
 var submitHandler = function (form) {
-    var data = {
+   var data = {
         Name: $('#Name').val(),
         PartNo: $('#PartNo').val(),
         Year: $('#Year').val(),
@@ -23,7 +23,8 @@ var submitHandler = function (form) {
         StoreInfo: $('#StoreInfo').val(),
         Qty: $('#Qty').val(),
         QuotedPrice: $('#QuotedPrice').val(),
-        Active: $('#Active').prop('checked')
+        Active: $('#Active').prop('checked'),
+        BasketId: $('#BasketId').val()
     };
 
     $.post('/api/items', data).done(function (data) {
@@ -52,7 +53,7 @@ var on_brand_changed = function () {
 $(function () {
     $('#BrandId').change(on_brand_changed);
    
-    $('#item-data').validate({
+    $('form').validate({
         rules: rules,
         highlight: function (element) {
             $(element).closest('.input-group-sm').addClass('has-error');
