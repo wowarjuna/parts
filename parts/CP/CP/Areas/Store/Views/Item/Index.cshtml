@@ -19,8 +19,9 @@
         <div class='col-md-12'>
             <div class='box box-info'>
                 <div class='box-header'>
-                    <h3 class='box-title'>Find Parts <small>Manage information of the parts in your stores</small>
-                    
+                    <h3 class='box-title'>
+                        Find Parts <small>Manage information of the parts in your stores</small>
+
                     </h3>
                     <div class="pull-right box-tools">
                         <div class="btn-group">
@@ -107,6 +108,28 @@
         </div>
     </div>
 </section>
+<div class="modal fade" id="add-to-checkout-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+          
+                <div class="alert alert-success">
+                    <i class="fa fa-check"></i>
+                    Items have been added to the cart. Do you want to checkout?
+                </div>
+
+
+
+
+          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="on_checkout()">Yes</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <script type="text/javascript" src="~/Scripts/screens/part.find.js"></script>
 <script>
     function operateFormatter(value, row, index) {

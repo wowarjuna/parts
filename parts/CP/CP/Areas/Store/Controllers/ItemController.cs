@@ -96,16 +96,23 @@ namespace CP.Areas.Store.Controllers
 
         public ActionResult Sell()
         {
-            return View();
+            IList<Item> items = new List<Item>();
+            using (var ctx = new CPDataContext())
+            {
+                List<long> cart = Session["cart"] as List<long>;
+                if(cart != null)
+                    items = ctx.Items.Where(x => cart.Contains(x.Id)).ToList();
+            }
+            return View(items);
         }
 
         [HttpPost]
-        public JsonResult AddToCart(List<int> idList)
+        public JsonResult AddToCart(List<long> idList)
         {
             if (Session["cart"] == null)
-                Session["cart"] = new List<int>(idList);
+                Session["cart"] = new List<long>(idList);
             else
-                Session["cart"] = ((List<int>)Session["cart"]).Union(idList);
+                Session["cart"] = ((List<long>)Session["cart"]).Union(idList).ToList();
 
 
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);

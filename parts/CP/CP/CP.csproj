@@ -415,14 +415,17 @@
     <Content Include="Scripts\plugins\iCheck\icheck.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.min.js" />
     <Content Include="Scripts\plugins\jquery.ui.widget.js" />
+    <Content Include="Scripts\plugins\maskMoney\jquery.maskMoney.min.js" />
     <Content Include="Scripts\plugins\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\plugins\numeral\numeral.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\screens\basket.find.js" />
     <Content Include="Scripts\screens\part.edit.js" />
     <Content Include="Scripts\screens\part.find.js" />
     <Content Include="Scripts\screens\part.add.js" />
+    <Content Include="Scripts\screens\part.sell.js" />
     <Content Include="Scripts\screens\store.edit.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

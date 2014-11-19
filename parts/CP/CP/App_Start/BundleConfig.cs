@@ -28,7 +28,9 @@ namespace CP
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
                      "~/Scripts/plugins/metisMenu.min.js",
                      "~/Scripts/plugins/bootstrap-table.min.js",
-                     "~/Scripts/plugins/iCheck/icheck.min.js"));
+                     "~/Scripts/plugins/iCheck/icheck.min.js",
+                     "~/Scripts/plugins/maskMoney/jquery.maskMoney.min.js",
+                     "~/Scripts/plugins/numeral/numeral.min.js"));
 
            
 

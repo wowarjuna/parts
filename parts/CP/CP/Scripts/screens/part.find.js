@@ -15,20 +15,23 @@ var on_brand_changed = function () {
 }
 
 var on_add_to_cart_completed = function (data) {
-    alert(data.success);
+    if (data.success) {
+        $('#add-to-checkout-modal').modal('show');
+    }
 }
 
-function search() {
-    
+function on_checkout() {
+   window.location.href = '/Store/Item/Sell';
+}
+
+function search() {    
     $table.bootstrapTable('refresh', {
         url: '/api/items/find/?Name=' + $('#Name').val() +
             '&BrandId=' + $('#BrandId').val() +
             '&CategoryId=' + $('#CategoryId').val() +
             '&PartNo=' + $('#PartNo').val() +
             '&ModelId=' + $('#ModelId').val()
-    });
-
-   
+    });   
     return false;
 }
 
