@@ -1,4 +1,4 @@
-﻿@model List<CP.Data.Models.Item>
+﻿@model int
 @{
     ViewBag.Title = "Sell";
     Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class='box-body pad'>
-                    @if (((List<CP.Data.Models.Item>)Model).Count == 0)
+                    @if (Model == 0)
                     {
 
                         <div class="alert alert-info alert-dismissable">
@@ -47,41 +47,19 @@
                     {
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-condensed table-hover">
+                                <table id="checkout-table">
                                     <thead>
                                         <tr>
-                                            <th class="col-md-1 text-center">Actions</th>
-                                            <th class="col-md-2 text-left">Part No</th>
-                                            <th class="col-md-4 text-left">Name</th>
-                                            <th class="col-md-2 text-center">Unit Price</th>
-                                            <th class="col-md-1 text-center">Qty</th>
-                                            <th class="col-md-2 text-center">Total</th>
+                                            <th data-field="Id" data-formatter="operateFormatter" class="col-md-1 text-center">Actions</th>
+                                            <th data-field="PartNo" class="col-md-2 text-left">Part #</th>
+                                            <th data-field="Name"  class="col-md-5 text-left">Name</th>
+                                            <th data-field="QuotedPrice" data-formatter="unitPriceFormatter" class="col-md-1 text-center">Unit Price</th>
+                                            <th class="col-md-1 text-center" data-formatter="qtyFormatter">Qty</th>
+                                            <th class="col-md-2 text-right" data-formatter="subtotalFormatter">Sub Total</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach (CP.Data.Models.Item item in (List<CP.Data.Models.Item>)Model)
-                                        {
-                                            <tr>
-                                                <td><a class="col-md-4" href="javascript:void(0)" title="Delete"><i class="fa fa-trash-o"></i></a></td>
-                                                <td>@item.PartNo</td>
-                                                <td>@item.Name</td>
-                                                <td>
-                                                    <div class="input-group input-group-sm">
-                                                        <input data-precision="2" data-thousands="," data-decimal="." id="@string.Format("QuotedPrice{0}",item.Id)" name="@string.Format("QuotedPrice{0}",item.Id)" type="text" class="form-control text-right number-mask" value="@string.Format("{0:0.00}",item.QuotedPrice)">
 
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="input-group input-group-sm">
-                                                        <input data-precision="0" id="@string.Format("Qty{0}",item.Id)" name="@string.Format("Qty{0}", item.Id)" type="text" class="form-control text-right qty-mask" value="1">
-                                                    </div>
-                                                </td>
-                                                <td class="@string.Format("Total{0}",item.Id) text-right"></td>
-                                            </tr>
-                                        }
-
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -93,8 +71,8 @@
                                             <table class="table">
                                                 
                                                 <tr>
-                                                    <th style="width:50%">Total</th>
-                                                    <td class="total text-right"></td>
+                                                    <th style="width:50%"><h3>Total</h3></th>
+                                                    <td class="text-right"><h3><strong class="total"></strong></h3></td>
                                                 </tr>
 
                                             </table>
@@ -119,3 +97,26 @@
 
 </section>
 <script type="text/javascript" src="~/Scripts/screens/part.sell.js"></script>
+<script>
+    function unitPriceFormatter(value, row, index) {
+        var val = numeral(row.QuotedPrice).format('0,0.00');
+        return '<input data-precision="2" data-thousands="," data-decimal="." id="QuotedPrice' + row.Id + '" name="QuotedPrice' + row.Id + '" type="text" class="form-control input-sm text-right number-mask" value="' + val + '">';
+    }
+
+    function qtyFormatter(value, row, index) {
+        return '<input data-precision="0" data-thousands="," data-decimal="." id="Qty' + row.Id + '" name="Qty' + row.Id + '" type="text" class="form-control input-sm text-right qty-mask" value="1">';
+    }
+
+    function subtotalFormatter(value, row, index) {
+        var val = numeral(row.QuotedPrice).format('0,0.00');
+        return '<strong id="Total' + row.Id + '" name="Total' + row.Id + '">' + val + '</strong>';
+    }
+
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="col-md-4" href="#" onclick="delete_item('+ row.Id +')" title="Delete">',
+                '<i class="fa fa-trash-o"></i>',
+            '</a>'
+        ].join('');
+    }
+</script>

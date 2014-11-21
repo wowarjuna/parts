@@ -85,10 +85,11 @@ namespace CP.Areas.Store.Controllers
                                       select new SelectListItem
                                       {
                                           Text = x.Name,
-                                          Value = x.Id.ToString(),
-                                          Selected = x.Id.Equals(item.BasketId) ? true : false
+                                          Value = x.Id.ToString()
                                       }).ToList();
                 ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
+                if (item.BasketId != null)
+                    ((List<SelectListItem>)ViewBag.Baskets).FirstOrDefault(x => x.Value.Equals(((int)item.BasketId).ToString())).Selected = true;
 
                 return View(item);
             }
@@ -96,14 +97,11 @@ namespace CP.Areas.Store.Controllers
 
         public ActionResult Sell()
         {
-            IList<Item> items = new List<Item>();
-            using (var ctx = new CPDataContext())
-            {
-                List<long> cart = Session["cart"] as List<long>;
-                if(cart != null)
-                    items = ctx.Items.Where(x => cart.Contains(x.Id)).ToList();
-            }
-            return View(items);
+            if (Session["cart"] != null)
+                return View(((List<long>)Session["cart"]).Count);
+            else
+                return View(0);
+
         }
 
         [HttpPost]
@@ -116,6 +114,35 @@ namespace CP.Areas.Store.Controllers
 
 
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteFromCart(long id)
+        {
+            IList<Item> items = new List<Item>();
+            var cart = Session["cart"] as List<long>;
+            using (var ctx = new CPDataContext())
+            {
+                cart.Remove(id);
+               
+                if (cart != null)
+                    items = ctx.Items.Where(x => cart.Contains(x.Id)).ToList();
+                return Json(items, JsonRequestBehavior.AllowGet);
+            }
+          
+        }
+
+        public JsonResult Cart()
+        {
+            IList<Item> items = new List<Item>();
+            using (var ctx = new CPDataContext())
+            {
+                List<long> cart = Session["cart"] as List<long>;
+                if(cart != null)
+                    items = ctx.Items.Where(x => cart.Contains(x.Id)).ToList();
+                return Json(items, JsonRequestBehavior.AllowGet);
+            }
+            
         }
     }
 }
