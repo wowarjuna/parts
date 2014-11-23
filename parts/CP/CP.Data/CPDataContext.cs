@@ -14,6 +14,8 @@ namespace CP.Data
         public DbSet<Model> Models { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
        
         public CPDataContext()
             : base("name=CPDataContext")

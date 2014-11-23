@@ -20,6 +20,9 @@ namespace CP.Data.Models
 
         public double UnitPrice { get; set; }
 
-        public double Total { get; set; }
+        public int InvoiceId { get; set; }
+
+        [ForeignKey("InvoiceId")]
+        public virtual Invoice Invoice { get; set; }
     }
 }

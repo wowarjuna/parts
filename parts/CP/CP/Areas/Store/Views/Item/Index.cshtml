@@ -31,6 +31,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#" onclick="addToCart()"><i class="fa fa-tag"></i>Select for purchase</a></li>
                                 <li><a href="/Store/Item/Sell"><i class="fa fa-tags"></i>Go to Invoice</a></li>
+                                <li><a href="#" onclick="show_advaced_filter()"><i class="fa fa-search-plus"></i>Advanced filters</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"><i class="fa fa-pencil-square-o"></i>Edit store info</a></li>
                                 <li><a href="/Store/Item/Add"><i class="fa fa-plus"></i> Add product</a></li>
@@ -82,10 +83,17 @@
 
                         </div>
                     </div>
-                    <div class="row margin-top5">
-                        <div class="col-md-12">
-
+                    <div class="row margin-top5" id="advanced-filters" style="display:none">
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Basket</label>
+                                @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
+                            </div>
                         </div>
+                        <div class="col-md-1 pull-right">
+                            <button type="button" class="close" aria-hidden="true" onclick="hide_advaced_filter()">×</button>
+                        </div>
+                        
                     </div>
                     <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">
@@ -112,16 +120,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-          
-                <div class="alert alert-success">
-                    <i class="fa fa-check"></i>
-                    Items have been added to the cart. Do you want to checkout?
-                </div>
+
+            <div class="alert alert-success">
+                <i class="fa fa-check"></i>
+                Items have been added to the cart. Do you want to checkout?
+            </div>
 
 
 
 
-          
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" onclick="on_checkout()">Yes</button>

@@ -24,6 +24,10 @@ namespace CP.Areas.Store.Controllers
                                       select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Categories).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
+                ViewBag.Baskets = (from x in ctx.Baskets
+                                   select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
+                ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
+
                 return View();
             }
         }
@@ -143,6 +147,11 @@ namespace CP.Areas.Store.Controllers
                 return Json(items, JsonRequestBehavior.AllowGet);
             }
             
+        }
+
+        public ActionResult Sales()
+        {
+            return View();
         }
     }
 }

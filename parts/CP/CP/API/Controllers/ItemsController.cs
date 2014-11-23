@@ -28,6 +28,8 @@ namespace CP.API.Controllers
 
         public int ModelId { get; set; }
 
+        public int BasketId { get; set; }
+
         public string PartNo { get; set; }
 
         public int Page { get; set; }
@@ -66,7 +68,8 @@ namespace CP.API.Controllers
                     && (criteria.PartNo.Equals("") || x.PartNo.Contains(criteria.PartNo))
                     && (criteria.BrandId.Equals(0) || x.BrandId.Equals(criteria.BrandId))
                     && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
-                    && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId)));
+                    && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
+                    && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId));
 
                 return new ItemSearchResponse
                 {

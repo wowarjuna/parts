@@ -171,6 +171,7 @@
     <Compile Include="API\Controllers\ItemImagesController.cs" />
     <Compile Include="API\Controllers\ItemsController.cs" />
     <Compile Include="API\Controllers\ModelsController.cs" />
+    <Compile Include="API\Controllers\InvoicesController.cs" />
     <Compile Include="API\Controllers\StoresController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -333,6 +334,7 @@
     <Content Include="Areas\Store\Views\Charts\Index.cshtml" />
     <Content Include="Areas\Store\Views\Item\Edit.cshtml" />
     <Content Include="Areas\Store\Views\Basket\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Item\Sales.cshtml" />
     <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />

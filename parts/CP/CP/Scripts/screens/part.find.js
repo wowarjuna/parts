@@ -24,13 +24,25 @@ function on_checkout() {
    window.location.href = '/Store/Item/Sell';
 }
 
+function show_advaced_filter() {
+    $('#advanced-filters').show('fast');
+    return false;
+}
+
+function hide_advaced_filter() {
+    $('#advanced-filters').hide('fast');
+    $('#BasketId').val('0');
+    return false;
+}
+
 function search() {    
     $table.bootstrapTable('refresh', {
         url: '/api/items/find/?Name=' + $('#Name').val() +
             '&BrandId=' + $('#BrandId').val() +
             '&CategoryId=' + $('#CategoryId').val() +
             '&PartNo=' + $('#PartNo').val() +
-            '&ModelId=' + $('#ModelId').val()
+            '&ModelId=' + $('#ModelId').val() +
+            '&BasketId=' + $('#BasketId').val()
     });   
     return false;
 }

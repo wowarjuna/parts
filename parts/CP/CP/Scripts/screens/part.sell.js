@@ -43,17 +43,26 @@ function on_load() {
 
             });
             $('.total').text(numeral(total).format('0,0.00'));
-        },
-        onClickRow: function (row) {
-            /*$('.number-mask,.qty-mask').keyup(function () {
-                on_figure_changed(this);
-            });
-            $('.number-mask').maskMoney();
-            $('.qty-mask').maskMoney();*/
-           
-           
         }
     });
+}
+
+function on_payment_submit() {
+    var items = new Array();
+    $('[name^="QuotedPrice"]').each(function (idx, data) {
+        var suffix = $(this).attr('name').replace('QuotedPrice', '')
+        items.push({
+            UnitPrice: $(this).val(),
+            Qty: $('[name="Qty' + suffix + '"]').val()
+        });
+    });
+
+    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete, 'json');
+    return false;
+}
+
+function on_payment_complete(res) {
+
 }
 
 $(function () {
