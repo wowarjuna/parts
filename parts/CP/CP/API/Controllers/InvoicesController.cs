@@ -18,19 +18,14 @@ namespace CP.API.Controllers
                 if (invoice.Id.Equals(0))
                 {
                     invoice.Created = DateTime.Now;
+                    foreach(var item in invoice.Items)
+                    {
+                        var original = ctx.Items.Find(item.ItemId);
+                        original.Qty = original.Qty - item.Qty;
+                    }
                     ctx.Invoices.Add(invoice);
                 }
-                else
-                {
-                    invoice.Modified = DateTime.Now;
-                    var original = ctx.Invoices.Find(invoice.Id);
-                    if (original != null)
-                    {
-                        ctx.Entry(original).CurrentValues.SetValues(invoice);
-                        ctx.Entry(original).Property(x => x.Created).IsModified = false;
-                    }
-                }
-
+                
                 try
                 {
                     ctx.SaveChanges();

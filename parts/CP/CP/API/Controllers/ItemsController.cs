@@ -36,6 +36,8 @@ namespace CP.API.Controllers
 
         public int Offset { get; set; }
 
+        public bool InStock { get; set; }
+
         public void Validate()
         {
             if (Name == null)
@@ -69,7 +71,8 @@ namespace CP.API.Controllers
                     && (criteria.BrandId.Equals(0) || x.BrandId.Equals(criteria.BrandId))
                     && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
                     && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
-                    && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId));
+                    && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId)
+                    && (!criteria.InStock || x.Qty > 0));
 
                 return new ItemSearchResponse
                 {

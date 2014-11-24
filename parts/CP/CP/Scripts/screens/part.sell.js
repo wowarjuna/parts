@@ -5,7 +5,7 @@ function calculate_total() {
     var total = 0;
     $('[name^="QuotedPrice"]').each(function (idx, data) {
         var suffix = $(this).attr('name').replace('QuotedPrice', '');
-        var subtot = numeral().unformat($(this).val()) * $('[name="Qty' + suffix + '"]').val();
+        var subtot = numeral().unformat($(this).val()) * numeral().unformat($('[name="Qty' + suffix + '"]').val());
         total += subtot;
         
     });
@@ -53,16 +53,24 @@ function on_payment_submit() {
         var suffix = $(this).attr('name').replace('QuotedPrice', '')
         items.push({
             UnitPrice: $(this).val(),
-            Qty: $('[name="Qty' + suffix + '"]').val()
+            Qty: $('[name="Qty' + suffix + '"]').val(),
+            ItemId: suffix
         });
     });
 
-    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete, 'json');
+    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete);
     return false;
 }
 
-function on_payment_complete(res) {
+function on_payment_complete() {
+    window.location.href = '/Store/Invoice';
+}
 
+function on_payment_cancel() {
+    $.post('/store/item/cancelcheckout', function () {
+        window.location.href = '/Store/Item';
+    });
+    return false;
 }
 
 $(function () {
@@ -73,6 +81,10 @@ $(function () {
     });
     
     $('#checkout-table').on('keyup', '.number-mask,.qty-mask', function () {
-       on_figure_changed(this);
+        if ($(this).hasClass('qty-mask') && this.value > parseInt($(this).siblings('span').text()))
+        {           
+            $(this).val($(this).siblings('span').text());
+        }
+        on_figure_changed(this);
     });
 });

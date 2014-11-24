@@ -5,12 +5,12 @@
 }
 <section class="content-header">
     <h1>
-        Invoice
+        Checkout
 
     </h1>
     <ol class="breadcrumb">
         <li><a href="/Store/Dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Invoice</li>
+        <li class="active">Checkout</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -80,7 +80,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button class="btn btn-default pull-right margin10" onclick="on_payment_submit()">Submit payment</button>
+                                            <button class="btn btn-warning margin10" onclick="on_payment_cancel()">Cancel</button>
+                                            <button class="btn btn-default pull-right margin10" onclick="on_payment_submit()">PAY</button>
                                         </div>
                                     </div>
 
@@ -104,7 +105,10 @@
     }
 
     function qtyFormatter(value, row, index) {
-        return '<input data-precision="0" data-thousands="," data-decimal="." id="Qty' + row.Id + '" name="Qty' + row.Id + '" type="text" class="form-control input-sm text-right qty-mask" value="1">';
+        return ['<div class="input-group">',
+            '<input  maxlength="2" data-precision="0" data-thousands="," data-decimal="." id="Qty' + row.Id + '" name="Qty' + row.Id + '" type="text" class="form-control input-sm text-right qty-mask" value="1">',
+            '<span class="input-group-addon">' + row.Qty + '</span>',
+            '</div>'].join('');
     }
 
     function subtotalFormatter(value, row, index) {

@@ -12,6 +12,10 @@ namespace CP.Data.Models
     {
         public double Total { get; set; }
 
+        public int PaymentMethod { get; set; }
+
+        public string Reference { get; set; }
+
         public virtual ICollection<Sale> Items { get; set; }
     }
 }

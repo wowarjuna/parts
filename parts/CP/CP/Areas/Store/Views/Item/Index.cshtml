@@ -90,10 +90,22 @@
                                 @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <div class="checkbox">
+                                    <label>
+                                        In Stock
+                                    </label>
+                                    <div class="input-group">
+                                        <label><input type="checkbox" name="InStock" id="InStock" checked="checked"/></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-1 pull-right">
                             <button type="button" class="close" aria-hidden="true" onclick="hide_advaced_filter()">×</button>
                         </div>
-                        
+
                     </div>
                     <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">

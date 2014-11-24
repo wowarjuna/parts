@@ -32,6 +32,7 @@ function show_advaced_filter() {
 function hide_advaced_filter() {
     $('#advanced-filters').hide('fast');
     $('#BasketId').val('0');
+    $('#InStock').prop('checked', true);
     return false;
 }
 
@@ -42,7 +43,8 @@ function search() {
             '&CategoryId=' + $('#CategoryId').val() +
             '&PartNo=' + $('#PartNo').val() +
             '&ModelId=' + $('#ModelId').val() +
-            '&BasketId=' + $('#BasketId').val()
+            '&BasketId=' + $('#BasketId').val() +
+            '&InStock=' + $('#InStock').prop('checked')
     });   
     return false;
 }

@@ -136,6 +136,13 @@ namespace CP.Areas.Store.Controllers
           
         }
 
+        [HttpPost]
+        public JsonResult CancelCheckout()
+        {
+            Session["cart"] = null;
+            return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult Cart()
         {
             IList<Item> items = new List<Item>();
