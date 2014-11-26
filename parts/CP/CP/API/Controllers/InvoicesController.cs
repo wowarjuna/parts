@@ -5,10 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace CP.API.Controllers
 {
+    public class InvoiceResponse
+    {
+        public int InvoiceId { get; set; }
+    }
+
     public class InvoicesController : ApiController
     {
         public HttpResponseMessage PostInvoice(Invoice invoice)
@@ -29,7 +35,12 @@ namespace CP.API.Controllers
                 try
                 {
                     ctx.SaveChanges();
-                    return new HttpResponseMessage(HttpStatusCode.OK);
+                    var response = new HttpResponseMessage(HttpStatusCode.OK);
+                    response.Content = new ObjectContent<InvoiceResponse>(new InvoiceResponse
+                    {
+                        InvoiceId = invoice.Id
+                    }, new JsonMediaTypeFormatter(), "application/json");
+                    return response;
                 }
                 catch (Exception ex)
                 {

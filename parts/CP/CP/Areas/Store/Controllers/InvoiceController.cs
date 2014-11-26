@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CP.Data;
+using CP.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +11,15 @@ namespace CP.Areas.Store.Controllers
     public class InvoiceController : Controller
     {
         // GET: Store/Invoice
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             Session["cart"] = null;
-            return View();
+           
+            var ctx = new CPDataContext();
+            Invoice invoice = ctx.Invoices.Include("Items").First(x => x.Id.Equals(id));
+            return View(invoice);
+            
+            
         }
     }
 }

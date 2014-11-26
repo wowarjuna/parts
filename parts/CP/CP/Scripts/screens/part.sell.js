@@ -58,12 +58,12 @@ function on_payment_submit() {
         });
     });
 
-    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete);
+    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete, 'json');
     return false;
 }
 
-function on_payment_complete() {
-    window.location.href = '/Store/Invoice';
+function on_payment_complete(json) {
+    window.location.href = '/Store/Invoice/' + json.InvoiceId;
 }
 
 function on_payment_cancel() {
