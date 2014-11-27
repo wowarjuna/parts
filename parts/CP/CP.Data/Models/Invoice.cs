@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace CP.Data.Models
     {
         public double Total { get; set; }
 
-        public int PaymentMethod { get; set; }
+        public int? PaymentMethod { get; set; }
 
         public string Reference { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Sale> Items { get; set; }
     }
 }

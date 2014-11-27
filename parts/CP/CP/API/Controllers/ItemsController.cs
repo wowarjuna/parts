@@ -32,7 +32,7 @@ namespace CP.API.Controllers
 
         public string PartNo { get; set; }
 
-        public int Page { get; set; }
+        public int Limit { get; set; }
 
         public int Offset { get; set; }
 
@@ -76,7 +76,7 @@ namespace CP.API.Controllers
 
                 return new ItemSearchResponse
                 {
-                    rows = query.ToList(),
+                    rows = query.OrderBy(x => x.PartNo).Skip(criteria.Offset).Take(criteria.Limit).ToList(),
                     total = query.Count()
                 };
             }

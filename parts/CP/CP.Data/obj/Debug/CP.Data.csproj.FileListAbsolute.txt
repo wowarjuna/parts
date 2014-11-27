@@ -8,3 +8,5 @@ D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.csprojResolveAssemblyReference.cache
 D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.dll
 D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.pdb
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.xml
