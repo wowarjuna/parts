@@ -31,7 +31,8 @@ namespace CP
                      "~/Scripts/plugins/iCheck/icheck.min.js",
                      "~/Scripts/plugins/maskMoney/jquery.maskMoney.min.js",
                      "~/Scripts/plugins/numeral/numeral.min.js",
-                     "~/Scripts/plugins/daterangepicker/daterangepicker.js"));
+                     "~/Scripts/plugins/daterangepicker/daterangepicker.js",
+                     "~/Scripts/plugins/jquery.formatDateTime.min.js"));
 
            
 

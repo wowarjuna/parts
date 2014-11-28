@@ -12,9 +12,13 @@ namespace CP.API.Controllers
 {
     public class InvoiceSearchRequest
     {
-        public DateTime Start { get; set; }
+        public int InvoiceNoInt { get; set; }
 
-        public DateTime End { get; set; }
+        public DateTime? Start { get; set; }
+
+        public DateTime? End { get; set; }
+
+        public string InvoiceNo { get; set; }
 
         public int Limit { get; set; }
 
@@ -22,6 +26,12 @@ namespace CP.API.Controllers
 
         public void Validate()
         {
+            int _invoice;
+            if (!int.TryParse(InvoiceNo, out _invoice))
+                InvoiceNoInt = 0;
+            else
+                InvoiceNoInt = _invoice;
+
         }
        
     }
@@ -39,6 +49,14 @@ namespace CP.API.Controllers
         public int InvoiceId { get; set; }
     }
 
+    public class InvoiceItem
+    {
+        public string PartNo { get; set; }
+        public string Name { get; set; }
+        public double UnitPrice { get; set; }
+        public int Qty { get; set; }
+    }
+
     public class InvoicesController : ApiController
     {
         [Route("api/invoices/find")]
@@ -48,7 +66,8 @@ namespace CP.API.Controllers
 
             using (var ctx = new CPDataContext())
             {
-                var query = ctx.Invoices.Where(x => x.Created > criteria.Start && x.Created < criteria.End );
+                var query = ctx.Invoices.Where(x => (criteria.InvoiceNoInt.Equals(0) || x.Id.Equals(criteria.InvoiceNoInt))
+                || (x.Created > criteria.Start && x.Created < criteria.End));
 
                 return new InvoiceSearchResponse
                 {
@@ -57,6 +76,26 @@ namespace CP.API.Controllers
                 };
             }
         }
+
+        [Route("api/invoices/{invoiceId}/items")]
+        public IEnumerable<InvoiceItem> GetItems(int invoiceId)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                var query = ctx.Invoices.Where(x => x.Id.Equals(invoiceId));
+
+                return (from x in ctx.Sales.Where(x => x.InvoiceId.Equals(invoiceId))
+                        select new InvoiceItem
+                        {
+                            PartNo = x.Item.PartNo,
+                            Name = x.Item.Name,
+                            Qty = x.Qty,
+                            UnitPrice = x.UnitPrice
+
+                        }).ToList();
+            }
+        }
+
 
         public HttpResponseMessage PostInvoice(Invoice invoice)
         {

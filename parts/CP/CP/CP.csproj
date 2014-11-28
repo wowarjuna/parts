@@ -412,6 +412,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\bootstrap-table.min.js" />
+    <Content Include="Scripts\plugins\dateFormat.min.js" />
     <Content Include="Scripts\plugins\daterangepicker\daterangepicker.js" />
     <Content Include="Scripts\plugins\fileupload\jquery.fileupload-image.js" />
     <Content Include="Scripts\plugins\fileupload\jquery.fileupload-jquery-ui.js" />
@@ -421,6 +422,7 @@
     <Content Include="Scripts\plugins\fileupload\jquery.iframe-transport.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.min.js" />
+    <Content Include="Scripts\plugins\jquery.formatDateTime.min.js" />
     <Content Include="Scripts\plugins\jquery.ui.widget.js" />
     <Content Include="Scripts\plugins\maskMoney\jquery.maskMoney.min.js" />
     <Content Include="Scripts\plugins\metisMenu.min.js" />
