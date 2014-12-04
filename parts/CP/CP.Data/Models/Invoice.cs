@@ -17,6 +17,10 @@ namespace CP.Data.Models
 
         public string Reference { get; set; }
 
+        public int? StoreId { get; set; }
+
+        public string CreatedBy { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<Sale> Items { get; set; }
     }

@@ -22,6 +22,8 @@ namespace CP.Data.Models
 
         public int InvoiceId { get; set; }
 
+        public int? StoreId { get; set; }
+
         [ForeignKey("InvoiceId")]
         public virtual Invoice Invoice { get; set; }
 

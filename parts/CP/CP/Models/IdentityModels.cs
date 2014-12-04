@@ -16,6 +16,8 @@ namespace CP.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public int StoreId { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

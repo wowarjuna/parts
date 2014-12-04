@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CP.API.Controllers
 {
@@ -59,9 +60,14 @@ namespace CP.API.Controllers
 
     public class ItemsController : ApiController
     {
+        [Authorize(Roles="store")]
         [Route("api/items/find")]
         public ItemSearchResponse GetItems([FromUri]ItemSearchRequest criteria)
         {
+            ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByNameAsync(User.Identity.Name);
+
             criteria.Validate();
 
             using (var ctx = new CPDataContext())
@@ -72,7 +78,7 @@ namespace CP.API.Controllers
                     && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
                     && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
                     && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId)
-                    && (!criteria.InStock || x.Qty > 0));
+                    && (!criteria.InStock || x.Qty > 0) && x.StoreId.Equals(user.Result.StoreId));
 
                 return new ItemSearchResponse
                 {
@@ -82,14 +88,20 @@ namespace CP.API.Controllers
             }
         }
 
+
+        [Authorize(Roles = "store")]
         public HttpResponseMessage PostItem(Item item)
         {
+            ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByNameAsync(User.Identity.Name);
+
             using (var ctx = new CPDataContext())
             {
                 if (item.Id.Equals(0))
                 {
                     item.Created = DateTime.Now;
-                    item.StoreId = 1;
+                    item.StoreId = user.Result.StoreId;
                     ctx.Items.Add(item);
                 }
                 else
@@ -116,6 +128,8 @@ namespace CP.API.Controllers
             }
         }
 
+
+        [Authorize(Roles = "store")]
         [Route("api/items/updateitem")]
         [HttpPost]
         public HttpResponseMessage PostUpdateItem(Item item)
@@ -137,6 +151,8 @@ namespace CP.API.Controllers
             }
         }
 
+
+        [Authorize(Roles = "store")]
         [Route("api/items/updatestoreinfo")]
         [HttpPost]
         public HttpResponseMessage PostUpdateStoreInfo([FromBody]List<Item> items)

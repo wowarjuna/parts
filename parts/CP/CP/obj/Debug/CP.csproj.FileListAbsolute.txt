@@ -61,3 +61,5 @@ D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.xml
 D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.WebHost.xml
 D:\Projects\Parts\parts\parts\CP\CP\bin\CP.Data.dll
 D:\Projects\Parts\parts\parts\CP\CP\bin\CP.Data.pdb
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.Owin.dll
+D:\Projects\Parts\parts\parts\CP\CP\bin\System.Web.Http.Owin.xml

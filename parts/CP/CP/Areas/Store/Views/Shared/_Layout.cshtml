@@ -22,7 +22,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
-   
     @Scripts.Render("~/bundles/plugins")
     <script src="/Scripts/app.js" type="text/javascript"></script>
     <script src="/Scripts/cp.js" type="text/javascript"></script>
@@ -59,13 +58,13 @@
                             <li class="user-header bg-light-blue">
                                 <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
                                 <p>
-                                 @HttpContext.Current.User.Identity.Name
+                                    @HttpContext.Current.User.Identity.Name
                                 </p>
                             </li>
-                           
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                
+
                                 <div class="pull-right">
                                     <a href="/Account/SignOut" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
@@ -83,7 +82,7 @@
             <section class="sidebar">
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
-                    
+
                     <div class="pull-left info">
                         <p>Hello, @HttpContext.Current.User.Identity.Name</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -99,20 +98,20 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-hand-o-right"></i>
+                            <i class="fa fa-gears"></i>
                             <span>Parts</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Store/Item/Add"><i class="fa fa-angle-double-right"></i>Add Part</a></li>
-                            <li><a href="/Store/Item"><i class="fa fa-angle-double-right"></i>Find Parts</a></li>
-                            <li><a href="/Store/Item/Sell"><i class="fa fa-angle-double-right"></i>Sell Parts</a></li>
-                            
+                            <li><a href="/Store/Item/Add"><i class="fa fa-gear"></i>Add Part</a></li>
+                            <li><a href="/Store/Item"><i class="fa fa-gear"></i>Find Parts</a></li>
+                            <li><a href="/Store/Item/Sell"><i class="fa fa-gear"></i>Sell Parts</a></li>
+
                         </ul>
                     </li>
                     <li>
                         <a href="/Store/Item/Sales">
-                            <i class="fa fa-angle-double-right"></i> <span>Sales</span>
+                            <i class="fa fa-tags"></i> <span>Sales</span>
                         </a>
                     </li>
                     <li>
@@ -128,19 +127,23 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/Store/Stores/"><i class="fa fa-angle-double-right"></i> Manage Stores</a></li>
-                            <li><a href="/Store/Stores/Contacts"><i class="fa fa-angle-double-right"></i> Manage Contacts</a></li>
-
+                           
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="/Store/Charts">
+                            <i class="fa fa-bar-chart-o"></i> <span>Charts</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Store/Charts/Sales"><i class="fa fa-bar-chart-o"></i>Sales</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/Store/Charts">
-                            <i class="fa fa-bar-chart-o"></i> <span>Charts</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/Store/Reports">
-                            <i class="fa fa-bar-chart-o"></i> <span>Reports</span>
+                            <i class="fa fa-cubes"></i> <span>Reports</span>
                         </a>
+                       
                     </li>
                 </ul>
             </section>

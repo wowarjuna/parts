@@ -12,6 +12,7 @@ namespace CP.Areas.Store.Controllers
     public class ItemController : Controller
     {
         // GET: Store/Item
+        [Authorize(Roles = "store")]
         public ActionResult Index()
         {
             using (var ctx = new CPDataContext())
@@ -32,6 +33,7 @@ namespace CP.Areas.Store.Controllers
             }
         }
 
+        [Authorize(Roles = "store")]
         public ActionResult Add()
         {
             using(var ctx = new CPDataContext())
@@ -53,7 +55,7 @@ namespace CP.Areas.Store.Controllers
            
         }
 
-
+        [Authorize(Roles = "store")]
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -108,6 +110,7 @@ namespace CP.Areas.Store.Controllers
 
         }
 
+        [Authorize(Roles = "store")]
         [HttpPost]
         public JsonResult AddToCart(List<long> idList)
         {
@@ -120,6 +123,7 @@ namespace CP.Areas.Store.Controllers
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize(Roles = "store")]
         [HttpPost]
         public JsonResult DeleteFromCart(long id)
         {

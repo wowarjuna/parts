@@ -64,8 +64,7 @@ namespace CP.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         public string Email { get; set; }
 
         [Required]
@@ -78,6 +77,12 @@ namespace CP.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Role")]
+        public string Role { get; set; }
+        
+        [Display(Name = "Store")]
+        public int? StoreId { get; set; }
     }
 
     public class ResetPasswordViewModel

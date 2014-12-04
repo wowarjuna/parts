@@ -47,9 +47,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,9 +57,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -188,6 +191,7 @@
     <Compile Include="Areas\Store\Controllers\StoresController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,6 +208,7 @@
     <Content Include="Content\bootstrap-table.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker\datepicker3.css" />
     <Content Include="Content\daterangepicker\daterangepicker-bs3.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
@@ -339,6 +344,7 @@
     <Content Include="Areas\Store\Views\Basket\Index.cshtml" />
     <Content Include="Areas\Store\Views\Item\Sales.cshtml" />
     <Content Include="Areas\Store\Views\Invoice\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Charts\Sales.cshtml" />
     <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
@@ -413,6 +419,58 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\bootstrap-table.min.js" />
     <Content Include="Scripts\plugins\dateFormat.min.js" />
+    <Content Include="Scripts\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
     <Content Include="Scripts\plugins\daterangepicker\daterangepicker.js" />
     <Content Include="Scripts\plugins\fileupload\jquery.fileupload-image.js" />
     <Content Include="Scripts\plugins\fileupload\jquery.fileupload-jquery-ui.js" />
@@ -431,6 +489,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\screens\basket.find.js" />
+    <Content Include="Scripts\screens\charts.sales.js" />
+    <Content Include="Scripts\screens\dashboard.js" />
     <Content Include="Scripts\screens\part.edit.js" />
     <Content Include="Scripts\screens\part.find.js" />
     <Content Include="Scripts\screens\part.add.js" />
@@ -478,6 +538,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Admin\Accounts.cshtml" />
+    <Content Include="Views\Shared\_LayoutSuper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

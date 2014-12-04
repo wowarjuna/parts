@@ -12,7 +12,8 @@ namespace CP.Areas.Store.Controllers
     public class DashboardController : Controller
     {
         // GET: Store/Dashboard
-        [Authorize]
+       
+        [Authorize(Roles="store")]
         public ActionResult Index()
         {                       
             return View();

@@ -13,5 +13,10 @@ namespace CP.Areas.Store.Controllers
         {
             return View();
         }
+
+        public ActionResult Sales()
+        {
+            return View();
+        }
     }
 }

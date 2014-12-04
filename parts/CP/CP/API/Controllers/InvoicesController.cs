@@ -7,6 +7,8 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Microsoft.AspNet.Identity.Owin;
+using System.Web;
 
 namespace CP.API.Controllers
 {
@@ -59,6 +61,7 @@ namespace CP.API.Controllers
 
     public class InvoicesController : ApiController
     {
+        [Authorize(Roles = "store")]
         [Route("api/invoices/find")]
         public InvoiceSearchResponse GetInvoices([FromUri]InvoiceSearchRequest criteria)
         {
@@ -77,6 +80,7 @@ namespace CP.API.Controllers
             }
         }
 
+        [Authorize(Roles = "store")]
         [Route("api/invoices/{invoiceId}/items")]
         public IEnumerable<InvoiceItem> GetItems(int invoiceId)
         {
@@ -96,16 +100,23 @@ namespace CP.API.Controllers
             }
         }
 
-
+        [Authorize(Roles = "store")]
         public HttpResponseMessage PostInvoice(Invoice invoice)
         {
+            ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByNameAsync(User.Identity.Name);
+
             using (var ctx = new CPDataContext())
             {
                 if (invoice.Id.Equals(0))
                 {
                     invoice.Created = DateTime.Now;
+                    invoice.StoreId = user.Result.StoreId;
+                    invoice.CreatedBy = user.Result.UserName;
                     foreach(var item in invoice.Items)
                     {
+                        item.StoreId = user.Result.StoreId;
                         var original = ctx.Items.Find(item.ItemId);
                         original.Qty = original.Qty - item.Qty;
                     }

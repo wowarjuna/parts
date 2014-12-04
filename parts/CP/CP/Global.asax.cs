@@ -1,6 +1,8 @@
 ﻿using CP.API.Controllers;
+using CP.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -21,6 +23,9 @@ namespace CP
             
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Database.SetInitializer<ApplicationDbContext>(null);
+           
         }
     }
 }

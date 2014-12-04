@@ -32,7 +32,8 @@ namespace CP
                      "~/Scripts/plugins/maskMoney/jquery.maskMoney.min.js",
                      "~/Scripts/plugins/numeral/numeral.min.js",
                      "~/Scripts/plugins/daterangepicker/daterangepicker.js",
-                     "~/Scripts/plugins/jquery.formatDateTime.min.js"));
+                     "~/Scripts/plugins/jquery.formatDateTime.min.js",
+                     "~/Scripts/plugins/datepicker/bootstrap-datepicker.js"));
 
            
 
@@ -42,7 +43,8 @@ namespace CP
 
             bundles.Add(new StyleBundle("~/Content/css/plugins").Include(
                  "~/Content/bootstrap-table.min.css",
-                 "~/Content/daterangepicker/daterangepicker-bs3.css"));
+                 "~/Content/daterangepicker/daterangepicker-bs3.css",
+                 "~/Content/datepicker/datepicker3.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
