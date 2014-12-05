@@ -176,6 +176,7 @@
     <Compile Include="API\Controllers\ItemsController.cs" />
     <Compile Include="API\Controllers\ModelsController.cs" />
     <Compile Include="API\Controllers\InvoicesController.cs" />
+    <Compile Include="API\Controllers\StocklotsController.cs" />
     <Compile Include="API\Controllers\StoresController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Areas\Store\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Store\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Store\Controllers\ItemController.cs" />
+    <Compile Include="Areas\Store\Controllers\StocklotController.cs" />
     <Compile Include="Areas\Store\Controllers\StoresController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -408,6 +410,7 @@
     <Content Include="Content\less\timeline.less" />
     <Content Include="Content\less\vars.less" />
     <Content Include="Areas\Store\Views\Stores\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\Stocklot\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -496,6 +499,7 @@
     <Content Include="Scripts\screens\part.add.js" />
     <Content Include="Scripts\screens\part.sell.js" />
     <Content Include="Scripts\screens\sales.find.js" />
+    <Content Include="Scripts\screens\stocklot.find.js" />
     <Content Include="Scripts\screens\store.edit.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

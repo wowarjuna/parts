@@ -64,6 +64,7 @@
     <Compile Include="Models\ItemImage.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Stocklot.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,33 +6,34 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.AspNet.Identity.Owin;
 using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CP.API.Controllers
 {
-    public class BasketsController : ApiController
+    public class StocklotsController : ApiController
     {
-        [Authorize(Roles="store")]
-        [Route("api/baskets")]
-        public IEnumerable<Basket> GetAllBaskets()
+        [Authorize(Roles = "store")]
+        [Route("api/stocklots")]
+        public IEnumerable<Stocklot> GetAllStocklots()
         {
             ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             var user = userManager.FindByNameAsync(User.Identity.Name);
 
-            IEnumerable<Basket> result;
+            IEnumerable<Stocklot> result;
             using (var ctx = new CPDataContext())
             {
-                result = ctx.Baskets.Where(x => x.StoreId.Equals(user.Result.StoreId)).ToList();
+                result = ctx.Stocklots.Where(x => x.StoreId.Equals(user.Result.StoreId)).ToList();
             }
 
             return result;
         }
 
         [Authorize(Roles="store")]
-        [Route("api/baskets/basket")]
-        public HttpResponseMessage PostBasket(Basket basket)
+        [HttpPost]
+        [Route("api/stocklots/stocklot")]
+        public HttpResponseMessage PostStocklot(Stocklot stocklot)
         {
             ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
@@ -40,19 +41,21 @@ namespace CP.API.Controllers
 
             using (var ctx = new CPDataContext())
             {
-                if (basket.Id.Equals(0))
+                if (stocklot.Id.Equals(0))
                 {
-                    basket.Created = DateTime.Now;
-                    basket.StoreId = user.Result.StoreId;
-                    ctx.Baskets.Add(basket);
+                    stocklot.Created = DateTime.Now;
+                    stocklot.Modified = DateTime.Now;
+                    stocklot.StoreId = user.Result.StoreId;
+                    stocklot.CreatedBy = user.Result.UserName;
+                    ctx.Stocklots.Add(stocklot);
                 }
                 else
                 {
-                    basket.Modified = DateTime.Now;
-                    var original = ctx.Baskets.Find(basket.Id);
+                    stocklot.Modified = DateTime.Now;
+                    var original = ctx.Stocklots.Find(stocklot.Id);
                     if (original != null)
                     {
-                        ctx.Entry(original).CurrentValues.SetValues(basket);
+                        ctx.Entry(original).CurrentValues.SetValues(stocklot);
                         ctx.Entry(original).Property(x => x.Created).IsModified = false;
                     }
                 }

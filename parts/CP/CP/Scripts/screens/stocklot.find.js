@@ -4,19 +4,25 @@
     },
     Description: {
         required: true
+    },
+    Date: {
+        required: true
     }
 }
 
 var submitHandler = function (form) {
     var data = {
         Name: $('#Name').val(),
-        Description: $('#Description').val()
+        Description: $('#Description').val(),
+        Value: $('#Value').val(),
+        Date: $('#Date').val()
+
     };
 
-    $.post('/api/baskets/basket', data).done(function (data) {
-        $('#add-basket-modal').modal('hide');
+    $.post('/api/stocklots/stocklot', data).done(function (data) {
+        $('#add-stocklot-modal').modal('hide');
         $('.message-area').showInfo('Successfully updated');
-        $('#basket-table').bootstrapTable('refresh');
+        $('#stocklot-table').bootstrapTable('refresh');
     }, 'json').fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
     });
@@ -25,19 +31,19 @@ var submitHandler = function (form) {
 
 
 $(function () {
-   
-    $('#basket-edit-form').validate({
+
+    $('#stocklot-edit-form').validate({
         rules: rules,
         highlight: function (element) {
-            $(element).closest('.input-group-sm').addClass('has-error');
+            $(element).closest('.input-group-sm,form-group-sm').addClass('has-error');
         },
         unhighlight: function (element) {
-            $(element).closest('.input-group-sm').removeClass('has-error');
+            $(element).closest('.input-group-sm,form-group-sm').removeClass('has-error');
         },
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {
-            if (element.parent('.input-group').length) {
+            if (element.parent('.input-group-sm,form-group-sm').length) {
                 error.insertAfter(element.parent());
             } else {
                 error.insertAfter(element);
