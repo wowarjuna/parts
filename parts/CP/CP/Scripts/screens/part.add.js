@@ -22,9 +22,10 @@ var submitHandler = function (form) {
         Description: $('#Description').val(),
         StoreInfo: $('#StoreInfo').val(),
         Qty: $('#Qty').val(),
-        QuotedPrice: $('#QuotedPrice').val(),
+        QuotedPrice: numeral().unformat($('#QuotedPrice').val()),
         Active: $('#Active').prop('checked'),
-        BasketId: $('#BasketId').val()
+        BasketId: $('#BasketId').val(),
+        StocklotId: $('#StocklotId').val()
     };
 
     $.post('/api/items', data).done(function (data) {
@@ -51,6 +52,9 @@ var on_brand_changed = function () {
 }
 
 $(function () {
+
+    $('.currency').maskMoney();
+
     $('#BrandId').change(on_brand_changed);
    
     $('form').validate({

@@ -14,7 +14,7 @@ var submitHandler = function (form) {
     var data = {
         Name: $('#Name').val(),
         Description: $('#Description').val(),
-        Value: $('#Value').val(),
+        Value: numeral().unformat($('#Value').val()),
         Date: $('#Date').val()
 
     };
@@ -31,6 +31,8 @@ var submitHandler = function (form) {
 
 
 $(function () {
+
+    $('.currency').maskMoney();
 
     $('#stocklot-edit-form').validate({
         rules: rules,

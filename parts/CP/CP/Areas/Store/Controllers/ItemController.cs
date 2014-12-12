@@ -6,15 +6,34 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CP.Areas.Store.Controllers
 {
     public class ItemController : Controller
     {
+        private ApplicationUserManager _userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+       
+
         // GET: Store/Item
         [Authorize(Roles = "store")]
         public ActionResult Index()
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
             using (var ctx = new CPDataContext())
             {
                 ViewBag.Brands = (from x in ctx.Brands
@@ -25,7 +44,7 @@ namespace CP.Areas.Store.Controllers
                                       select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Categories).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
-                ViewBag.Baskets = (from x in ctx.Baskets
+                ViewBag.Baskets = (from x in ctx.Baskets.Where(x => x.StoreId.Equals(user.Result.StoreId))
                                    select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
@@ -36,6 +55,8 @@ namespace CP.Areas.Store.Controllers
         [Authorize(Roles = "store")]
         public ActionResult Add()
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
             using(var ctx = new CPDataContext())
             {
                 ViewBag.Brands = (from x in ctx.Brands
@@ -46,9 +67,13 @@ namespace CP.Areas.Store.Controllers
                                   select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Categories).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
-                ViewBag.Baskets = (from x in ctx.Baskets
+                ViewBag.Baskets = (from x in ctx.Baskets.Where(x => x.StoreId.Equals(user.Result.StoreId))
                                       select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
+
+                ViewBag.Stocklots = (from x in ctx.Stocklots.Where(x => x.StoreId.Equals(user.Result.StoreId))
+                                     select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
+                ((List<SelectListItem>)ViewBag.Stocklots).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
                 return View();
             }
@@ -59,6 +84,8 @@ namespace CP.Areas.Store.Controllers
         [HttpGet]
         public ActionResult Edit(int Id)
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
             Item item;
 
             using (var ctx = new CPDataContext())
@@ -87,7 +114,7 @@ namespace CP.Areas.Store.Controllers
                                       Selected = x.Id.Equals(item.CategoryId) ? true : false }).ToList();
                 ((List<SelectListItem>)ViewBag.Categories).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
-                ViewBag.Baskets = (from x in ctx.Baskets
+                ViewBag.Baskets = (from x in ctx.Baskets.Where(x => x.StoreId.Equals(user.Result.StoreId))
                                       select new SelectListItem
                                       {
                                           Text = x.Name,
@@ -96,6 +123,16 @@ namespace CP.Areas.Store.Controllers
                 ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
                 if (item.BasketId != null)
                     ((List<SelectListItem>)ViewBag.Baskets).FirstOrDefault(x => x.Value.Equals(((int)item.BasketId).ToString())).Selected = true;
+
+                ViewBag.Stocklots = (from x in ctx.Stocklots.Where(x => x.StoreId.Equals(user.Result.StoreId))
+                                   select new SelectListItem
+                                   {
+                                       Text = x.Name,
+                                       Value = x.Id.ToString()
+                                   }).ToList();
+                ((List<SelectListItem>)ViewBag.Stocklots).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
+                if (item.StocklotId != null)
+                    ((List<SelectListItem>)ViewBag.Stocklots).FirstOrDefault(x => x.Value.Equals(((int)item.StocklotId).ToString())).Selected = true;
 
                 return View(item);
             }

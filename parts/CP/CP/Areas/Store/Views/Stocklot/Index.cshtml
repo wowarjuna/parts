@@ -31,8 +31,8 @@
                             <table id="stocklot-table" data-toggle="table" data-url="/api/stocklots">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-2 text-center" data-halign="center" data-field="Name">Stocklot</th>
-                                        <th class="col-md-2 text-center" data-halign="center" data-field="Value">Stock Val</th>
+                                        <th class="col-md-2" data-halign="center" data-field="Name">Stocklot</th>
+                                        <th class="col-md-2" data-align="right" data-halign="center" data-field="Value" data-formatter="stockPriceFormatter">Value (Rs.)</th>
                                         <th class="col-md-6" data-halign="center" data-field="Description">Description</th>
                                         <th class="col-md-2 text-right" data-halign="center">Progress</th>
 
@@ -69,7 +69,7 @@
                             <label class="label-sm">Stock  Value</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rs.</span>
-                                <input style="width:150px" type="text" name="Value" id="Value" class="form-control" />
+                                <input style="width:150px" type="text" name="Value" id="Value" class="form-control text-right currency" />
                             </div>
 
                         </div>
@@ -92,3 +92,9 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script type="text/javascript" src="~/Scripts/screens/stocklot.find.js"></script>
+<script>
+    function stockPriceFormatter(value, row, index) {
+        var val = numeral(row.Value).format('0,0.00');
+        return '<b>' + val + '</b>';
+    }
+</script>

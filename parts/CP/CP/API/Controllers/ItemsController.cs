@@ -112,6 +112,7 @@ namespace CP.API.Controllers
                     {
                         ctx.Entry(original).CurrentValues.SetValues(item);
                         ctx.Entry(original).Property(x => x.Created).IsModified = false;
+                        ctx.Entry(original).Property(x => x.StoreId).IsModified = false;
                     }
                 }
 

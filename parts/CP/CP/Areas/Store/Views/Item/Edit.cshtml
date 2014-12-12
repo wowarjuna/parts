@@ -93,7 +93,10 @@
                             <label class="label-sm">Basket</label>
                             @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
                         </div>
-
+                        <div class="input-group-sm">
+                            <label class="label-sm">Stocklot</label>
+                            @Html.DropDownList("StocklotId", (IEnumerable<SelectListItem>)ViewBag.Stocklots, new { @class = "form-control input-sm" })
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group-sm">
@@ -106,7 +109,7 @@
                                     <label class="label-sm">Quoted Price</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rs.</span>
-                                        <input value="@Model.QuotedPrice" type="number" name="QuotedPrice" id="QuotedPrice" class="form-control input-sm text-right" placeholder="Quoted Price">
+                                        <input value="@(Model.QuotedPrice != null ? string.Format("{0:#,##0.00}", Model.QuotedPrice) : "")" type="text" name="QuotedPrice" id="QuotedPrice" class="form-control input-sm text-right currency" placeholder="Quoted Price">
                                     </div>
                                 </div>
                             </div>

@@ -41,5 +41,7 @@ namespace CP.Data.Models
         public string PartNo { get; set; }
 
         public int? BasketId { get; set; }
+
+        public int? StocklotId { get; set; }
     }
 }
