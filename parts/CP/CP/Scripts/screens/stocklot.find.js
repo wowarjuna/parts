@@ -1,4 +1,11 @@
-﻿var rules = {
+﻿function operateFormatter(value, row, index) {
+        return [          
+            '<a href="/Store/Item/Edit/' + value + '" title="Edit">',
+                '<i class="fa fa-edit"></i>',
+            '</a>'].join('');
+                }
+    
+var rules = {
     Name: {
         required: true
     },

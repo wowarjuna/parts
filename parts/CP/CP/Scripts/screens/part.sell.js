@@ -52,18 +52,18 @@ function on_payment_submit() {
     $('[name^="QuotedPrice"]').each(function (idx, data) {
         var suffix = $(this).attr('name').replace('QuotedPrice', '')
         items.push({
-            UnitPrice: $(this).val(),
+            UnitPrice: numeral().unformat($(this).val()),
             Qty: $('[name="Qty' + suffix + '"]').val(),
             ItemId: suffix
         });
     });
 
-    $.post('/api/invoices', { Total: $('.total').text(), Items: items }, on_payment_complete, 'json');
+    $.post('/api/invoices', { Total: numeral().unformat($('.total').text()), Items: items, Note: $('#note').val(), Reference: $('#reference').val() }, on_payment_complete, 'json');
     return false;
 }
 
 function on_payment_complete(json) {
-    window.location.href = '/Store/Invoice/' + json.InvoiceId;
+    window.location.href = '/Store/Invoice/Index/' + json.InvoiceId;
 }
 
 function on_payment_cancel() {

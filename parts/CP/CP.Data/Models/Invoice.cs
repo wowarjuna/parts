@@ -21,6 +21,8 @@ namespace CP.Data.Models
 
         public string CreatedBy { get; set; }
 
+        public string Note { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<Sale> Items { get; set; }
     }

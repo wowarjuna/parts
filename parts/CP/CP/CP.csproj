@@ -200,6 +200,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChartModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -331,6 +332,7 @@
     <Content Include="Content\jquery.fileupload-ui.css" />
     <Content Include="Content\jquery.fileupload.css" />
     <Content Include="Content\metisMenu.min.css" />
+    <Content Include="Content\morris\morris.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -347,6 +349,7 @@
     <Content Include="Areas\Store\Views\Item\Sales.cshtml" />
     <Content Include="Areas\Store\Views\Invoice\Index.cshtml" />
     <Content Include="Areas\Store\Views\Charts\Sales.cshtml" />
+    <Content Include="Areas\Store\Views\Charts\Stocklots.cshtml" />
     <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
@@ -488,11 +491,14 @@
     <Content Include="Scripts\plugins\maskMoney\jquery.maskMoney.min.js" />
     <Content Include="Scripts\plugins\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\plugins\morris\morris.js" />
+    <Content Include="Scripts\plugins\morris\morris.min.js" />
     <Content Include="Scripts\plugins\numeral\numeral.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\screens\basket.find.js" />
     <Content Include="Scripts\screens\charts.sales.js" />
+    <Content Include="Scripts\screens\charts.stocklots.js" />
     <Content Include="Scripts\screens\dashboard.js" />
     <Content Include="Scripts\screens\part.edit.js" />
     <Content Include="Scripts\screens\part.find.js" />

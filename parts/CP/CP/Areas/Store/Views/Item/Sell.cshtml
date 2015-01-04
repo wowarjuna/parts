@@ -28,7 +28,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/Store/Item/"><i class="fa fa-search"></i>Find items</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                         <tr>
                                             <th data-field="Id" data-formatter="operateFormatter" class="col-md-1 text-center">Actions</th>
                                             <th data-field="PartNo" class="col-md-2 text-left">Part #</th>
-                                            <th data-field="Name"  class="col-md-5 text-left">Name</th>
+                                            <th data-field="Name" class="col-md-5 text-left">Name</th>
                                             <th data-field="QuotedPrice" data-formatter="unitPriceFormatter" class="col-md-1 text-center">Unit Price</th>
                                             <th class="col-md-1 text-center" data-formatter="qtyFormatter">Qty</th>
                                             <th class="col-md-2 text-right" data-formatter="subtotalFormatter">Sub Total</th>
@@ -64,12 +64,22 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-md-offset-8">
+                            <div class="col-md-5">
+                                <div class='box box-solid bg-light-blue margin-top15'>
+                                    <textarea id="note" class="form-control" rows="3" placeholder="Note ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class='box box-solid bg-light-blue margin-top15'>
+                                    <textarea id="reference" class="form-control" rows="3" placeholder="Reference ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class='box box-solid bg-green margin-top15'>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <table class="table">
-                                                
+
                                                 <tr>
                                                     <th style="width:50%"><h3>Total</h3></th>
                                                     <td class="text-right"><h3><strong class="total"></strong></h3></td>
@@ -118,7 +128,7 @@
 
     function operateFormatter(value, row, index) {
         return [
-            '<a class="col-md-4" href="#" onclick="delete_item('+ row.Id +')" title="Delete">',
+            '<a class="col-md-4" href="#" onclick="delete_item(' + row.Id + ')" title="Delete">',
                 '<i class="fa fa-trash-o"></i>',
             '</a>'
         ].join('');
