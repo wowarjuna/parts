@@ -213,6 +213,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datepicker\datepicker3.css" />
     <Content Include="Content\daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
@@ -478,12 +479,7 @@
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
     <Content Include="Scripts\plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
     <Content Include="Scripts\plugins\daterangepicker\daterangepicker.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-image.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-jquery-ui.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-process.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.fileupload-ui.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.fileupload.js" />
-    <Content Include="Scripts\plugins\fileupload\jquery.iframe-transport.js" />
+    <Content Include="Scripts\plugins\fileinput.min.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.js" />
     <Content Include="Scripts\plugins\iCheck\icheck.min.js" />
     <Content Include="Scripts\plugins\jquery.formatDateTime.min.js" />

@@ -34,7 +34,8 @@ namespace CP
                      "~/Scripts/plugins/daterangepicker/daterangepicker.js",
                      "~/Scripts/plugins/jquery.formatDateTime.min.js",
                      "~/Scripts/plugins/datepicker/bootstrap-datepicker.js",
-                     "~/Scripts/plugins/morris/morris.min.js"));
+                     "~/Scripts/plugins/morris/morris.min.js",
+                     "~/Scripts/plugins/fileinput.min.js"));
 
            
 
@@ -46,7 +47,8 @@ namespace CP
                  "~/Content/bootstrap-table.min.css",
                  "~/Content/daterangepicker/daterangepicker-bs3.css",
                  "~/Content/datepicker/datepicker3.css",
-                 "~/Content/morris/morris.css"));
+                 "~/Content/morris/morris.css",
+                 "~/Content/fileinput.min.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
