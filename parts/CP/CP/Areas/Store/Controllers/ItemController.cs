@@ -201,5 +201,12 @@ namespace CP.Areas.Store.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public JsonResult UploadMedia(HttpPostedFileBase itemImage)
+        {
+            var t = Request;
+            return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

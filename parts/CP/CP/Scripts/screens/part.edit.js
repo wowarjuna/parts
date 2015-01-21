@@ -78,18 +78,13 @@ $(function () {
         submitHandler: submitHandler
     });
 
-    $("#input-702").fileinput({
-        uploadUrl: '',
-        maxFileCount: 10,
-        overwriteInitial: false,
-        initialPreview: [
-            '<img src="http://www.kodyaz.com/photos/windows_8/images/34677/secondarythumb.aspx " class="file-preview-image">',
-            '<img src="http://www.kodyaz.com/photos/windows_8/images/34676/secondarythumb.aspx " class="file-preview-image">',
-        ],
-        initialPreviewConfig: [
-            {caption: "Desert.jpg", width: "120px", url:"/site/file-delete", key:1},
-            {caption: "Tulips.jpg", width: "120px", url:"/site/file-delete", key:2}
-        ],
+    $("input[type='file']").fileinput({
+        previewSettings: {
+            image: { width: "150px", height: "auto" }
+        },
+        uploadExtraData: function () {
+            return { Id: $('#Id').val() }
+        }
     });
 
 });
