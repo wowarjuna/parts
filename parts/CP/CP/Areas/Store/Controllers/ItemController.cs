@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
+using System.IO;
 
 namespace CP.Areas.Store.Controllers
 {
@@ -205,8 +206,42 @@ namespace CP.Areas.Store.Controllers
         [HttpPost]
         public JsonResult UploadMedia(HttpPostedFileBase itemImage)
         {
-            var t = Request;
+            using (var ctx = new CPDataContext())
+            {
+                long itemId = long.Parse(Request.Form["Id"]);
+                string originalName = Path.GetFileName(itemImage.FileName);
+                var item = ctx.Items.Single(x => x.Id.Equals(itemId));
+                ctx.ItemImages.Add(new ItemImage { OriginalName = originalName, ItemId = item.Id });
+                ctx.SaveChanges();
+
+                string relativePath = string.Format("~/images/items/{0}/", item.Id);
+                string physicalPath = Server.MapPath(relativePath);
+                if (!Directory.Exists(physicalPath))
+                    Directory.CreateDirectory(physicalPath);
+
+                WebImage img = new WebImage(itemImage.InputStream);
+                if (img.Width > 1000)
+                    img.Resize(800, 600);
+
+                img.Save(string.Format("{0}{1}", physicalPath, originalName));
+            }
+
+            
             return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetItemImages(long Id)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                var media = ctx.ItemImages.Where(x => x.ItemId.Equals(Id)).Select(x => new
+                {
+                    url = "/images/items/" + x.ItemId + "/" + x.OriginalName,
+                    caption = x.OriginalName
+                }).ToList();
+                HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                return Json(media, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

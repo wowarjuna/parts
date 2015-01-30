@@ -11,5 +11,8 @@ namespace CP.Data.Models
     public class ItemImage
     {
         public long Id { get; set; }
+        public string OriginalName { get; set; }
+        public string Location { get; set; }
+        public long ItemId { get; set; }
     }
 }

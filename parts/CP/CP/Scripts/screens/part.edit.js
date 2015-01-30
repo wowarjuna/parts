@@ -52,6 +52,10 @@ var on_brand_changed = function () {
        });
 }
 
+function on_image_preview() {
+
+}
+
 $(function () {
 
     $('.currency').maskMoney();
@@ -78,13 +82,44 @@ $(function () {
         submitHandler: submitHandler
     });
 
-    $("input[type='file']").fileinput({
-        previewSettings: {
-            image: { width: "150px", height: "auto" }
-        },
-        uploadExtraData: function () {
-            return { Id: $('#Id').val() }
-        }
-    });
+    
+
+
+    $.getJSON('/store/item/getitemimages/' + $('#Id').val())
+      .done(function (data) {
+          var previewData = new Array();
+
+          $(data).each(function (idx, obj) {
+              previewData.push('<img width="150"  src="' + obj.url + '" class="file-preview-image" alt="' + obj.caption + '" title="' + obj.caption + '"/>');
+
+          });
+
+          $("input[type='file']").fileinput({
+              initialPreview: previewData,
+              overwriteInitial: false,
+              uploadExtraData: function () {
+                  return { Id: $('#Id').val() }
+              },
+              initialPreviewConfig: [
+                    {caption: 'desert.jpg', 'width': '120px', 'url': '/localhost/avatar/delete', 'key': 100},
+                    {caption: 'jellyfish.jpg', 'width': '120px', 'url': '/localhost/avatar/delete', 'key': 101},
+                ]
+
+          });
+
+          $('.file-preview-image').click(function () {
+              $.magnificPopup.open({
+                  items: {
+                      src: $(this).attr('src')
+                  },
+                  type: 'image'
+              });
+          });
+      })
+      .fail(function (jqXHR, textStatus, err) {
+          alert(err);
+      });
+
+
 
 });
