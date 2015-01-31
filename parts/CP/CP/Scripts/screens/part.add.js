@@ -29,7 +29,8 @@ var submitHandler = function (form) {
     };
 
     $.post('/api/items', data).done(function (data) {
-        $('.message-area').showInfo('Successfully updated');
+        //$('.message-area').showInfo('Successfully updated');
+        $('#part-add-success-modal').modal('show');
     }, 'json').fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
     });

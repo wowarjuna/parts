@@ -119,9 +119,9 @@ namespace CP.API.Controllers
                 try
                 {
                     ctx.SaveChanges();
-                    return new HttpResponseMessage(HttpStatusCode.OK);
+                    return Request.CreateResponse<long>(HttpStatusCode.OK, item.Id);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw new HttpResponseException(HttpStatusCode.InternalServerError);
                 }

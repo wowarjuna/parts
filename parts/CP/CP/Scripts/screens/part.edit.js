@@ -88,10 +88,11 @@ $(function () {
     $.getJSON('/store/item/getitemimages/' + $('#Id').val())
       .done(function (data) {
           var previewData = new Array();
+          var configData = new Array();
 
           $(data).each(function (idx, obj) {
               previewData.push('<img width="150"  src="' + obj.url + '" class="file-preview-image" alt="' + obj.caption + '" title="' + obj.caption + '"/>');
-
+              configData.push({ caption: obj.caption, width: '120px', url: '/store/item/deleteitemimage/', key: obj.id })
           });
 
           $("input[type='file']").fileinput({
@@ -100,10 +101,7 @@ $(function () {
               uploadExtraData: function () {
                   return { Id: $('#Id').val() }
               },
-              initialPreviewConfig: [
-                    {caption: 'desert.jpg', 'width': '120px', 'url': '/localhost/avatar/delete', 'key': 100},
-                    {caption: 'jellyfish.jpg', 'width': '120px', 'url': '/localhost/avatar/delete', 'key': 101},
-                ]
+              initialPreviewConfig: configData
 
           });
 

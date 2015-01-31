@@ -206,41 +206,83 @@ namespace CP.Areas.Store.Controllers
         [HttpPost]
         public JsonResult UploadMedia(HttpPostedFileBase itemImage)
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
             using (var ctx = new CPDataContext())
             {
                 long itemId = long.Parse(Request.Form["Id"]);
                 string originalName = Path.GetFileName(itemImage.FileName);
                 var item = ctx.Items.Single(x => x.Id.Equals(itemId));
-                ctx.ItemImages.Add(new ItemImage { OriginalName = originalName, ItemId = item.Id });
-                ctx.SaveChanges();
+                if (item.StoreId.Equals(user.Result.StoreId))
+                {
+                    ctx.ItemImages.Add(new ItemImage { OriginalName = originalName, ItemId = item.Id });
+                    ctx.SaveChanges();
 
-                string relativePath = string.Format("~/images/items/{0}/", item.Id);
-                string physicalPath = Server.MapPath(relativePath);
-                if (!Directory.Exists(physicalPath))
-                    Directory.CreateDirectory(physicalPath);
+                    string relativePath = string.Format("~/images/items/{0}/", item.Id);
+                    string physicalPath = Server.MapPath(relativePath);
+                    if (!Directory.Exists(physicalPath))
+                        Directory.CreateDirectory(physicalPath);
 
-                WebImage img = new WebImage(itemImage.InputStream);
-                if (img.Width > 1000)
-                    img.Resize(800, 600);
+                    WebImage img = new WebImage(itemImage.InputStream);
+                    if (img.Width > 1000)
+                        img.Resize(800, 600);
 
-                img.Save(string.Format("{0}{1}", physicalPath, originalName));
+                    img.Save(string.Format("{0}{1}", physicalPath, originalName));
+                    return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { message = false }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             
-            return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+            
         }
 
         public JsonResult GetItemImages(long Id)
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
             using (var ctx = new CPDataContext())
             {
-                var media = ctx.ItemImages.Where(x => x.ItemId.Equals(Id)).Select(x => new
+                var media = ctx.ItemImages.Include("Item").Where(x => x.ItemId.Equals(Id) && x.Item.StoreId.Equals(user.Result.StoreId)).Select(x => new
                 {
                     url = "/images/items/" + x.ItemId + "/" + x.OriginalName,
-                    caption = x.OriginalName
+                    caption = x.OriginalName,
+                    id = x.Id
                 }).ToList();
                 HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 return Json(media, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult DeleteItemImage()
+        {
+            var user = UserManager.FindByNameAsync(User.Identity.Name);
+
+            using (var ctx = new CPDataContext())
+            {
+                long itemImageId = long.Parse(Request.Form["key"]);
+                var itemImage = ctx.ItemImages.Include("Item").Single(x => x.Id.Equals(itemImageId));
+
+                if (itemImage.Item.StoreId.Equals(user.Result.StoreId))
+                {
+
+                    ctx.ItemImages.Remove(itemImage);
+                    ctx.SaveChanges();
+
+                    string relativePath = string.Format("~/images/items/{0}/{1}", itemImage.ItemId, itemImage.OriginalName);
+                    string physicalPath = Server.MapPath(relativePath);
+                    System.IO.File.Delete(physicalPath);
+
+                    return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { message = false }, JsonRequestBehavior.AllowGet);
+                }
             }
         }
     }

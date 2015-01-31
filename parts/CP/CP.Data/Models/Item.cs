@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace CP.Data.Models
     [Table("Items")]
     public class Item
     {
+       
         public long Id { get; set; }
 
         public string Name { get; set; }
@@ -43,5 +45,7 @@ namespace CP.Data.Models
         public int? BasketId { get; set; }
 
         public int? StocklotId { get; set; }
+
+        //public virtual ICollection<ItemImage> Images { get; set; }
     }
 }
