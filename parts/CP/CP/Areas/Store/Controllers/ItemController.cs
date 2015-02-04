@@ -49,6 +49,10 @@ namespace CP.Areas.Store.Controllers
                                    select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
                 ((List<SelectListItem>)ViewBag.Baskets).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
 
+                ViewBag.Stocklots = (from x in ctx.Stocklots.Where(x => x.StoreId.Equals(user.Result.StoreId))
+                                     select new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
+                ((List<SelectListItem>)ViewBag.Stocklots).Insert(0, new SelectListItem { Value = "0", Text = "- Select -" });
+
                 return View();
             }
         }

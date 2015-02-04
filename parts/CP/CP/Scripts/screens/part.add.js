@@ -11,6 +11,8 @@ var rules = {
     }
 }
 
+var lastModified = -1;
+
 var submitHandler = function (form) {
    var data = {
         Name: $('#Name').val(),
@@ -29,7 +31,7 @@ var submitHandler = function (form) {
     };
 
     $.post('/api/items', data).done(function (data) {
-        //$('.message-area').showInfo('Successfully updated');
+        lastModified = data;
         $('#part-add-success-modal').modal('show');
     }, 'json').fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
@@ -50,6 +52,18 @@ var on_brand_changed = function () {
        .fail(function (jqXHR, textStatus, err) {
            alert(err);
        });
+}
+
+function on_done() {
+    window.location.href = '/store/item/';
+}
+
+function on_another() {
+    window.location.href = '/store/item/add';
+}
+
+function on_images() {
+    window.location.href = '/store/item/edit/' + lastModified;
 }
 
 $(function () {

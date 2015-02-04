@@ -92,6 +92,12 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-sm">
+                                <label class="label-sm">Stocklot</label>
+                                @Html.DropDownList("StocklotId", (IEnumerable<SelectListItem>)ViewBag.Stocklots, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
                                 <div class="checkbox">
                                     <label>
                                         In Stock
@@ -109,7 +115,7 @@
                     </div>
                     <div class="row margin-top5" style="margin-bottom:20px">
                         <div class="col-md-12">
-                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server" data-click-to-select="true">
+                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server">
                                 <thead>
                                     <tr>
                                         <th data-checkbox="true"></th>

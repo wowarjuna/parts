@@ -31,6 +31,8 @@ namespace CP.API.Controllers
 
         public int BasketId { get; set; }
 
+        public int StocklotId { get; set; }
+
         public string PartNo { get; set; }
 
         public int Limit { get; set; }
@@ -78,6 +80,7 @@ namespace CP.API.Controllers
                     && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
                     && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
                     && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId)
+                    && (criteria.StocklotId.Equals(0) || x.StocklotId == criteria.StocklotId)
                     && (!criteria.InStock || x.Qty > 0) && x.StoreId.Equals(user.Result.StoreId));
 
                 return new ItemSearchResponse
