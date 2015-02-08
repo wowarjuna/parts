@@ -30,6 +30,15 @@ namespace CP.API.Controllers
             return result;
         }
 
+        [Route("api/stocklots/{id}")]
+        public Stocklot GetStocklot(int id)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                return ctx.Stocklots.Find(id);
+            }
+        }
+
         [Authorize(Roles="store")]
         [HttpPost]
         [Route("api/stocklots/stocklot")]
@@ -57,6 +66,8 @@ namespace CP.API.Controllers
                     {
                         ctx.Entry(original).CurrentValues.SetValues(stocklot);
                         ctx.Entry(original).Property(x => x.Created).IsModified = false;
+                        ctx.Entry(original).Property(x => x.CreatedBy).IsModified = false;
+                        ctx.Entry(original).Property(x => x.StoreId).IsModified = false;
                     }
                 }
 

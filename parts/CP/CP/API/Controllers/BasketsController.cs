@@ -30,6 +30,16 @@ namespace CP.API.Controllers
             return result;
         }
 
+        [Route("api/baskets/{id}")]
+        public Basket GetBasket(int id)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                return ctx.Baskets.Find(id);
+            }
+        }
+
+
         [Authorize(Roles="store")]
         [Route("api/baskets/basket")]
         public HttpResponseMessage PostBasket(Basket basket)
@@ -54,6 +64,7 @@ namespace CP.API.Controllers
                     {
                         ctx.Entry(original).CurrentValues.SetValues(basket);
                         ctx.Entry(original).Property(x => x.Created).IsModified = false;
+                        ctx.Entry(original).Property(x => x.StoreId).IsModified = false;
                     }
                 }
 

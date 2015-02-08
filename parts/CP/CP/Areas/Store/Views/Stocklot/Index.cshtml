@@ -20,7 +20,7 @@
                 <div class='box-header'>
                     <h3 class='box-title'><i class="fa fa-truck"></i> Manage Stocklots <small>Manage information of your stocklots</small></h3>
                     <div class="pull-right box-tools">
-                        <button class="btn btn-success btn" title="Add new stocklot" data-toggle="modal" data-target="#add-stocklot-modal">
+                        <button class="btn btn-success btn" title="Add new stocklot" onclick="on_add()">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>
@@ -35,7 +35,7 @@
                                         <th class="col-md-1" data-align="right" data-halign="center" data-field="Value" data-formatter="stockPriceFormatter">Value (Rs.)</th>
                                         <th class="col-md-6" data-halign="center" data-field="Description">Description</th>
                                         <th class="col-md-2 text-right" data-halign="center">Progress</th>
-                                        <th class="col-md-1 " data-halign="center" data-align="center" data-formatter="operateFormatter">Actions</th>
+                                        <th class="col-md-1" data-field="Id" data-halign="center" data-align="center" data-formatter="operateFormatter">Actions</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -46,16 +46,16 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="add-stocklot-modal">
+<div class="modal fade" id="stocklot-data-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <form role="form" id="stocklot-edit-form">
                 <div class='box box-info rm-box-shadow'>
                     <div class='box-header'>
-                        <h3 class='box-title'>Stocklot Info <small>Add new stocklot</small></h3>
+                        <h3 class='box-title'>Stocklot Info <small>Fill stocklot fields</small></h3>
                     </div>
                     <div class='box-body pad'>
-
+                        <input type="hidden" value="0" name="Id" id="Id" />
                         <div class="form-group-sm">
                             <label class="label-sm">Name</label>
                             <input type="text" name="Name" id="Name" class="form-control" />

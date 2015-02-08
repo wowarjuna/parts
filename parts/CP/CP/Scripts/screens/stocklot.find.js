@@ -1,7 +1,7 @@
 ﻿function operateFormatter(value, row, index) {
         return [          
-            '<a href="/Store/Item/Edit/' + value + '" title="Edit">',
-                '<i class="fa fa-edit"></i>',
+            '<a href="#" title="Edit">',
+                '<i class="fa fa-edit" onclick="on_edit(' + value + ')"></i>',
             '</a>'].join('');
                 }
     
@@ -19,6 +19,7 @@ var rules = {
 
 var submitHandler = function (form) {
     var data = {
+        Id : $('#Id').val(),
         Name: $('#Name').val(),
         Description: $('#Description').val(),
         Value: numeral().unformat($('#Value').val()),
@@ -27,13 +28,34 @@ var submitHandler = function (form) {
     };
 
     $.post('/api/stocklots/stocklot', data).done(function (data) {
-        $('#add-stocklot-modal').modal('hide');
+        $('#stocklot-data-modal').modal('hide');
         $('.message-area').showInfo('Successfully updated');
         $('#stocklot-table').bootstrapTable('refresh');
     }, 'json').fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
     });
     return false;
+}
+
+function on_add() {
+    $('#Name').val('');
+    $('#Description').val('');
+    $('#Id').val('0');
+    $('#stocklot-data-modal').modal('show');
+}
+
+function on_edit(id) {
+    $.get('/api/stocklots/' + id).done(function (data) {
+        $('#Name').val(data.Name);
+        $('#Description').val(data.Description);
+        $('#Value').val(numeral(data.Value).format('0,0.00'));
+        var date = new Date(Date.parse(data.Created));
+        $('#Date').val(date.toLocaleDateString());
+        $('#Id').val(data.Id);
+        $('#stocklot-data-modal').modal('show');
+    }).fail(function (jqXHR, textStatus, err) {
+        $('.message-area').showError(err);
+    });
 }
 
 

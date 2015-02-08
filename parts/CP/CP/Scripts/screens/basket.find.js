@@ -9,18 +9,31 @@
 
 var submitHandler = function (form) {
     var data = {
+        Id: $('#Id').val(),
         Name: $('#Name').val(),
         Description: $('#Description').val()
     };
 
     $.post('/api/baskets/basket', data).done(function (data) {
-        $('#add-basket-modal').modal('hide');
+        $('#data-basket-modal').modal('hide');
         $('.message-area').showInfo('Successfully updated');
         $('#basket-table').bootstrapTable('refresh');
+        $('#Id').val('0');
     }, 'json').fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
     });
     return false;
+}
+
+function on_edit(id) {    
+    $.get('/api/baskets/' + id).done(function (data) {
+        $('#Name').val(data.Name);
+        $('#Description').val(data.Description);
+        $('#Id').val(data.Id);
+        $('#data-basket-modal').modal('show');
+    }).fail(function (jqXHR, textStatus, err) {
+        $('.message-area').showError(err);
+    });
 }
 
 

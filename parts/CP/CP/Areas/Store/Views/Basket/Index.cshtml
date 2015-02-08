@@ -31,7 +31,7 @@
                 <div class='box-header'>
                     <h3 class='box-title'>Manage Baskets <small>Manage store baskets</small></h3>
                     <div class="pull-right box-tools">
-                        <button class="btn btn-success" title="Add new basket" data-toggle="modal" data-target="#add-basket-modal">
+                        <button class="btn btn-success" title="Add new basket" data-toggle="modal" data-target="#data-basket-modal">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>
@@ -56,16 +56,16 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="add-basket-modal">
+<div class="modal fade" id="data-basket-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <form role="form" id="basket-edit-form">
                 <div class='box box-info rm-box-shadow'>
                     <div class='box-header'>
-                        <h3 class='box-title'>Basket Info <small>Add new basket</small></h3>
+                        <h3 class='box-title'>Basket Info <small>Fill basket fields</small></h3>
                     </div>
                     <div class='box-body pad'>
-
+                        <input type="hidden" value="0" name="Id" id="Id" />
                         <div class="input-group-sm">
                             <label class="label-sm">Name</label>
                             <input type="text" name="Name" id="Name" class="form-control" />
@@ -89,6 +89,6 @@
 <script type="text/javascript" src="~/Scripts/screens/basket.find.js"></script>
 <script>
     function urlFormatter(value, row) {
-        return "<a class='margin-right10' href='#'><i class='fa fa-edit'></i></a><a class='margin-right10' href='#'><i class='fa fa-trash-o'></i></a>";
+        return "<a class='margin-right10' href='#'><i class='fa fa-edit' onclick='on_edit(" + value + ")'></i></a><a class='margin-right10' href='#'><i class='fa fa-trash-o'></i></a>";
     }
 </script>
