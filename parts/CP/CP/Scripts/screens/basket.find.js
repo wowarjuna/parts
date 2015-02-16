@@ -14,7 +14,7 @@ var submitHandler = function (form) {
         Description: $('#Description').val()
     };
 
-    $.post('/api/baskets/basket', data).done(function (data) {
+    $.post('/api/baskets', data).done(function (data) {
         $('#data-basket-modal').modal('hide');
         $('.message-area').showInfo('Successfully updated');
         $('#basket-table').bootstrapTable('refresh');
@@ -33,6 +33,16 @@ function on_edit(id) {
         $('#data-basket-modal').modal('show');
     }).fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
+    });
+}
+
+function on_delete(id) {
+   
+    $.post('/api/baskets/remove/' + id).done(function () {
+        $('.message-area').showInfo('Basket has been successfully deleted');
+        $('#basket-table').bootstrapTable('refresh');
+    }).fail(function (jqXHR, textStatus, err) {
+        $('.message-area').showError(jqXHR.responseJSON.ExceptionMessage);
     });
 }
 

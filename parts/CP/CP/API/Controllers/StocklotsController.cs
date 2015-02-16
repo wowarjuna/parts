@@ -11,10 +11,11 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace CP.API.Controllers
 {
+    [RoutePrefix("api/stocklots")]
     public class StocklotsController : ApiController
     {
         [Authorize(Roles = "store")]
-        [Route("api/stocklots")]
+        [Route("")]
         public IEnumerable<Stocklot> GetAllStocklots()
         {
             ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -30,7 +31,7 @@ namespace CP.API.Controllers
             return result;
         }
 
-        [Route("api/stocklots/{id}")]
+        [Route("{id}")]
         public Stocklot GetStocklot(int id)
         {
             using (var ctx = new CPDataContext())
@@ -41,7 +42,7 @@ namespace CP.API.Controllers
 
         [Authorize(Roles="store")]
         [HttpPost]
-        [Route("api/stocklots/stocklot")]
+        [Route("")]
         public HttpResponseMessage PostStocklot(Stocklot stocklot)
         {
             ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -82,6 +83,38 @@ namespace CP.API.Controllers
                 }
 
             }
+        }
+
+        [Authorize(Roles = "store")]
+        [Route("remove/{Id}")]
+        public HttpResponseMessage Remove(int Id)
+        {
+            ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByNameAsync(User.Identity.Name);
+
+            using (var ctx = new CPDataContext())
+            {
+                try
+                {
+                    if (!ctx.Items.Any(x => x.StocklotId == Id))
+                    {
+                        var stocklot = ctx.Stocklots.Single(x => x.Id.Equals(Id));
+                        ctx.Stocklots.Remove(stocklot);
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("There are items assigned to this stocklot. Please remove them first");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.Forbidden, ex);
+                }
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

@@ -27,7 +27,7 @@ var submitHandler = function (form) {
 
     };
 
-    $.post('/api/stocklots/stocklot', data).done(function (data) {
+    $.post('/api/stocklots', data).done(function (data) {
         $('#stocklot-data-modal').modal('hide');
         $('.message-area').showInfo('Successfully updated');
         $('#stocklot-table').bootstrapTable('refresh');
@@ -55,6 +55,16 @@ function on_edit(id) {
         $('#stocklot-data-modal').modal('show');
     }).fail(function (jqXHR, textStatus, err) {
         $('.message-area').showError(err);
+    });
+}
+
+function on_delete(id) {
+
+    $.post('/api/stocklots/remove/' + id).done(function () {
+        $('.message-area').showInfo('Stocklot has been successfully deleted');
+        $('#stocklot-table').bootstrapTable('refresh');
+    }).fail(function (jqXHR, textStatus, err) {
+        $('.message-area').showError(jqXHR.responseJSON.ExceptionMessage);
     });
 }
 
