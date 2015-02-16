@@ -9,17 +9,18 @@ function generate() {
 
 function generate_done(json) {
    
-
-    $chart = new Morris.Bar({
-        element: 'bar-chart',
-        data: json,
-        resize: true,
-        barColors: ['#f56954', '#00a65a'],
-        xkey: 'Name',
-        ykeys: ['QuotedVal', 'Return'],
-        labels: ['QuotedVal', 'Return'],
-        hideHover: 'auto'
-    });
+    if (!jQuery.isEmptyObject(json)) {
+        $chart = new Morris.Bar({
+            element: 'bar-chart',
+            data: json,
+            resize: true,
+            barColors: ['#f56954', '#00a65a'],
+            xkey: 'Name',
+            ykeys: ['QuotedVal', 'Return'],
+            labels: ['QuotedVal', 'Return'],
+            hideHover: 'auto'
+        });
+    }
     
 }
 
