@@ -23,6 +23,8 @@ window.salesEvents = {
         $('.invoice-no').html(row.Id + ' <small>Invoice</small>');
         $('.date').text($.formatDateTime('dd/mm/yy hh:ii', new Date(row.Created)));
         $('.total').text(numeral(row.Total).format('0,0.00'));
+        $('.note p').text(row.Note);
+        $('.reference p').text(row.Reference);
         $('#invoice-table').bootstrapTable('refresh', {
             url: '/api/invoices/' + row.Id +'/items'
         });

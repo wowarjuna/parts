@@ -14,7 +14,7 @@ function generate_done(json) {
     var j = $start.getMonth() + 1;
     for (var i = $start.getFullYear() ; i <= $end.getFullYear() ; i++) {
         for (; j <= 12; j++) {
-            var key = i + '-' + j;
+            var key = i + '-' + j.toString().padLeft(2,'0');
             var val = 0;
             $(json).each(function (idx, obj) {
                 if (obj.Month == key) {

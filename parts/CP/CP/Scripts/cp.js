@@ -12,3 +12,5 @@
         $(this).find('.alert p').text(message);
     }
 });
+
+String.prototype.padLeft = function padLeft(length, leadingChar) { if (leadingChar === undefined) leadingChar = "0"; return this.length < length ? (leadingChar + this).padLeft(length, leadingChar) : this; };

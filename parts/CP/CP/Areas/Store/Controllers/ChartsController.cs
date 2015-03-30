@@ -65,10 +65,11 @@ namespace CP.Areas.Store.Controllers
 
             using (var ctx = new CPDataContext())
             {
+                DateTime endDate =  new DateTime(to.Year, to.Month, DateTime.DaysInMonth(to.Year, to.Month));
                 var query = ctx.Database.SqlQuery<SalesChartResponse>("sp_get_sales_charts @storeid, @from, @to",
                     new SqlParameter("@storeid", user.Result.StoreId),
                     new SqlParameter("@from", from),
-                    new SqlParameter("@to", new DateTime(to.Year, to.Month, DateTime.DaysInMonth(to.Year, to.Month))));
+                    new SqlParameter("@to", endDate));
 
 
                 return Json(query.ToList(), JsonRequestBehavior.AllowGet);

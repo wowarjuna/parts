@@ -69,8 +69,8 @@ namespace CP.API.Controllers
 
             using (var ctx = new CPDataContext())
             {
-                var query = ctx.Invoices.Where(x => (criteria.InvoiceNoInt.Equals(0) || x.Id.Equals(criteria.InvoiceNoInt))
-                || (x.Created > criteria.Start && x.Created < criteria.End));
+                var query = ctx.Invoices.Where(x => x.Id.Equals(criteria.InvoiceNoInt) ||
+                (x.Created > criteria.Start && x.Created < criteria.End && criteria.InvoiceNoInt.Equals(0)));
 
                 return new InvoiceSearchResponse
                 {
