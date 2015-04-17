@@ -189,6 +189,7 @@
     <Compile Include="Areas\Store\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Store\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Store\Controllers\ItemController.cs" />
+    <Compile Include="Areas\Store\Controllers\ReportController.cs" />
     <Compile Include="Areas\Store\Controllers\StocklotController.cs" />
     <Compile Include="Areas\Store\Controllers\StoresController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
@@ -352,6 +353,7 @@
     <Content Include="Areas\Store\Views\Invoice\Index.cshtml" />
     <Content Include="Areas\Store\Views\Charts\Sales.cshtml" />
     <Content Include="Areas\Store\Views\Charts\Stocklots.cshtml" />
+    <Content Include="Areas\Store\Views\Report\Index.cshtml" />
     <None Include="Areas\Store\Views\Shared\_Layout.cshtml.bk" />
     <Content Include="Areas\Store\Views\Item\Add.cshtml" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
