@@ -10,3 +10,15 @@ D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.pdb
 D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.dll
 D:\Projects\Parts\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\Parts\parts\parts\CP\CP.Data\obj\Debug\CP.Data.csprojResolveAssemblyReference.cache
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\CP.Data.dll.config
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\CP.Data.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\CP.Data.pdb
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\obj\Debug\CP.Data.csprojResolveAssemblyReference.cache
+D:\Projects\GitHub\parts\parts\CP\CP.Data\obj\Debug\CP.Data.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\obj\Debug\CP.Data.pdb

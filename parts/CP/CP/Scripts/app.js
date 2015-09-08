@@ -1052,3 +1052,12 @@ $(window).load(function() {
         })
     }
 })(window.jQuery || window.Zepto);
+
+
+$(function () {
+    $('.sidebar-menu li').removeClass('active');
+    $('[href="' + window.location.pathname + '"]').parent().parents('li').first().addClass('active');
+    $('[href="' + window.location.pathname + '"]').parent().addClass('active');
+    $(".sidebar .treeview").tree();
+
+});
