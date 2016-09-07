@@ -1,1 +1,1 @@
-﻿angular.module('refineSearch', ['ngRoute']);
+﻿angular.module('refineSearch', ['ngRoute', 'query', 'reference']);

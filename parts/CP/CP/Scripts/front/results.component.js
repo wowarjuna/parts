@@ -2,8 +2,10 @@
   module('results').
   component('results', {
       templateUrl: '/Scripts/front/results.html',
-      controller: ['$routeParams', function ResultsController($routeParams) {
-
+      controller: ['$routeParams', '$rootScope', 'query', function ResultsController($routeParams, $rootScope, query) {
+          $rootScope.$on('query-success', function (event, obj) {
+              alert(obj.result);
+          });
       }
       ]
   });

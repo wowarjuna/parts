@@ -5,13 +5,25 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
+                <label for="manufacture">Category</label>
+                <select class="form-control" id="category" ng-model="category">
+                    <option ng-repeat="x in categories" value="{{x.d}}">{{x.r}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
                 <label for="manufacture">Manufacturer</label>
-                <select class="form-control" id="manufacture">
-                    <option selected>Lorem Ipsum</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select class="form-control" id="manufacture" ng-change="onBrandChanged()" ng-model="selectedBrand">
+                    <option ng-repeat="x in brands" value="{{x.d}}">{{x.r}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="model">Model</label>
+                <select class="form-control" id="model" ng-model="model">
+                    <option ng-repeat="x in models" value="{{x}}">{{x}}</option>
                 </select>
             </div>
         </div>
@@ -27,50 +39,23 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="model">Model</label>
-                <select class="form-control" id="model">
-                    <option selected>Ipsum</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="partType">Part Type</label>
-                <select class="form-control" id="partType">
-                    <option selected>Ipsum</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
+      
         <div class="col-md-12">
             <div class="form-group">
                 <label for="partType">Area</label>
-                <select class="form-control" id="area">
-                    <option selected>Ipsum</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select class="form-control" id="area" ng-model="area">
+                    <option ng-repeat="x in area" value="{{x}}">{{x}}</option>
                 </select>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="searchText">Search Text</label>
-                <input class="form-control" id="searchText" placeholder="Search Text">
+                <input class="form-control" id="searchText" placeholder="Search Text" ng-model="text">
             </div>
         </div>
         <div class="col-md-12 ">
-            <button class="btn btn-primary btn-block">Search</button>
+            <button class="btn btn-primary btn-block" ng-click="search()">Search</button>
         </div>
 
     </div>
