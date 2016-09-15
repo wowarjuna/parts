@@ -6,57 +6,44 @@
                     <h4 class="search-text text-center">Lorem Ipsum is simply dummy text of the printing</h4>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <select class="form-control">
-                        <option value="" disabled selected>Select Manufacture</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" ng-model="category">
+                        <option ng-repeat="x in categories" value="{{x.d}}">{{x.r}}</option>
                     </select>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <select class="form-control">
-                        <option value="" disabled selected>Select Year</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" ng-change="onBrandChanged()" ng-model="brand">
+                        <option ng-repeat="x in brands" value="{{x.d}}">{{x.r}}</option>
                     </select>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <select class="form-control">
-                        <option value="" disabled selected>Select Model</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" ng-model="model">
+                        <option ng-repeat="x in models" value="{{x}}">{{x}}</option>
                     </select>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <select class="form-control">
-                        <option value="" disabled selected>Select Part Type</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" ng-model="year">
+                        <option value="-1">-- select year --</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
                     </select>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <select class="form-control">
-                        <option value="" disabled selected>Select Area</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" ng-model="area">
+                        <option ng-repeat="x in areas" value="{{x}}">{{x}}</option>
                     </select>
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15">
-                    <input class="form-control" placeholder="Search Text">
+                    <input class="form-control" placeholder="Search Text" ng-model="text">
                 </div>
                 <div class="col-md-4 pad-r-0-res pad-b-15"></div>
                 <div class="col-md-4 pad-r-0-res pad-b-15"></div>

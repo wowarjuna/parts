@@ -1,1 +1,1 @@
-﻿angular.module('homeSearch', ['ngRoute']);
+﻿angular.module('homeSearch', ['ngRoute', 'reference', 'query']);
