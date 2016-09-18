@@ -1,1 +1,1 @@
-﻿angular.module('results', ['ngRoute', 'query']);
+﻿angular.module('results', ['ngRoute', 'query', 'angularUtils.directives.dirPagination']);

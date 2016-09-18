@@ -2,10 +2,15 @@
   module('results').
   component('results', {
       templateUrl: '/Scripts/front/results.html',
-      controller: ['$routeParams', '$rootScope', 'query', function ResultsController($routeParams, $rootScope, query) {
+      controller: ['$routeParams', '$rootScope', '$scope', '$location', 'query', function ResultsController($routeParams, $rootScope, $scope, $location, query) {
+          
           $rootScope.$on('query-success', function (event, obj) {
-              alert(obj.result);
+              $scope.results = obj.result.data;
           });
+
+          $scope.navigateToDetail = function (modelNo, name) {
+              $location.path('/detail/' + modelNo + '/' + name);
+          }
       }
       ]
   });

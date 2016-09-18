@@ -10,6 +10,9 @@
           })
           .when('/search', {
               template: '<search></search>'
+          })
+          .when('/detail/:modelNo/:name', {
+              template: '<detail></detail>'
           }).
           otherwise('/home');
     }

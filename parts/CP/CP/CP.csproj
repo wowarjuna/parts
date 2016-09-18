@@ -343,6 +343,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\img-1.jpg" />
+    <Content Include="images\img-2.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -473,6 +475,7 @@
     <Content Include="css\_less\templates\page-body.less" />
     <Content Include="css\_less\variables.less" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
+    <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -486,6 +489,9 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\front\detail.component.js" />
+    <Content Include="Scripts\front\detail.html" />
+    <Content Include="Scripts\front\detail.module.js" />
     <Content Include="Scripts\front\reference.service.js" />
     <Content Include="Scripts\front\models.json" />
     <Content Include="Scripts\front\references.json" />
@@ -1353,6 +1359,7 @@
     <Content Include="Scripts\screens\sales.find.js" />
     <Content Include="Scripts\screens\stocklot.find.js" />
     <Content Include="Scripts\screens\store.edit.js" />
+    <Content Include="Scripts\swiper.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
