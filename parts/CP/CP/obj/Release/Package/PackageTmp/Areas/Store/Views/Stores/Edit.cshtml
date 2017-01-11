@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        Stores
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Stores</li>
+        <li class="active">Edit Store Info</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <input type="hidden" value="@Model" name="Id" id="Id" />
+    <div class="row message-area">
+        <div class="col-md-12">
+            <div class="alert alert-dismissable">
+                <i class="fa"></i>
+                <p>Info</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <form>
+            <div class="col-md-6">
+                <div class='box box-info'>
+                    <div class='box-header'>
+                        <h3 class='box-title'>Contact Information</h3>
+                    </div>
+                    <div class='box-body pad'>
+
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Address</label>
+                            <input type="text" class="form-control input-sm" id="Address" name="Address" placeholder="Address">
+                        </div>
+                        <div class="input-group-sm">
+                            <label class="label-sm">Phone</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control input-sm" id="Phone" placeholder="Phone">
+
+                            </div>
+                        </div>
+                        <div class="input-group-sm">
+                            <label class="label-sm">Fax</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-print"></i>
+                                </div>
+                                <input type="text" class="form-control input-sm" id="Fax" placeholder="Fax">
+
+                            </div>
+                        </div>
+                        <div class="input-group-sm">
+
+                            <label class="label-sm">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input type="email" class="form-control input-sm" id="Email" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-6'>
+                <div class='box box-info'>
+                    <div class='box-header'>
+                        <h3 class='box-title'>Store Information</h3>
+                    </div>
+                    <div class='box-body pad'>
+
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Name</label>
+                            <input type="text" class="form-control input-sm" id="Name" placeholder="Name">
+                        </div>
+                        <div style="margin-top:30px">
+                            <div class="alert alert-info">
+                                <i class="fa fa-info"></i>
+                                Info
+                            </div>
+                        </div>
+                        <div class="input-group-sm">
+                            <label class="label-sm">Longitude</label>
+                            <input type="text" class="form-control input-sm" id="LocationLon" name="LocationLon" placeholder="Longitude">
+                        </div>
+                        <div class="input-group-sm">
+                            <label class="label-sm">Latitide</label>
+                            <input type="text" class="form-control input-sm" id="LocationLat" name="LocationLat" placeholder="Latitide">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section><!-- /.content -->
+<script type="text/javascript" src="~/Scripts/screens/store.edit.js"></script>
+

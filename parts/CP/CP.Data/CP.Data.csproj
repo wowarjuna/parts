@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CPDataContext.cs" />
+    <Compile Include="DTO\DetailItemDTO.cs" />
     <Compile Include="DTO\SearchItemDTO.cs" />
     <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Brand.cs" />

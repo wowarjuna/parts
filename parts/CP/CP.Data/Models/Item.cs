@@ -46,6 +46,9 @@ namespace CP.Data.Models
 
         public int? StocklotId { get; set; }
 
-        //public virtual ICollection<ItemImage> Images { get; set; }
+        public virtual ICollection<ItemImage> Images { get; set; }
+
+        [ForeignKey("StoreId")]
+        public virtual Store Store { get; set; }
     }
 }

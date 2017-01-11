@@ -1,0 +1,154 @@
+﻿@model CP.Data.Models.Item
+@{
+    ViewBag.Title = "Edit Part";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Parts
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/Store/Item">Find Items</a></li>
+        <li class="active">Edit Item</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+    <div class="row message-area">
+        <div class="col-md-12">
+            <div class="alert alert-dismissable">
+                <i class="fa"></i>
+                <p>Info</p>
+            </div>
+
+        </div>
+    </div>
+    <form id="edit-item" enctype="multipart/form-data">
+
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='box box-info'>
+                    <div class='box-header'>
+                        <h3 class='box-title'>Item Data <small>Edit item data</small></h3>
+                    </div>
+                    <div class='box-body pad'>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Name</label>
+                            <input value="@Model.Name" type="text" class="form-control input-sm" id="Name" name="Name" placeholder="Name">
+                        </div>
+
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Part No</label>
+                            <input value="@Model.PartNo" type="text" class="form-control input-sm" id="PartNo" name="PartNo" placeholder="Part No">
+                        </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Year</label>
+                            <input value="@Model.Year" type="text" id="Year" name="Year" class="form-control input-sm" placeholder="Year">
+                        </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Brand</label>
+                            @Html.DropDownList("BrandId", (IEnumerable<SelectListItem>)ViewBag.Brands, new { @class = "form-control input-sm" })
+
+                        </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Model</label>
+                            @Html.DropDownList("ModelId", (IEnumerable<SelectListItem>)ViewBag.Models, new { @class = "form-control input-sm" })
+                        </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Category</label>
+                            @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control input-sm" })
+                        </div>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Description</label>
+                            <textarea class="form-control" name="Description" id="Description">@Model.Description</textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='box box-info'>
+                    <div class='box-header'>
+                        <h3 class='box-title'>Store Info <small>Keep information about the item</small></h3>
+                    </div>
+                    <div class='box-body pad'>
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Info</label>
+                            <textarea name="StoreInfo" id="StoreInfo" class="form-control">@Model.StoreInfo</textarea>
+                        </div>
+
+
+                        <div class="input-group-sm">
+                            <label class="label-sm">Basket</label>
+                            @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="input-group-sm">
+                            <label class="label-sm">Stocklot</label>
+                            @Html.DropDownList("StocklotId", (IEnumerable<SelectListItem>)ViewBag.Stocklots, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group-sm">
+                                    <label class="label-sm">Qty</label>
+                                    <input value="@Model.Qty" name="Qty" id="Qty" type="number" class="form-control input-sm text-right" placeholder="Qty">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group-sm">
+                                    <label class="label-sm">Quoted Price</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Rs.</span>
+                                        <input value="@(Model.QuotedPrice != null ? string.Format("{0:#,##0.00}", Model.QuotedPrice) : "")" type="text" name="QuotedPrice" id="QuotedPrice" class="form-control input-sm text-right currency" placeholder="Quoted Price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group-sm">
+                                    <div class="checkbox">
+                                        <label>
+                                            &nbsp;
+                                        </label>
+                                        <div class="input-group">
+
+                                            <label>@Html.CheckBox("Active", Model.Active) Active</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class='col-md-6'>
+                
+                <div class="box box-success">
+                    <div class='box-header'>
+                        <h3 class='box-title'>Gallery <small>Maintain the item gallery</small></h3>
+                    </div>
+                    <div class='box-body pad'>
+                        <input id="itemImage" name="itemImage" accept="image/*" type="file" multiple="true" class="file-loading" data-upload-url="/store/item/uploadmedia" data-max-file-count="5" data-preview-file-type="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-top5">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</section>
+<script type="text/javascript" src="~/Scripts/screens/part.edit.js"></script>
+
+

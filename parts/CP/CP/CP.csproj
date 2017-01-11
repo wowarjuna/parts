@@ -338,7 +338,9 @@
     <Content Include="Content\metisMenu.min.css" />
     <Content Include="Content\morris\morris.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\detail.css" />
     <Content Include="css\main.css" />
+    <Content Include="css\swiper.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -474,6 +476,7 @@
     <Content Include="css\_less\templates\header.less" />
     <Content Include="css\_less\templates\page-body.less" />
     <Content Include="css\_less\variables.less" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="Scripts\dirPagination.js" />
     <Content Include="Scripts\errors.json" />

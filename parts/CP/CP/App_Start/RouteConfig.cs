@@ -19,6 +19,9 @@ namespace CP
                 url: "Search/Query/{category}/{brand}/{model}/{year}/{area}/{text}/{stamp}",
                 defaults: new { controller = "Search", action = "Query", category = -1, brand = -1, model = UrlParameter.Optional, year = -1, area = UrlParameter.Optional, text = UrlParameter.Optional, stamp = string.Empty });
 
+            routes.MapRoute(name: "Detail", url: "Search/Get/{itemId}/{stamp}",
+                defaults: new { controller = "Search", action = "Get", itemId = -1, stamp = string.Empty });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

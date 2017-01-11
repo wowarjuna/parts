@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Parts
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Parts</li>
+        <li class="active">Find Parts</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='box box-info'>
+                <div class='box-header'>
+                    <h3 class='box-title'>
+                        Find Parts <small>Manage information of the parts in your stores</small>
+
+                    </h3>
+                    <div class="pull-right box-tools">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" onclick="addToCart()"><i class="fa fa-tag"></i>Select for purchase</a></li>
+                                <li><a href="/Store/Item/Sell"><i class="fa fa-tags"></i>Go to Invoice</a></li>
+                                <li><a href="#" onclick="show_advaced_filter()"><i class="fa fa-search-plus"></i>Advanced filters</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class="fa fa-pencil-square-o"></i>Edit store info</a></li>
+                                <li><a href="/Store/Item/Add"><i class="fa fa-plus"></i> Add product</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='box-body pad'>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Brand</label>
+
+                                @Html.DropDownList("BrandId", (IEnumerable<SelectListItem>)ViewBag.Brands, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Model</label>
+                                <select class="form-control input-sm" id="ModelId" name="ModelId"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Category</label>
+                                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Part No</label>
+                                <input type="text" class="form-control input-sm" id="PartNo" name="PartNo" placeholder="Part No">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Name</label>
+                                <input type="text" name="Name" class="form-control input-sm" id="Name" placeholder="Name">
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-1" style="margin-top:20px">
+                            <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+
+                        </div>
+                    </div>
+                    <div class="row margin-top5" id="advanced-filters" style="display:none">
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Basket</label>
+                                @Html.DropDownList("BasketId", (IEnumerable<SelectListItem>)ViewBag.Baskets, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <label class="label-sm">Stocklot</label>
+                                @Html.DropDownList("StocklotId", (IEnumerable<SelectListItem>)ViewBag.Stocklots, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group-sm">
+                                <div class="checkbox">
+                                    <label>
+                                        In Stock
+                                    </label>
+                                    <div class="input-group">
+                                        <label><input type="checkbox" name="InStock" id="InStock" checked="checked" /></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 pull-right">
+                            <button type="button" class="close" aria-hidden="true" onclick="hide_advaced_filter()">×</button>
+                        </div>
+
+                    </div>
+                    <div class="row margin-top5" style="margin-bottom:20px">
+                        <div class="col-md-12">
+                            <table data-height="400" id="search-table" data-pagination="true" data-side-pagination="server">
+                                <thead>
+                                    <tr>
+                                        <th data-checkbox="true"></th>
+                                        <th data-halign="center" data-field="PartNo" data-align="center" data-width="150">Part No</th>
+                                        <th data-halign="center" data-field="Name">Name</th>
+                                        <th data-halign="center" data-field="QuotedPrice" data-align="right" data-width="100">Quoted Price</th>
+                                        <th data-halign="center" data-field="Qty" data-align="right" data-width="100">Qty</th>
+                                        <th data-halign="center" data-field="Id" data-formatter="operateFormatter" data-width="120">Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="add-to-checkout-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="alert alert-success">
+                <i class="fa fa-check"></i>
+                Items have been added to the cart. Do you want to checkout?
+            </div>
+
+
+
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="on_checkout()">Yes</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script type="text/javascript" src="~/Scripts/screens/part.find.js"></script>
+<script>
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="col-md-4" href="javascript:void(0)" title="View">',
+                '<i class="fa fa-file-o"></i>',
+            '</a>',
+            '<a class="col-md-4" href="/Store/Item/Edit/' + value + '" title="Edit">',
+                '<i class="fa fa-edit"></i>',
+            '</a>',
+            '<a class="col-md-4" href="javascript:void(0)" title="Delete">',
+                '<i class="fa fa-trash-o"></i>',
+            '</a>'
+        ].join('');
+    }
+</script>

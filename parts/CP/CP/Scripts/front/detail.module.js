@@ -1,1 +1,1 @@
-﻿angular.module('detail', ['ngRoute']);
+﻿angular.module('detail', ['ngRoute', 'query']);

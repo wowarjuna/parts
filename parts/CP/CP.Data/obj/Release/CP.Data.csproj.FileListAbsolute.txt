@@ -1,0 +1,11 @@
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\CP.Data.dll.config
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\CP.Data.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\CP.Data.pdb
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\EntityFramework.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\Newtonsoft.Json.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\EntityFramework.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\bin\Release\Newtonsoft.Json.xml
+D:\Projects\GitHub\parts\parts\CP\CP.Data\obj\Release\CP.Data.dll
+D:\Projects\GitHub\parts\parts\CP\CP.Data\obj\Release\CP.Data.pdb

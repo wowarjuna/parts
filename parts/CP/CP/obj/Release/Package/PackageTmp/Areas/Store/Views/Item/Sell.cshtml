@@ -1,0 +1,136 @@
+﻿@model int
+@{
+    ViewBag.Title = "Sell";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Checkout
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Store/Dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Checkout</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='box box-info'>
+                <div class='box-header'>
+                    <h3 class='box-title'>Sell Parts <small>sell parts</small></h3>
+                    <div class="pull-right box-tools">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/Store/Item/"><i class="fa fa-search"></i>Find items</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='box-body pad'>
+                    @if (Model == 0)
+                    {
+
+                        <div class="alert alert-info alert-dismissable">
+                            <i class="fa fa-info"></i>
+                            <p>No items has been selected. Please add parts to the cart from Find Parts screen.</p>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="checkout-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="Id" data-formatter="operateFormatter" class="col-md-1 text-center">Actions</th>
+                                            <th data-field="PartNo" class="col-md-2 text-left">Part #</th>
+                                            <th data-field="Name" class="col-md-5 text-left">Name</th>
+                                            <th data-field="QuotedPrice" data-formatter="unitPriceFormatter" class="col-md-1 text-center">Unit Price</th>
+                                            <th class="col-md-1 text-center" data-formatter="qtyFormatter">Qty</th>
+                                            <th class="col-md-2 text-right" data-formatter="subtotalFormatter">Sub Total</th>
+
+                                        </tr>
+                                    </thead>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class='box box-solid bg-light-blue margin-top15'>
+                                    <textarea id="note" class="form-control" rows="3" placeholder="Note ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class='box box-solid bg-light-blue margin-top15'>
+                                    <textarea id="reference" class="form-control" rows="3" placeholder="Reference ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class='box box-solid bg-green margin-top15'>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table">
+
+                                                <tr>
+                                                    <th style="width:50%"><h3>Total</h3></th>
+                                                    <td class="text-right"><h3><strong class="total"></strong></h3></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-warning margin10" onclick="on_payment_cancel()">Cancel</button>
+                                            <button class="btn btn-default pull-right margin10" onclick="on_payment_submit()">PAY</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script type="text/javascript" src="~/Scripts/screens/part.sell.js"></script>
+<script>
+    function unitPriceFormatter(value, row, index) {
+        var val = numeral(row.QuotedPrice).format('0,0.00');
+        return '<input data-precision="2" data-thousands="," data-decimal="." id="QuotedPrice' + row.Id + '" name="QuotedPrice' + row.Id + '" type="text" class="form-control input-sm text-right number-mask" value="' + val + '">';
+    }
+
+    function qtyFormatter(value, row, index) {
+        return ['<div class="input-group">',
+            '<input  maxlength="2" data-precision="0" data-thousands="," data-decimal="." id="Qty' + row.Id + '" name="Qty' + row.Id + '" type="text" class="form-control input-sm text-right qty-mask" value="1">',
+            '<span class="input-group-addon">' + row.Qty + '</span>',
+            '</div>'].join('');
+    }
+
+    function subtotalFormatter(value, row, index) {
+        var val = numeral(row.QuotedPrice).format('0,0.00');
+        return '<strong id="Total' + row.Id + '" name="Total' + row.Id + '">' + val + '</strong>';
+    }
+
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="col-md-4" href="#" onclick="delete_item(' + row.Id + ')" title="Delete">',
+                '<i class="fa fa-trash-o"></i>',
+            '</a>'
+        ].join('');
+    }
+</script>

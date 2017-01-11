@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <div class="small-box bg-green-gradient">
+                    <div class="inner">
+                        <h3>Parts</h3>
+                        <p>Find parts</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-gears"></i>
+                    </div>
+                    <a href="/Store/Item/" class="small-box-footer">More Info</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="small-box bg-aqua-gradient">
+                    <div class="inner">
+                        <h3>Sales</h3>
+                        <p>Find invoices</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <a href="/Store/Item/Sales" class="small-box-footer">More Info</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="small-box bg-green-gradient">
+                    <div class="inner">
+                        <h3>Charts</h3>
+                        <p>Analytics</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More Info</a>
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="box box-solid bg-green-gradient">
+                <div class="box-header">
+                    <i class="fa fa-calendar"></i>
+                    <h3 class="box-title">Calendar</h3>
+                    <!-- tools box -->
+                    
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <!--The calendar -->
+                    <div id="calendar" style="width: 100%"></div>
+                </div><!-- /.box-body -->
+               
+            </div><!-- /.box -->    
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="~/Scripts/screens/dashboard.js"></script>

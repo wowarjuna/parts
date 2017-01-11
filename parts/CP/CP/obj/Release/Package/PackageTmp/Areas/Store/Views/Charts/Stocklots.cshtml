@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Stocklots";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Stocklot revenue
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Stocklot revenue</li>
+
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='box box-info'>
+                <div class='box-header'>
+                    <h3 class='box-title'>
+                        Revenue by the stocklot <small></small>
+
+                    </h3>
+                </div>
+                <div class='box-body pad'>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group-sm">
+                                <label>Date range</label>
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="stocklot-range">
+                                </div><!-- /.input group -->
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-1" style="margin-top:25px">
+                            <button type="button" class="btn btn-primary" onclick="generate()">Generate</button>
+
+                        </div>
+                    </div>
+                    <div class="chart" id="bar-chart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="~/Scripts/screens/charts.stocklots.js"></script>
+

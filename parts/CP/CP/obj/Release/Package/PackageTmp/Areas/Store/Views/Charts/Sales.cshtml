@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Sales";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Sales
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Sales</li>
+
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='box box-info'>
+                <div class='box-header'>
+                    <h3 class='box-title'>
+                        Sales by date range <small></small>
+
+                    </h3>
+                </div>
+                <div class='box-body pad'>
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="form-group-sm">
+                                <label>Month start</label>
+                                <div class="input-group input-group-sm">
+
+
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="sales-range-start">
+
+
+                                </div><!-- /.input group -->
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="form-group-sm">
+                                <label>Month end</label>
+                                <div class="input-group input-group-sm">
+
+
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="sales-range-end">
+
+
+                                </div><!-- /.input group -->
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-1" style="margin-top:25px">
+                            <button type="button" class="btn btn-primary" onclick="generate()">Generate</button>
+
+                        </div>
+                    </div>
+                    <div class="chart" id="bar-chart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="~/Scripts/screens/charts.sales.js"></script>
+

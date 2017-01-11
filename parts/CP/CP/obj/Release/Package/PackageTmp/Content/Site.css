@@ -1,0 +1,73 @@
+﻿.margin-top5{
+    margin-top:5px;
+}
+
+.margin-top10{
+    margin-top:10px;
+}
+
+.margin-top15{
+    margin-top:15px;
+}
+
+.margin-right10 {
+    margin-right:10px;
+}
+
+.margin10 {
+    margin:10px;
+}
+
+.margin5 {
+    margin:5px;
+}
+
+.rm-box-shadow {
+    box-shadow:none;
+}
+
+.vcenter {
+    vertical-align:central;
+}
+
+.logo-img {
+   vertical-align:auto;
+}
+
+.message-area {
+    display:none;
+}
+
+
+
+.btn-search {
+    background-image:url(../images/search_03.png);
+    height:38px;
+    width:118px;
+    border:0px;
+}
+
+.btn-save {
+    background-image:url(../images/save-btn.png);
+    height:38px;
+    width:118px;
+    border:0px;
+}
+
+.search-ico {
+    height:24px;
+    width:24px;
+    border:0px;
+    background-image:url(../images/search-3-24.png);
+    background-color:#fff;
+    margin-left:5px;
+}
+
+.plus-ico {
+     height:24px;
+    width:24px;
+    border:0px;
+    background-image:url(../images/plus-24.png);
+    background-color:#fff;
+   
+}

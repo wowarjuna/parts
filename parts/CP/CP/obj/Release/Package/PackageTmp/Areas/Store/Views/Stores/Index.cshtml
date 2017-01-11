@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Stores
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Stores</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='box box-info'>
+                <div class='box-header'>
+                    <h3 class='box-title'>Manage Stores <small>Manage information of your stores</small></h3>
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-success btn" title="Add new store">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class='box-body pad'>
+                    <div class="row margin-top5" style="margin-bottom:60px">
+                        <div class="col-md-12">
+                            <table data-url="/api/stores" data-height="400" data-sort-name="name" data-sort-order="desc" data-toggle="table" data-card-view="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="Name">Name</th>
+                                        <th data-field="Address">Address</th>
+                                        <th data-field="Phone" data-align="center">Phone</th>
+                                        <th data-field="Email" data-align="center">Email</th>
+                                        <th data-field="Id" data-formatter="urlFormatter"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section><!-- /.content -->
+<script>
+    function urlFormatter(value, row) {
+        return "<a href='/Store/Stores/Edit/" + value + "'><i class='fa fa-edit'></i></a>";
+    }
+</script>
+

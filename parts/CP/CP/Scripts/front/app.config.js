@@ -11,8 +11,9 @@
           .when('/search', {
               template: '<search></search>'
           })
-          .when('/detail/:modelNo/:name', {
+          .when('/detail/:id/:modelNo/:name', {
               template: '<detail></detail>'
+             
           }).
           otherwise('/home');
     }

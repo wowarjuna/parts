@@ -46,8 +46,27 @@ a{
     &.active{
       a{
         background-color: @main-color;
-
+        border-color: @main-color;
+        &:hover{
+          background-color: @main-color-darken;
+          border-color: @main-color-darken;
+        }
       }
     }
+  }
+}
+
+.product-cat{
+  .cat{
+    float: left;
+    margin-right: 25px;
+    strong{
+      color: @main-color;
+    }
+  }
+  &:after{
+    display: table;
+    content: " ";
+    clear: both;
   }
 }
