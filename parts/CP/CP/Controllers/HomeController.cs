@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CP.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 
 namespace CP.Controllers
 {
+    [RoutePrefix("home")]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -35,6 +37,13 @@ namespace CP.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        [Route("stores/{stamp}")]
+        public JsonResult List(string stamp)
+        {
+            return Json(StoreManager.List(), JsonRequestBehavior.AllowGet);
         }
     }
 }

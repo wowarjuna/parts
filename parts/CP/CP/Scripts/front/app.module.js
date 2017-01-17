@@ -1,3 +1,3 @@
 ﻿angular.module('partbayApp', ['ngRoute', 'navigation', 'home', 'homeSearch', 'promoOne', 'search'
-    , 'refineSearch', 'results', 'promoTwo', 'detail']);
+    , 'refineSearch', 'results', 'promoTwo', 'detail', 'store']);
 

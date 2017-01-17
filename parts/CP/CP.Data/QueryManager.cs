@@ -1,6 +1,8 @@
 ﻿using CP.Data.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -24,13 +26,13 @@ namespace CP.Data
 
         public static DetailItemDTO Get(long itemId)
         {
+            DetailItemDTO item;
             using(var context = new CPDataContext())
             {
-                var obj = context.Items.Single(x => x.Id.Equals(itemId));
-                var returnObj = new DetailItemDTO { name = obj.Name, description = obj.Description, id = obj.Id };
-                returnObj.images = (from x in obj.Images select new ItemImageDTO { name = x.OriginalName, url = x.Location }).ToList();
-                returnObj.store = new StoreInfoDTO { address = obj.Store.Address };
-                return returnObj;
+               
+                item = context.Database.SqlQuery<DetailItemDTO>("sp_Get @partid", new SqlParameter("@partid", itemId)).First();
+                item.images = context.Database.SqlQuery<ItemImageDTO>("sp_GetImages @partid", new SqlParameter("@partid", itemId)).ToList();
+                return item;
             }
         }
     }

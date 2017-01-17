@@ -55,6 +55,7 @@
     <Compile Include="CPDataContext.cs" />
     <Compile Include="DTO\DetailItemDTO.cs" />
     <Compile Include="DTO\SearchItemDTO.cs" />
+    <Compile Include="DTO\StoreItemDTO.cs" />
     <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryManager.cs" />
+    <Compile Include="StoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

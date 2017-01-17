@@ -14,7 +14,10 @@
           .when('/detail/:id/:modelNo/:name', {
               template: '<detail></detail>'
              
-          }).
-          otherwise('/home');
+          })
+          .when('/stores', {
+               template: '<store></store>' 
+          })
+          .otherwise('/home');
     }
   ]);

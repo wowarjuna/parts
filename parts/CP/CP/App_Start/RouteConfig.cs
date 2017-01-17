@@ -13,6 +13,7 @@ namespace CP
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("*.json");
+            
 
             routes.MapRoute(
                 name: "Query",
@@ -21,6 +22,8 @@ namespace CP
 
             routes.MapRoute(name: "Detail", url: "Search/Get/{itemId}/{stamp}",
                 defaults: new { controller = "Search", action = "Get", itemId = -1, stamp = string.Empty });
+
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "Default",

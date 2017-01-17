@@ -35,15 +35,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="quick-nav item">
-
+                                    {{supplierName}}
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="action-btns pad-b-15">
-                        <button class="btn btn-primary btn-block"><i class="glyphicon glyphicon-envelope"></i>{{address}}</button>
-                        <button class="btn btn-primary btn-block"><i class="glyphicon glyphicon-earphone"></i>{{phone}}</button>
+                        <button class="btn btn-primary btn-block" ><i class="glyphicon glyphicon-envelope"></i>{{address}}</button>
+                        <button class="btn btn-primary btn-block" ><i class="glyphicon glyphicon-earphone"></i>{{phone}}</button>
                     </div>
                     <div class="ctrl-btns">
                         <button class="btn btn-warning btn-block"><i class="glyphicon glyphicon-warning-sign"></i> Report This Ad</button>
@@ -57,8 +57,9 @@
                             <div class="panel-heading">Details</div>
                             <div class="panel-body">
                                 <div class="product-cat mar-b-15">
-                                    <h5 class="cat"><strong>Manufacturer:</strong> Lorem Ipsum</h5>
-                                    <h5 class="cat"><strong>Model:</strong> Ipsum</h5>
+                                    <h5 class="cat"><strong>Manufacturer:</strong> {{brand}}</h5>
+                                    <h5 class="cat"><strong>Model:</strong> {{model}}</h5>
+                                    <h5 class="cat"><strong>Part No:</strong> {{partNo}}</h5>
                                 </div>
                                 <div class="detail">
                                     {{description}}

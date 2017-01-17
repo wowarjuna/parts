@@ -498,6 +498,8 @@
     <Content Include="Scripts\front\reference.service.js" />
     <Content Include="Scripts\front\models.json" />
     <Content Include="Scripts\front\references.json" />
+    <Content Include="Scripts\front\store.component.js" />
+    <Content Include="Scripts\front\store.module.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cp.js" />
     <Content Include="Scripts\front\app.config.js" />
@@ -527,6 +529,8 @@
     <Content Include="Scripts\front\search.html" />
     <Content Include="Scripts\front\search.module.js" />
     <Content Include="Scripts\front\query.service.js" />
+    <Content Include="Scripts\front\store.html" />
+    <Content Include="Scripts\front\store.service.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -1407,6 +1411,7 @@
     <Content Include="Views\Admin\Accounts.cshtml" />
     <Content Include="Views\Shared\_LayoutSuper.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

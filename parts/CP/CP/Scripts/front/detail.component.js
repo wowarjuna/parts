@@ -7,15 +7,20 @@
           var self = this;
           self._galleryCount = 0;
 
-          query.get(10);
+          query.get($routeParams.id);
 
           $rootScope.$on('detail-success', function (event, obj) {
-              $scope.id = obj.result.data.id;
-              $scope.name = obj.result.data.name;
-              $scope.description = obj.result.data.description;
-              $scope.images = obj.result.data.images;
-              $scope.phone = obj.result.data.store.phone != null ? obj.result.data.store.phone : 'No phone number';
-              $scope.address = obj.result.data.store.address != null ? obj.result.data.store.address : 'No address';
+              var data = obj.result.data;
+              $scope.id = data.id;
+              $scope.name = data.itemName;
+              $scope.description = data.description;
+              $scope.images = data.images.length != 0 ? data.images : [{ id: -1, name: 'no-image-available.png' }];
+              $scope.phone = data.phone != null ? data.phone : 'No phone number';
+              $scope.address = data.address != null ? data.address : 'No address';
+              $scope.brand = data.brandName; 
+              $scope.partNo = data.partNoi;
+              $scope.model = data.modelName;
+
 
              
           });

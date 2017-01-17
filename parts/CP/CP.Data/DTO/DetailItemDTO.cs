@@ -10,13 +10,15 @@ namespace CP.Data.DTO
     {
 
         public long id { get; set; }
-        public string name { get; set; }
+        public string itemName { get; set; }
         public string description { get; set; }
-        public string modelNo { get; set; }        
+        public string modelName { get; set; }        
         public int? year { get; set; }
+        public string supplierName { get; set; }
+        public string brandName { get; set; }
 
         public List<ItemImageDTO> images { get; set; }
-        public StoreInfoDTO store { get; set; }
+     
     }
 
     public class ItemImageDTO
