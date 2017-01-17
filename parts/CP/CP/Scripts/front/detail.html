@@ -13,7 +13,7 @@
                     <div class="product-image-gallery">
                         <div class="gallery-container swiper-container">
                             <div class="gallery-wrapper swiper-wrapper">
-                                <div ng-repeat="x in images" class="slide swiper-slide" ng-init="galleryInit()"><img class="product-img img-responsive" ng-src="/images/items/{{id}}/{{x.name}}" alt=""></div>
+                                <div ng-repeat="x in images" class="slide swiper-slide" ng-init="galleryInit()"><img class="product-img img-responsive" ng-src="/images/items/{{x.id}}/{{x.name}}" alt=""></div>
 
                             </div>
                             <div class="swiper-button swiper-button-next"><i class="glyphicon glyphicon-menu-right"></i></div>
@@ -21,7 +21,7 @@
                         </div>
                         <div class="swiper-container gallery-thumbs">
                             <div class="thumbs-wrapper swiper-wrapper">
-                                <div ng-repeat="x in images" class="thumb swiper-slide" ng-init="galleryInit()"><img class="img-responsive" ng-src="/images/items/{{id}}/{{x.name}}" alt=""></div>
+                                <div ng-repeat="x in images" class="thumb swiper-slide" ng-init="galleryInit()"><img class="img-responsive" ng-src="/images/items/{{x.id}}/{{x.name}}" alt=""></div>
 
                             </div>
                         </div>

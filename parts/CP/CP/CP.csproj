@@ -495,6 +495,8 @@
     <Content Include="Scripts\front\detail.component.js" />
     <Content Include="Scripts\front\detail.html" />
     <Content Include="Scripts\front\detail.module.js" />
+    <Content Include="Scripts\front\head-navigation.component.js" />
+    <Content Include="Scripts\front\head-navigation.html" />
     <Content Include="Scripts\front\reference.service.js" />
     <Content Include="Scripts\front\models.json" />
     <Content Include="Scripts\front\references.json" />

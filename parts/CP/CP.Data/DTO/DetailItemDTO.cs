@@ -23,6 +23,7 @@ namespace CP.Data.DTO
 
     public class ItemImageDTO
     {
+        public long id { get; set; }
         public string name { get; set; }
         public string url { get; set; }
     }
