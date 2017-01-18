@@ -68,26 +68,33 @@ namespace CP.API.Controllers
         {
             ApplicationUserManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-            var user = userManager.FindByNameAsync(User.Identity.Name);
-
-            criteria.Validate();
-
-            using (var ctx = new CPDataContext())
+            try
             {
-                var query = ctx.Items.Where(x => (criteria.Name.Equals("") || x.Name.Contains(criteria.Name))
-                    && (criteria.PartNo.Equals("") || x.PartNo.Contains(criteria.PartNo))
-                    && (criteria.BrandId.Equals(0) || x.BrandId.Equals(criteria.BrandId))
-                    && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
-                    && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
-                    && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId)
-                    && (criteria.StocklotId.Equals(0) || x.StocklotId == criteria.StocklotId)
-                    && (!criteria.InStock || x.Qty > 0) && x.StoreId.Equals(user.Result.StoreId));
+                var user = userManager.FindByNameAsync(User.Identity.Name);
 
-                return new ItemSearchResponse
+                criteria.Validate();
+
+                using (var ctx = new CPDataContext())
                 {
-                    rows = query.OrderBy(x => x.PartNo).Skip(criteria.Offset).Take(criteria.Limit).ToList(),
-                    total = query.Count()
-                };
+                    var query = ctx.Items.Where(x => (criteria.Name.Equals("") || x.Name.Contains(criteria.Name))
+                        && (criteria.PartNo.Equals("") || x.PartNo.Contains(criteria.PartNo))
+                        && (criteria.BrandId.Equals(0) || x.BrandId.Equals(criteria.BrandId))
+                        && (criteria.CategoryId.Equals(0) || x.CategoryId.Equals(criteria.CategoryId))
+                        && (criteria.ModelId.Equals(0) || x.ModelId.Equals(criteria.ModelId))
+                        && (criteria.BasketId.Equals(0) || x.BasketId == criteria.BasketId)
+                        && (criteria.StocklotId.Equals(0) || x.StocklotId == criteria.StocklotId)
+                        && (!criteria.InStock || x.Qty > 0) && x.StoreId.Equals(user.Result.StoreId));
+
+                    return new ItemSearchResponse
+                    {
+                        rows = query.OrderBy(x => x.PartNo).Skip(criteria.Offset).Take(criteria.Limit).ToList(),
+                        total = query.Count()
+                    };
+                }
+            }
+            catch(Exception ex)
+            {
+                return new ItemSearchResponse();
             }
         }
 

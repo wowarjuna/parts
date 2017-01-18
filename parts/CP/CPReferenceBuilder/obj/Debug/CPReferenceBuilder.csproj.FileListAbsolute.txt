@@ -1,0 +1,8 @@
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\bin\Debug\CPReferenceBuilder.exe.config
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\bin\Debug\CPReferenceBuilder.exe
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\bin\Debug\CPReferenceBuilder.pdb
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\obj\Debug\CPReferenceBuilder.csprojResolveAssemblyReference.cache
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\obj\Debug\CPReferenceBuilder.exe
+D:\Projects\GitHub\parts\parts\CP\CPReferenceBuilder\obj\Debug\CPReferenceBuilder.pdb

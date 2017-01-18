@@ -35,5 +35,13 @@ namespace CP.Data
                 return item;
             }
         }
+
+        public static IList<KeyValuePair<int,string>> Categories()
+        {
+            using (var context = new CPDataContext())
+            {
+                return context.Database.SqlQuery<KeyValuePair<int,string>>("sp_Categories").ToList();
+            }
+        }
     }
 }

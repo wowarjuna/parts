@@ -27,6 +27,12 @@ namespace CP.Controllers
         }
 
         [HttpGet]
+        public JsonResult Categories()
+        {
+            return Json(QueryManager.Categories(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult Get(long itemId, string stamp)
         {
             return Json(QueryManager.Get(itemId), JsonRequestBehavior.AllowGet);

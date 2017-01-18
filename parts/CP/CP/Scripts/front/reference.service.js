@@ -2,8 +2,8 @@
 
 angular.
   module('reference').
-  factory('reference', ['$resource',
-    function ($resource) {
-        return $resource('/Scripts/front/references.json', {}, { query: {method: "GET", isArray: false}});
+  factory('reference', ['$resource',    
+      function ($resource) {
+        return $resource('/Scripts/front/references.json?v=1', {}, { query: {method: "GET", isArray: false}});
     }
   ]);

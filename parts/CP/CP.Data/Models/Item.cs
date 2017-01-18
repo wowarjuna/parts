@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -46,9 +47,11 @@ namespace CP.Data.Models
 
         public int? StocklotId { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<ItemImage> Images { get; set; }
 
         [ForeignKey("StoreId")]
+        [JsonIgnore]
         public virtual Store Store { get; set; }
     }
 }
