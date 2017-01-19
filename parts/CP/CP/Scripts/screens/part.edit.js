@@ -82,42 +82,56 @@ $(function () {
         submitHandler: submitHandler
     });
 
-    
+
 
 
     $.getJSON('/store/item/getitemimages/' + $('#Id').val())
-      .done(function (data) {
-          var previewData = new Array();
-          var configData = new Array();
-
-          $(data).each(function (idx, obj) {
-              previewData.push('<img width="150"  src="' + obj.url + '" class="file-preview-image" alt="' + obj.caption + '" title="' + obj.caption + '"/>');
-              configData.push({ caption: obj.caption, width: '120px', url: '/store/item/deleteitemimage/', key: obj.id })
-          });
-
-          $("input[type='file']").fileinput({
-              initialPreview: previewData,
-              overwriteInitial: false,
-              uploadExtraData: function () {
-                  return { Id: $('#Id').val() }
-              },
-              initialPreviewConfig: configData
-
-          });
-
-          $('.file-preview-image').click(function () {
-              $.magnificPopup.open({
-                  items: {
-                      src: $(this).attr('src')
-                  },
-                  type: 'image'
-              });
-          });
-      })
+      .done(initFileInput)
       .fail(function (jqXHR, textStatus, err) {
           alert(err);
       });
 
-
-
 });
+
+function initFileInput(data) {
+    var previewData = new Array();
+    var configData = new Array();
+
+    $(data).each(function (idx, obj) {
+        previewData.push('<img width="150"  src="' + obj.url + '" class="file-preview-image" alt="' + obj.caption + '" title="' + obj.caption + '"/>');
+        configData.push({ caption: obj.caption, width: '120px', url: '/store/item/deleteitemimage/', key: obj.id })
+    });
+
+    $("input[type='file']").fileinput({
+        initialPreview: previewData,
+        overwriteInitial: false,
+        uploadExtraData: function () {
+            return { Id: $('#Id').val() }
+        },
+        initialPreviewConfig: configData,
+        maxFileSize: 500,
+        otherActionButtons: '<input class="kv-set-primary" type="checkbox" {dataKey}/>'
+
+    });
+
+    $('.file-preview-image').click(function () {
+        $.magnificPopup.open({
+            items: {
+                src: $(this).attr('src')
+            },
+            type: 'image'
+        });
+    });
+
+    $('.kv-set-primary').click(function () {
+        if ($(this).is(':checked')) {
+            $.post('/store/item/setprimaryimage', { id: $(this).data('key') }, function () {
+                $.getJSON('/store/item/getitemimages/' + $('#Id').val())
+                    .done(initFileInput)
+                    .fail(function (jqXHR, textStatus, err) {
+                        alert(err);
+                    });
+            });
+        }
+    });
+}

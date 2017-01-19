@@ -16,6 +16,7 @@ namespace CP.Data.Models
         public string OriginalName { get; set; }
         public string Location { get; set; }
         public long ItemId { get; set; }
+        public bool? IsPrimary { get; set; }
 
         [ForeignKey("ItemId")]
         public Item Item { get; set; }

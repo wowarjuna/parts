@@ -289,5 +289,24 @@ namespace CP.Areas.Store.Controllers
                 }
             }
         }
+
+
+        [HttpPost]
+        public JsonResult SetPrimaryImage(long id)
+        {
+            using (var ctx = new CPDataContext())
+            {
+                var item = ctx.ItemImages.Find(id);
+                var query = ctx.ItemImages.Where(_ => _.ItemId.Equals(item.ItemId));
+                foreach (ItemImage image in query)
+                {
+                    image.IsPrimary = false;
+                }
+                item.IsPrimary = true;
+                ctx.SaveChanges();
+
+            }
+            return Json(new { message = true }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
