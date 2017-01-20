@@ -1,4 +1,5 @@
-﻿
+﻿var fileupload;
+
 var rules = {
     Name: {
         required: true
@@ -10,6 +11,7 @@ var rules = {
         required: true
     }
 }
+
 
 var submitHandler = function (form) {
     var data = {
@@ -83,8 +85,6 @@ $(function () {
     });
 
 
-
-
     $.getJSON('/store/item/getitemimages/' + $('#Id').val())
       .done(initFileInput)
       .fail(function (jqXHR, textStatus, err) {
@@ -96,13 +96,17 @@ $(function () {
 function initFileInput(data) {
     var previewData = new Array();
     var configData = new Array();
+    var primaryImage;
 
     $(data).each(function (idx, obj) {
         previewData.push('<img width="150"  src="' + obj.url + '" class="file-preview-image" alt="' + obj.caption + '" title="' + obj.caption + '"/>');
-        configData.push({ caption: obj.caption, width: '120px', url: '/store/item/deleteitemimage/', key: obj.id })
+        configData.push({ caption: obj.caption, width: '120px', url: '/store/item/deleteitemimage/', key: obj.id });
+        if (obj.isprimary == true) {
+            primaryImage = obj.id;
+        }
     });
 
-    $("input[type='file']").fileinput({
+    fileupload = $("input[type='file']").fileinput({
         initialPreview: previewData,
         overwriteInitial: false,
         uploadExtraData: function () {
@@ -113,6 +117,13 @@ function initFileInput(data) {
         otherActionButtons: '<input class="kv-set-primary" type="checkbox" {dataKey}/>'
 
     });
+
+    $("input[type='file']").on('fileloaded', function (event, file, previewId, index, reader) {
+        $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);
+    });
+
+    $('.kv-set-primary').prop('checked', false);
+    $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);
 
     $('.file-preview-image').click(function () {
         $.magnificPopup.open({
@@ -125,12 +136,10 @@ function initFileInput(data) {
 
     $('.kv-set-primary').click(function () {
         if ($(this).is(':checked')) {
-            $.post('/store/item/setprimaryimage', { id: $(this).data('key') }, function () {
-                $.getJSON('/store/item/getitemimages/' + $('#Id').val())
-                    .done(initFileInput)
-                    .fail(function (jqXHR, textStatus, err) {
-                        alert(err);
-                    });
+            primaryImage = $(this).data('key');
+            $.post('/store/item/setprimaryimage', { id: primaryImage }, function () {
+                $('.kv-set-primary').prop('checked', false);
+                $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);
             });
         }
     });

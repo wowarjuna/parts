@@ -254,7 +254,8 @@ namespace CP.Areas.Store.Controllers
                 {
                     url = "/images/items/" + x.ItemId + "/" + x.OriginalName,
                     caption = x.OriginalName,
-                    id = x.Id
+                    id = x.Id,
+                    isprimary = x.IsPrimary != null ? x.IsPrimary : false
                 }).ToList();
                 HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 return Json(media, JsonRequestBehavior.AllowGet);
