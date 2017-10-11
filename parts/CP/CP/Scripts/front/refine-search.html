@@ -4,15 +4,15 @@
             Refine Search
         </div>
         <div class="col-md-12">
-            <div class="form-group">
-                <label for="manufacture">Category</label>
+            <div class="form-group" ng-class="{'has-error': !validCategory}">
+                <label for="category">Category</label>
                 <select class="form-control" id="category" ng-model="category">
                     <option ng-repeat="x in categories" value="{{x.d}}">{{x.r}}</option>
                 </select>
             </div>
         </div>
         <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-error': !validBrand}">
                 <label for="manufacture">Manufacturer</label>
                 <select class="form-control" id="manufacture" ng-change="onBrandChanged()" ng-model="brand">
                     <option ng-repeat="x in brands" value="{{x.d}}">{{x.r}}</option>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-error': !validModel}">
                 <label for="model">Model</label>
                 <select class="form-control" id="model" ng-model="model">
                     <option ng-repeat="x in models" value="{{x}}">{{x}}</option>

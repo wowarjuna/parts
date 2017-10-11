@@ -4,9 +4,11 @@
       var query = {};
 
       query.results = null;
+      query.filters = null;
             
       query.query = function (filters) {
-          $http.get('/Search/Query/' + filters.category + '/' + filters.brand + '/' + (filters.model != '' ? filters.model: 'model')  + '/' + filters.year + '/' + (filters.area != '' ? filters.area: 'all')  + '/' + (filters.text != '' ? filters.text : 'criteria') + '/' + $.now()).then(function (response) {
+          query.filters = filters;
+          $http.get('/Search/Query/' + filters.page + '/' + filters.category + '/' + filters.brand + '/' + (filters.model != '' ? filters.model : 'model') + '/' + filters.year + '/' + (filters.area != '' ? filters.area : 'all') + '/' + (filters.text != '' ? filters.text : 'criteria') + '/' + $.now()).then(function (response) {
               query.results = response;
               $rootScope.$broadcast('query-success', { result: response });
           });

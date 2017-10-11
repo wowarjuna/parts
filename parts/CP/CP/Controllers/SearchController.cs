@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CP.Data;
+using CP.Data.DTO;
 
 namespace CP.Controllers
 {
@@ -18,12 +19,15 @@ namespace CP.Controllers
 
        
         [HttpGet]
-        public JsonResult Query(int category, int brand, string model, int year, string area, string text, string stamp)
-        {            
-            return Json(QueryManager.Query(category, 
-                brand, 
-                model != "model" ? model : "" , 
-                text != "criteria" ? text : "" ), JsonRequestBehavior.AllowGet);
+        public JsonResult Query(int page, int category, int brand, string model, int year, string area, string text, string stamp)
+        {
+            PaginatedItem<SearchItemDTO> pager = QueryManager.Query((page - 1) * 5, category,
+                brand,
+                model != "model" ? model : "",
+                text != "criteria" ? text : "");
+            pager.page = page;
+
+            return Json(new { category = category, brand = brand, model = model, year = year, area = area, text = text, pager = pager }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

@@ -1,5 +1,8 @@
-﻿<div class="results">
-    <div ng-click="navigateToDetail(result.id, result.modelNo,result.name)" class="result" dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+﻿<div class="alert alert-success" role="alert" ng-show="noRecords">No records found!</div>
+<div class="results">
+    <div ng-click="navigateToDetail(result.id, result.modelNo,result.name)" class="result" 
+         dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5"
+         total-items="count" current-page="pagination.current">
         <div class="row">
             <div class="col-xs-2">
                 <div class="product-image">
@@ -17,31 +20,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--
-    <div class="result">
-        <div class="row">
-            <div class="col-xs-2">
-                <div class="product-image">
-                    <img src="images/nav-item-1.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-xs-10">
-                <div class="product-details">
-                    <h4 class="product">3D Red 4pcs Brembo Style Car Universal Disc Brake Caliper Covers Front & Rear</h4>
-                    <div class="product-cat">
-                        <h5 class="cat"><strong>Manufacturer:</strong> Lorem Ipsum</h5>
-                        <h5 class="cat"><strong>Model:</strong> Ipsum</h5>
-                    </div>
-                    <p class="details">Maecenas sit amet facilisis metus. Aliquam vulputate nisi in venenatis rhoncus. Suspendisse eros metus, egestas ac dui in, elementum blandit ipsum. Fusce accumsan, neque a porttitor malesuada...</p>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    
-
+    </div>    
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)">
+    </dir-pagination-controls>
 </div>
-<dir-pagination-controls max-size="5"
-                         direction-links="true"
-                         boundary-links="true">
-</dir-pagination-controls>
+
