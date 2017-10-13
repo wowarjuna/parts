@@ -303,6 +303,15 @@ namespace CP.Areas.Store.Controllers
                 {
                     image.IsPrimary = false;
                 }
+
+                string relativePath = string.Format("~/images/items/{0}", item.ItemId);
+                string physicalPath = Server.MapPath(relativePath);
+                
+                WebImage img = new WebImage(physicalPath + "/" + item.OriginalName);
+                img.Resize(120, 120);
+
+                img.Save(string.Format("{0}{1}", physicalPath, "\\thumb_" + item.OriginalName));
+
                 item.IsPrimary = true;
                 ctx.SaveChanges();
 

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-xs-2">
                 <div class="product-image">
-                    <img src="images/nav-item-1.jpg" alt="">
+                    <img ng-src="{{result.image ? '/images/items/' + result.id + '/thumb_' + result.image : '/images/no-image-available.png'}}" alt="{{result.name}}">
                 </div>
             </div>
             <div class="col-xs-10">

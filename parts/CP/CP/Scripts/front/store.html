@@ -1,13 +1,17 @@
-﻿<div class="row">
-   <table>
-       <thead>
-           <tr><th>Name</th><th>Address</th></tr>
-       </thead>
-       <tbody>
-           <tr ng-repeat="store in results">
-               <td>{{store.Name}}</td>
-               <td>{{store.Address}}</td>
-           </tr>
-       </tbody>
-   </table>
-</div> 
+﻿
+    <div class="results">
+        <div class="result col-md-4" ng-repeat="store in results">
+            <div class="row">
+                <div class="col-xs-2">
+
+                </div>
+                <div class="col-xs-10">
+                    <h5 class="product">{{store.Name}}</h5>
+                    <p class="details">{{store.Address}}</p>
+                    <p class="details">{{store.Phone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+ 

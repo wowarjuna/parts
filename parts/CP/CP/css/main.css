@@ -244,11 +244,11 @@ body {
   margin-right: 15px;
   position: relative;
 }
-.results .result .product-image img {
-  position: absolute;
-  left: -25%;
-  height: 100%;
-}
+    .results .result .product-image img {
+        position: absolute;
+        /*left: -25%;*/
+        height: 100%;
+    }
 .results .result .product-details .product {
   margin-top: 0;
   margin-bottom: 0;

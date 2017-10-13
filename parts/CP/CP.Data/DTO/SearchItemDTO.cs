@@ -13,5 +13,7 @@ namespace CP.Data.DTO
         public string description { get; set; }
         public string modelNo { get; set; }
         public int? year { get; set; }
+
+        public string image { get; set; }
     }
 }

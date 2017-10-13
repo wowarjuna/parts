@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="CPDataContext.cs" />
     <Compile Include="DTO\DetailItemDTO.cs" />
+    <Compile Include="DTO\PaginatedItem.cs" />
     <Compile Include="DTO\SearchItemDTO.cs" />
     <Compile Include="DTO\StoreItemDTO.cs" />
     <Compile Include="Models\Basket.cs" />
