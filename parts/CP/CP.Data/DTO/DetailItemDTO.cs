@@ -17,6 +17,12 @@ namespace CP.Data.DTO
         public string supplierName { get; set; }
         public string brandName { get; set; }
 
+        public string phone { get; set; }
+
+        public string address { get; set; }
+
+        public string partNo { get; set; }
+
         public List<ItemImageDTO> images { get; set; }
      
     }

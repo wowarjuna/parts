@@ -78,7 +78,7 @@ namespace CP.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, 
-                    Email = string.Format("{0}@wow.com", model.Email.Split(new char[] { '@'})[0]), StoreId = (int)model.StoreId };
+                    Email = string.Format("{0}@partbay.lk", model.Email.Split(new char[] { '@'})[0]), StoreId = (int)model.StoreId };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

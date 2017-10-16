@@ -15,11 +15,12 @@
               $scope.name = data.itemName;
               $scope.description = data.description;
               $scope.images = data.images.length != 0 ? data.images : [{ id: -1, name: 'no-image-available.png' }];
-              $scope.phone = data.phone != null ? data.phone : 'No phone number';
+              $scope.phone = data.phone != null ? data.phone.split(",") : 'No phone number';
               $scope.address = data.address != null ? data.address : 'No address sss fsdf dsffsd fsd fsf dd fsdf ssd fdsf';
               $scope.brand = data.brandName; 
-              $scope.partNo = data.partNoi;
+              $scope.partNo = data.partNo;
               $scope.model = data.modelName;
+              $scope.supplier = data.supplierName;
 
 
              
