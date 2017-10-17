@@ -24,6 +24,7 @@ namespace CP.Controllers
             PaginatedItem<SearchItemDTO> pager = QueryManager.Query((page - 1) * 5, category,
                 brand,
                 model != "model" ? model : "",
+                year,
                 text != "criteria" ? text : "");
             pager.page = page;
 

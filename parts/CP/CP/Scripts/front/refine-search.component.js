@@ -1,21 +1,22 @@
 ﻿angular.
   module('refineSearch').
   component('refineSearch', {
-      //templateUrl: '/Scripts/front/refine-search.html',
       templateUrl: function () {
           return '/Scripts/front/refine-search.html?v=' + $.now();
       },
       controller: ['$scope', '$routeParams', 'query', 'reference', function RefineSearchController($scope, $routeParams, query, reference) {
           
           var self = this;
-          $scope.text = query.text;
-          $scope.brand = typeof query.brand !== 'undefined' ? query.brand : '-1';
-          $scope.category = typeof query.category !== 'undefined' ? query.category : '-1';
-          $scope.area = typeof query.area !== 'undefined' ? query.area : '-- select area --';
-          $scope.year = typeof query.year !== 'undefined' ? query.year : '-1';
+
+          $scope.text = query.filters != null ? query.filters.text : '';
+          $scope.brand = query.filters != null && typeof query.filters.brand !== 'undefined' ? query.filters.brand : '-1';
+          $scope.category = query.filters != null && typeof query.filters.category !== 'undefined' ? query.filters.category : '-1';
+          $scope.model = query.filters != null && typeof query.filters.model !== 'undefined' ? query.filters.model : '-1';
+          $scope.area = query.filters != null && typeof query.filters.area !== 'undefined' ? query.filters.area : '-- select area --';
+          $scope.year = query.filters != null && typeof query.filters.year !== 'undefined' ? query.filters.year : '-1';
 
           $scope.validCategory = true;
-          $scope.validBrand = true;
+          $scope.validBrand = true; 
           $scope.validModel = true;
            
           
@@ -24,7 +25,7 @@
               $scope.brands = references.brands;
               if (typeof $scope.brand !== 'undefined' && $scope.brand != '-1') {
                   $scope.models = _.find($scope.brands, { "d": parseInt($scope.brand) }).m;
-                  $scope.model = query.model;
+                  $scope.model = query.filters.model;
               }
               $scope.areas = references.areas;
 
@@ -50,7 +51,7 @@
                   query.query({
                       page: 1,
                       category: $scope.category, brand: $scope.brand,
-                      model: typeof $scope.model !== 'undefined' ? $scope.model : '',
+                      model: typeof $scope.model !== 'undefined' && $scope.model != -1 ? $scope.model : '',
                       year: typeof $scope.year !== 'undefined' ? $scope.year : -1,
                       area: typeof $scope.area !== 'undefined' && $scope.area != '-- select area --' ? $scope.area : '',
                       text: typeof $scope.text !== 'undefined' ? $scope.text : ''
