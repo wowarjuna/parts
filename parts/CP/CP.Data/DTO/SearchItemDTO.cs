@@ -15,5 +15,7 @@ namespace CP.Data.DTO
         public int? year { get; set; }
 
         public string image { get; set; }
+
+        public string store { get; set; }
     }
 }
