@@ -207,6 +207,17 @@ body {
   padding: 0 15px 15px;
   border-top: none;
 }
+
+@media (max-width: 767px) {
+    .custom-xs {
+        padding: 0px !important;
+    }
+
+    .refine-search-bg-xs {
+        background-color: #cacaca;
+    }
+}
+
 .search-container.custom .header {
   background-color: #1f1f1f;
   color: #fff;
@@ -437,4 +448,8 @@ body {
 }
 .product-detail .related-products .related-product:hover {
   color: #009418;
+}
+
+.form-control {
+    font-size:16px;
 }
