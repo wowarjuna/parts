@@ -7,7 +7,10 @@ namespace CP
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
+
         {
+
+                       
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -19,11 +22,15 @@ namespace CP
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            //          "~/Scripts/bootstrap.js",
+            //          "~/Scripts/respond.js"));
 
-          
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.min.js",
+                     "~/Scripts/respond.min.js"));
+
+
 
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
                      "~/Scripts/plugins/metisMenu.min.js",
