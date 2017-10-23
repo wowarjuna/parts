@@ -4,7 +4,7 @@
          dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5"
          total-items="count" current-page="pagination.current">
         <div class="row">
-            <div class="col-xs-2">
+            <div class="col-md-2 hidden-xs">
                 <div class="product-image">
                     <img ng-src="{{result.image ? '/images/items/' + result.id + '/thumb_' + result.image : '/images/no-image-available.png'}}" alt="{{result.name}}">
                 </div>
@@ -13,7 +13,7 @@
                 <div class="product-details">
                     <h4 class="product">{{result.name}}</h4>
                     <div class="product-cat">
-                        <h5 class="cat"><strong>Manufacturer:</strong> Lorem Ipsum</h5>
+                        <h5 class="cat"><strong>Store:</strong> {{result.store}}</h5>
                         <h5 class="cat"><strong>Model:</strong> {{result.modelNo}}</h5>
                     </div>
                     <p class="details">{{result.description}}</p>

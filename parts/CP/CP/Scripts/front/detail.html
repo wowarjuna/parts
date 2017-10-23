@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="action-btns pad-b-15">
-                        <!--<button class="btn btn-primary btn-block" ><i class="glyphicon glyphicon-envelope"></i>{{address}}</button>-->
-                        <button class="btn btn-primary btn-block" ng-repeat="p in phone"><i class="glyphicon glyphicon-earphone"></i>{{p}}</button>
+                        <!--<button class="btn btn-primary btn-block" ng-repeat="p in phone"><i class="glyphicon glyphicon-earphone"></i>{{p}}</button>-->
+                        <a class="btn btn-primary btn-block" ng-repeat="p in phone" href="tel:{{p}}"><i class="glyphicon glyphicon-earphone"></i>{{p}}</a>
                     </div>
 
                     <!--

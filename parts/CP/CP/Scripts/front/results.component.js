@@ -1,7 +1,10 @@
 ﻿angular.
   module('results').
   component('results', {
-      templateUrl: '/Scripts/front/results.html',     
+      //templateUrl: '/Scripts/front/results.html',  
+      templateUrl: function () {
+          return '/Scripts/front/results.html?v=' + $.now();
+      },
       controller: ['$routeParams', '$rootScope', '$scope', '$location', 'query', function ResultsController($routeParams, $rootScope, $scope, $location, query) {
           $scope.noRecords = false;          
           if (query.results != null) {

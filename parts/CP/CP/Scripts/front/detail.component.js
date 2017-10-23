@@ -1,7 +1,9 @@
 ﻿angular.
   module('detail').
   component('detail', {
-      templateUrl: '/Scripts/front/detail.html',
+      templateUrl: function () {
+          return '/Scripts/front/detail.html?v=' + $.now();
+      },
       controller: ['$scope', '$rootScope', '$routeParams', 'query', function DetailController($scope, $rootScope, $routeParams, query) {
 
           var self = this;

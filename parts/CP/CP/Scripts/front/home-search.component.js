@@ -1,7 +1,7 @@
 ﻿angular.
   module('homeSearch').
   component('homeSearch', {
-      templateUrl: '/Scripts/front/home-search.html',
+      templateUrl: function () { return '/Scripts/front/home-search.html?v=' + $.now() },
       controller: ['$scope', '$routeParams', '$location', 'reference', 'query', function HomeSearchController($scope, $routeParams, $location, reference, query) {
 
           var self = this;
@@ -21,12 +21,15 @@
           });
 
           $scope.navigateToSearch = function () {
-              query.text = $scope.text;
-              query.category = $scope.category;
-              query.brand = $scope.brand;
-              query.model = $scope.model;
-              query.area = $scope.area;
-              query.year = $scope.year;
+              query.filters = {
+                  text: $scope.text,
+                  category: $scope.category,
+                  brand: $scope.brand,
+                  model: $scope.model,
+                  area: $scope.area,
+                  year: $scope.year
+              };
+              
               $location.path('/search');
               
           }
