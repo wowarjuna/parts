@@ -12,7 +12,8 @@
     <title>PartBay.lk</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Other Libs -->
     <link rel="stylesheet" href="css/swiper.min.css">
@@ -33,15 +34,14 @@
     <script src="/Scripts/angular-resource.min.js"></script>
     <script src="/Scripts/dirPagination.js"></script>
     <script src="/Scripts/swiper.min.js"></script>
-    <script src="/Scripts/front/head-navigation.component.js"></script>
+
+    <script src="/Scripts/front/references.json"></script>
+    <script src="/Scripts/front/cp.bundle.js"></script>
+    @*<script src="/Scripts/front/head-navigation.component.js"></script>
     <script src="/Scripts/front/home.module.js"></script>
     <script src="/Scripts/front/home.component.js"></script>
     <script src="/Scripts/front/home-search.module.js"></script>
     <script src="/Scripts/front/home-search.component.js"></script>
-    <script src="/Scripts/front/promo-one.module.js"></script>
-    <script src="/Scripts/front/promo-one.component.js"></script>
-    <script src="/Scripts/front/promo-two.module.js"></script>
-    <script src="/Scripts/front/promo-two.component.js"></script>
     <script src="/Scripts/front/search.module.js"></script>
     <script src="/Scripts/front/search.component.js"></script>
 
@@ -58,7 +58,8 @@
     <script src="/Scripts/front/store.module.js"></script>
     <script src="/Scripts/front/store.component.js"></script>
     <script src="/Scripts/front/navigation.module.js"></script>
-    <script src="/Scripts/front/navigation.component.js"></script>
+    <script src="/Scripts/front/navigation.component.js"></script>*@
+    
     <script src="/Scripts/front/app.module.js"></script>
     <script src="/Scripts/front/app.config.js"></script>
 
@@ -89,7 +90,8 @@
                         <li><a href="/#!/search">Search</a></li>
                         <li><a href="/#!/stores">Stores</a></li>
                     </ul>
-                </div>--><!-- /.navbar-collapse -->
+                </div>-->
+                <!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </header>
@@ -97,12 +99,12 @@
     @RenderBody()
 
 
-
+   
     <footer class="footer">
         <div class="main-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-xs-12">
                         <div class="link-group">
                             <p class="link-header">Information</p>
                             <ul class="link-container">
@@ -114,7 +116,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                   <div class="col-md-3 col-xs-12 hidden-xs">
                         <div class="link-group">
                             <p class="link-header">Follow Us</p>
                             <ul class="link-container">
@@ -124,23 +126,25 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-xs-12 hidden-xs">
                         <div class="link-group">
                             <p class="link-header">Find Us</p>
                             <div>
                                 <ul class="link-container">
-                                    <li>No: 32, De Silva Road,<br/> Kalubowila, <br/> Dehiwala</li>
+                                    <li>No: 32, De Silva Road,<br /> Kalubowila, <br /> Dehiwala</li>
                                     <li>
                                         Send us an email:
                                         <br />
                                         wowarjuna@gmail.com
                                     </li>
-                                    </ul>
-                                   
+                                </ul>
+
                             </div>
                         </div>
                     </div>
+                   
                 </div>
+               
             </div>
         </div>
         <div class="secondary-section">
@@ -153,7 +157,7 @@
             </div>
         </div>
     </footer>
-
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
