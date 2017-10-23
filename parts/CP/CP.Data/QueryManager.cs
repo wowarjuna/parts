@@ -12,20 +12,22 @@ namespace CP.Data
 {
     public static class QueryManager
     {
-        public static PaginatedItem<SearchItemDTO> Query(int offset, int category, int brand, string model, string text)
+        public static PaginatedItem<SearchItemDTO> Query(int offset, int category, int brand, string model, int year, string text)
         {
             PaginatedItem<SearchItemDTO> result = new PaginatedItem<SearchItemDTO>();
             using (var context = new CPDataContext())
             {
-                result.items = context.Database.SqlQuery<SearchItemDTO>("sp_Search @category, @brand, @model, @text",
+                result.items = context.Database.SqlQuery<SearchItemDTO>("sp_Search @category, @brand, @model, @year, @text",
                     new SqlParameter("@category", category),
                     new SqlParameter("@brand", brand),
                     new SqlParameter("@model", model),
+                    new SqlParameter("@year", year),
                     new SqlParameter("@text", text)).Skip(offset).Take(5).ToList();
-                result.count = context.Database.SqlQuery<SearchItemDTO>("sp_Search @category, @brand, @model, @text",
+                result.count = context.Database.SqlQuery<SearchItemDTO>("sp_Search @category, @brand, @model, @year, @text",
                     new SqlParameter("@category", category),
                     new SqlParameter("@brand", brand),
                     new SqlParameter("@model", model),
+                    new SqlParameter("@year", year),
                     new SqlParameter("@text", text)).Count();
 
                 return result;
