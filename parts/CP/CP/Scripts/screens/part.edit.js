@@ -109,8 +109,8 @@ function initFileInput(data) {
     fileupload = $("input[type='file']").fileinput({
         initialPreview: previewData,
         overwriteInitial: false,
-        uploadExtraData: function () {
-            return { Id: $('#Id').val() }
+        uploadExtraData: function (previewId, index) {
+            return { Id: $('#Id').val(), PrimaryImage: $('.kv-set-primary:checked').closest('.file-preview-frame').data('fileindex') }
         },
         initialPreviewConfig: configData,
         maxFileSize: 500,
@@ -119,8 +119,10 @@ function initFileInput(data) {
     });
 
     $("input[type='file']").on('fileloaded', function (event, file, previewId, index, reader) {
-        $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);
+        $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);       
+       
     });
+       
 
     $('.kv-set-primary').prop('checked', false);
     $('.kv-set-primary[data-key="' + primaryImage + '"]').prop('checked', true);
@@ -134,7 +136,7 @@ function initFileInput(data) {
         });
     });
 
-    $('.kv-set-primary').click(function () {
+    $('.kv-set-primary').on('click', function () {
         if ($(this).is(':checked')) {
             primaryImage = $(this).data('key');
             $.post('/store/item/setprimaryimage', { id: primaryImage }, function () {
