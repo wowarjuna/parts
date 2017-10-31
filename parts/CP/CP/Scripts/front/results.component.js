@@ -26,7 +26,7 @@
           });
 
           $scope.navigateToDetail = function (id, modelNo, name) {
-              $location.path('/detail/' + id + '/' + modelNo + '/' + name);
+              $location.path('/detail/' + id + '/' + modelNo + '/' + encodeURIComponent(name));
           }
 
           $scope.pagination = {
