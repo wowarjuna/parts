@@ -219,7 +219,9 @@ namespace CP.Areas.Store.Controllers
                 var item = ctx.Items.Single(x => x.Id.Equals(itemId));
                 if (item.StoreId.Equals(user.Result.StoreId))
                 {
-                    ctx.ItemImages.Add(new ItemImage { OriginalName = originalName, ItemId = item.Id });
+                    
+                    ctx.ItemImages.Add(new ItemImage { OriginalName = originalName, ItemId = item.Id,
+                        IsPrimary = Request.Form["file_id"] == Request.Form["PrimaryImage"] ? true : false });
                     ctx.SaveChanges();
 
                     string relativePath = string.Format("~/images/items/{0}/", item.Id);
@@ -230,8 +232,17 @@ namespace CP.Areas.Store.Controllers
                     WebImage img = new WebImage(itemImage.InputStream);
                     if (img.Width > 1000)
                         img.Resize(800, 600);
-
+                    
                     img.Save(string.Format("{0}{1}", physicalPath, originalName));
+
+                    if(Request.Form["file_id"] == Request.Form["PrimaryImage"])
+                    {
+                        img.Resize(120, 120);
+
+                        img.Save(string.Format("{0}{1}", physicalPath, "\\thumb_" + originalName));
+                    }
+
+
                     return Json(new { message = true }, JsonRequestBehavior.AllowGet);
                 }
                 else
@@ -240,8 +251,11 @@ namespace CP.Areas.Store.Controllers
                 }
             }
 
-            
-            
+
+            //return Json(new { message = false }, JsonRequestBehavior.AllowGet);
+
+
+
         }
 
         public JsonResult GetItemImages(long Id)
